@@ -13,3 +13,6 @@ My senior-thesis repository
 | site | URL |
 | --- | --- | 
 | NIPS | https://neurips.cc/ |
+
+3. Trying to solve manageable data science problems using LLMs\
+  ex) fix small issue about codeGen, have an LLM interpret ancient documents
