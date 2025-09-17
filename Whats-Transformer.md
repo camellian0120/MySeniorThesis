@@ -138,12 +138,12 @@ style: |
 ## 論文のテーマ
 1. ML系\
 設計の改善等 (残りの時間でやるのは大変)
-j
+
 2. DS系\
 このデータに適応してみた等 (身近な問題に適応してみる)\
 例)   2-1. 高知大Moodleアシスタント, 古のコードの解析等\
  　 2-2. csで解けないとされる問題をllmに解かせてみる。\
- 　 2-3. 難解な文章を読ませてみる(古文書, 怪文書etc)\
+ 　 2-3. 難解な文章を読ませてみる(古文書, 怪文書etc)
 
 3. CodeGen
 日々のコーディングで不満な点\
@@ -224,8 +224,10 @@ Attention Is All You Need - arXiv
 --- 
 
 ## LLMとSLMの互換性はどう取っている (元論文参照)
-SLMとLLMの扱う次元数の差は、
+ステアリングベクトルはどのトークン位置/レイヤー/モデル部分でも適応・抽出が可能?
+
+> It is important to mention that the vector can be extracted and applied to different token positions,layers, and parts of the model, which are treated as hyperparameters or design choices.
 
 
-└ KV Cache Steering\
-　 https://arxiv.org/pdf/2507.08799
+KV Cache Steering p.3 中央
+> https://arxiv.org/pdf/2507.08799
