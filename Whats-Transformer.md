@@ -145,11 +145,27 @@ style: |
  　 2-2. csで解けないとされる問題をllmに解かせてみる。\
  　 2-3. 難解な文章を読ませてみる(古文書, 怪文書etc)
 
-3. CodeGen
+3. CodeGen\
+謎コード解析\
+\
 日々のコーディングで不満な点\
 $\rightarrow$ 変数名の付け方が安定しない、正規表現を見たくない等。\
 コード生成AIをアシスタントを使っていて不満な点\
 $\rightarrow$ 最も保守性の高いAI支援コーディングが、AIに生成して貰う $\rightarrow$ リファクタリングする/コードレビューをガッツリする な現状。
+
+4. linux関連
+- 攻撃者の行動から、攻撃の有無を調べる
+- LLMで脆弱性のテスト(サイバーセキュリティ、OSS等。バグ検知)
+\
+データがあれば可能、**データを探す**\
+\
+- 自動化\
+シェル(arch linux向けFT、RAG)orGUI
+- マルチノード環境の最適化(LLMに書かせて、修正させる)
+
+2つは強化学習？
+学習かけずにLLMにシェル操作をさせてみるとどうなる？
+**LLMが応答生成の際にコンピュータとの相互作用をしているか**
 
 ## TransformerのKey/Query/Valueはどうなっているか
 - 注意機構のKey/Query/Valueとは\
@@ -227,7 +243,6 @@ Attention Is All You Need - arXiv
 ステアリングベクトルはどのトークン位置/レイヤー/モデル部分でも適応・抽出が可能?
 
 > It is important to mention that the vector can be extracted and applied to different token positions,layers, and parts of the model, which are treated as hyperparameters or design choices.
-
 
 KV Cache Steering p.3 中央
 > https://arxiv.org/pdf/2507.08799
