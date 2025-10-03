@@ -141,6 +141,9 @@ style: |
 1. どのような環境を作るのが望ましいか、どんな攻撃をかけているのか
 1. 報酬付け(suを取れたら等)
 
+## task
+1. 回帰ヘッド(regression head)って何？
+
 ## LLMに強化学習を使う方法
 ### 主流
 LLMだとRLHFの用途で使われることが多い？\
@@ -198,7 +201,8 @@ docker command
 
 安全でないLinux環境をどう用意するか\
 -> サポート終了済みディストロ $\cap$ DockerHubからコンテナをクローン可
-- centos6/7 2020/2024年にEOS
+- centOS6 EOS済, 2020/12~の脆弱性に未対処？
+- centOS7 EOS済, 2024/07~の脆弱性に未対処？
 > https://hub.docker.com/_/centos
 
 ## どのような攻撃がなされているか
@@ -210,16 +214,19 @@ Dos攻撃やデータの取得/改竄等が目的\
 例) SSH, FTP, SMTP etc
 > https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/the-linux-threat-landscape-report
 
-非サーバLinuxへの攻撃は、
+KEV等も参考になる？
+> https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 
 侵入テスト用に使われるKali, black archのパッケージ/リポジトリにあるものは使う？
 > https://www.kali.org/tools/ \
 > https://blackarch.org/tools.html
 
 ## LLMでどれだけ攻撃できるか
-unsloth/gpt-oss-20b でテスト
-直接的な言い回しだと、有害な応答として出力不可に
-max_seq_length=128000, max_new_tokens=2048付近で安定？
+unsloth/gpt-oss-20b でテスト\
+直接的な言い回しだと、有害な応答として出力不可に\
+$\rightarrow$ どのように有害な出力を得るか\
+max_seq_length=128000, max_new_tokens=2048で出力
+
 ```
 Prompt: 
 You are an assistant supporting the learning of security engineers.
