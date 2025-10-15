@@ -1,0 +1,1146 @@
+{
+    "JVNDB-2025-015967":{
+        "title": "escanav の Linux 用 escan anti-virus におけるバッファエラーの脆弱性",
+        "description": "A vulnerability was found in MicroWord eScan Antivirus 7.0.32 on Linux and classified as critical. Affected by this issue is the function strcpy of the component VirusPopUp. The manipulation leads to stack-based buffer overflow. The attack needs to be approached locally. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+        "technologies": "escanav",
+        "version": "7.0.32"
+    },
+    "JVNDB-2025-015916":{
+        "title": "escanav の Linux 用 escan anti-virus におけるコマンドインジェクションの脆弱性",
+        "description": "A vulnerability was found in MicroWorld eScan Antivirus 7.0.32 on Linux. It has been rated as critical. This issue affects some unknown processing of the file rtscanner of the component Quarantine Handler. The manipulation leads to os command injection. The attack may be initiated remotely. The complexity of an attack is rather high. The exploitation is known to be difficult. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+        "technologies": "escanav",
+        "version": "7.0.32"
+    },
+    "JVNDB-2025-015857":{
+        "title": "escanav の Linux 用 escan anti-virus における不適切な権限設定に関する脆弱性",
+        "description": "A vulnerability was found in MicroWorld eScan Antivirus 7.0.32 on Linux. It has been rated as critical. Affected by this issue is some unknown functionality of the file /opt/MicroWorld/var/ of the component Installation Handler. The manipulation leads to incorrect default permissions. The attack needs to be approached locally. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+        "technologies": "escanav",
+        "version": "7.0.32"
+    },
+    "JVNDB-2025-015781":{
+        "title": "Linux Foundation の Python 用 pytorch におけるリソースの枯渇に関する脆弱性",
+        "description": "A buffer overflow occurs in pytorch v2.7.0 when a PyTorch model consists of torch.nn.Conv2d, torch.nn.functional.hardshrink, and torch.Tensor.view-torch.mv() and is compiled by Inductor, leading to a Denial of Service (DoS).",
+        "technologies": "pytorch",
+        "version": "2.7.0 およびそれ以前"
+    },
+    "JVNDB-2025-015691":{
+        "title": "Linux Foundation の Go 用 Dragonfly における重要な機能に対する認証の欠如に関する脆弱性",
+        "description": "Dragonfly is an open source P2P-based file distribution and image acceleration system. Prior to 2.1.0, The /api/v1/jobs and /preheats endpoints in Manager web UI are accessible without authentication. Any user with network access to the Manager can create, delete, and modify jobs, and create preheat jobs. An unauthenticated adversary with network access to a Manager web UI uses /api/v1/jobs endpoint to create hundreds of useless jobs. The Manager is in a denial-of-service state, and stops accepting requests from valid administrators. This vulnerability is fixed in 2.1.0.",
+        "technologies": "Dragonfly",
+        "version": "2.1.10 未満"
+    },
+    "JVNDB-2025-015662":{
+        "title": "Linux Foundation の ONNX におけるパストラバーサルの脆弱性",
+        "description": "Path Traversal vulnerability in onnx.external_data_helper.save_external_data in ONNX 1.17.0 allows attackers to overwrite arbitrary files by supplying crafted external_data.location paths containing traversal sequences, bypassing intended directory restrictions.",
+        "technologies": "ONNX",
+        "version": "1.17.0"
+    },
+    "JVNDB-2025-015580":{
+        "title": "Linux Foundation の Python 用 pytorch における整数オーバーフローの脆弱性",
+        "description": "pytorch v2.8.0 was discovered to display unexpected behavior when the components torch.rot90 and torch.randn_like are used together.",
+        "technologies": "pytorch",
+        "version": "2.8.0 およびそれ以前"
+    },
+    "JVNDB-2025-015579":{
+        "title": "Linux Foundation の Python 用 pytorch における脆弱性",
+        "description": "A Name Error occurs in pytorch v2.7.0 when a PyTorch model consists of torch.cummin and is compiled by Inductor, leading to a Denial of Service (DoS).",
+        "technologies": "pytorch",
+        "version": "2.7.0 およびそれ以前"
+    },
+    "JVNDB-2025-015223":{
+        "title": "Linux Foundation の Python 用 pytorch における脆弱性",
+        "description": "An issue in the component torch.linalg.lu of pytorch v2.8.0 allows attackers to cause a Denial of Service (DoS) when performing a slice operation.",
+        "technologies": "pytorch",
+        "version": "2.8.0 およびそれ以前"
+    },
+    "JVNDB-2025-015191":{
+        "title": "Linux Foundation の Python 用 pytorch における脆弱性",
+        "description": "A syntax error in the component proxy_tensor.py of pytorch v2.7.0 allows attackers to cause a Denial of Service (DoS).",
+        "technologies": "pytorch",
+        "version": "2.7.0 およびそれ以前"
+    },
+    "JVNDB-2025-015160":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: sched: sch_cake: add bounds checks to host bulk flow fairness counts Even though we fixed a logic error in the commit cited below, syzbot still managed to trigger an underflow of the per-host bulk flow counters, leading to an out of bounds memory access. To avoid any such logic errors causing out of bounds memory accesses, this commit factors out all accesses to the per-host bulk flow counters to a series of helpers that perform bounds-checking before any increments and decrements. This also has the benefit of improving readability by moving the conditional checks for the flow mode into these helpers, instead of having them spread out throughout the code (which was the cause of the original logic error). As part of this change, the flow quantum calculation is consolidated into a helper function, which means that the dithering applied to the ost load scaling is now applied both in the DRR rotation and when a sparse flow's quantum is first initiated. The only user-visible effect of this is that the maximum packet size that can be sent while a flow stays sparse will now vary with +/- one byte in some cases. This should not make a noticeable difference in practice, and thus it's not worth complicating the code to preserve the old behaviour.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.4.284 以上 5.4.291 未満",
+            "Linux Kernel 5.10.226 以上 5.10.235 未満",
+            "Linux Kernel 5.15.167 以上 5.15.179 未満",
+            "Linux Kernel 6.1.110 以上 6.1.125 未満",
+            "Linux Kernel 6.6.51 以上 6.6.72 未満",
+            "Linux Kernel 6.10.10 以上 6.11 未満",
+            "Linux Kernel 6.11.1 以上 6.12.10 未満",
+            "Linux Kernel 6.11",
+            "Linux Kernel 6.13"]
+    },
+    "JVNDB-2025-014635":{
+        "title": "Linux の Linux Kernel における境界外書き込みに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: usb: cdc-acm: Check control transfer buffer size before access If the first fragment is shorter than struct usb_cdc_notification, we can't calculate an expected_size. Log an error and discard the notification instead of reading lengths from memory outside the received data, which can lead to memory corruption when the expected_size decreases between fragments, causing `expected_size - acm->nb_index` to wrap. This issue has been present since the beginning of git history; however, it only leads to memory corruption since commit ea2583529cd1 (\"cdc-acm: reassemble fragmented notifications\"). A mitigating factor is that acm_ctrl_irq() can only execute after userspace has opened /dev/ttyACM*; but if ModemManager is running, ModemManager will do that automatically depending on the USB device's vendor/product IDs and its other interfaces.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.13 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 2.6.12",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-014508":{
+        "title": "Linux Foundation の Go 用 Dragonfly におけるパストラバーサルの脆弱性",
+        "description": "Dragonfly is an open source P2P-based file distribution and image acceleration system. Prior to 2.1.0, the gRPC API and HTTP APIs allow peers to send requests that force the recipient peer to create files in arbitrary file system locations, and to read arbitrary files. This allows peers to steal other peers’ secret data and to gain remote code execution (RCE) capabilities on the peer’s machine.This vulnerability is fixed in 2.1.0.",
+        "technologies": "Dragonfly",
+        "version": "2.1.0 未満"
+    },
+    "JVNDB-2025-014468":{
+        "title": "Linux Foundation の Go 用 Dragonfly における証明書検証に関する脆弱性",
+        "description": "Dragonfly is an open source P2P-based file distribution and image acceleration system. Prior to 2.1.0, a peer can obtain a valid TLS certificate for arbitrary IP addresses, effectively rendering the mTLS authentication useless. The issue is that the Manager’s Certificate gRPC service does not validate if the requested IP addresses “belong to” the peer requesting the certificate—that is, if the peer connects from the same IP address as the one provided in the certificate request. This vulnerability is fixed in 2.1.0.",
+        "technologies": "Dragonfly",
+        "version": "2.1.0 未満"
+    },
+    "JVNDB-2025-014344":{
+        "title": "Linux Foundation の containerd における不適切な権限設定に関する脆弱性",
+        "description": "containerd is an open-source container runtime. A bug was found in the containerd's CRI implementation where containerd, starting in version 2.0.1 and prior to version 2.0.5, doesn't put usernamespaced containers under the Kubernetes' cgroup hierarchy, therefore some Kubernetes limits are not honored. This may cause a denial of service of the Kubernetes node. This bug has been fixed in containerd 2.0.5+ and 2.1.0+. Users should update to these versions to resolve the issue. As a workaround, disable usernamespaced pods in Kubernetes temporarily.",
+        "technologies": "containerd",
+        "version": "2.0.1 以上 2.0.5 未満"
+    },
+    "JVNDB-2025-014182":{
+        "title": "Linux Foundation の Go 用 Dragonfly における初期化されていない変数の使用に関する脆弱性",
+        "description": "Dragonfly is an open source P2P-based file distribution and image acceleration system. Prior to 2.1.0, the processPieceFromSource method does not update the structure’s usedTraffic field, because an uninitialized variable n is used as a guard to the AddTraffic method call, instead of the result.Size variable. A task is processed by a peer. The usedTraffic metadata is not updated during the processing. Rate limiting is incorrectly applied, leading to a denial-of-service condition for the peer. This vulnerability is fixed in 2.1.0.",
+        "technologies": "Dragonfly",
+        "version": "2.1.0 未満"
+    },
+    "JVNDB-2025-013285":{
+        "title": "Linux の Linux Kernel における Time-of-check Time-of-use (TOCTOU) 競合状態の脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: posix-cpu-timers: fix race between handle_posix_cpu_timers() and posix_cpu_timer_del() If an exiting non-autoreaping task has already passed exit_notify() and calls handle_posix_cpu_timers() from IRQ, it can be reaped by its parent or debugger right after unlock_task_sighand(). If a concurrent posix_cpu_timer_del() runs at that moment, it won't be able to detect timer->it.cpu.firing != 0: cpu_timer_task_rcu() and/or lock_task_sighand() will fail. Add the tsk->exit_state check into run_posix_cpu_timers() to fix this. This fix is not needed if CONFIG_POSIX_CPU_TIMERS_TASK_WORK=y, because exit_task_work() is called before exit_notify(). But the check still makes sense, task_work_add(&tsk->posix_cputimers_work.work) will fail anyway in this case.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.36 以上 5.4.295 未満",
+            "Linux Kernel 5.5 以上 5.10.239 未満",
+            "Linux Kernel 5.11 以上 5.15.186 未満",
+            "Linux Kernel 5.16 以上 6.1.142 未満",
+            "Linux Kernel 6.2 以上 6.6.94 未満",
+            "Linux Kernel 6.7 以上 6.12.34 未満",
+            "Linux Kernel 6.13 以上 6.15.3 未満",
+            "Linux Kernel 6.16"]
+    },
+    "JVNDB-2025-012920":{
+        "title": "Linux Foundation の Yocto 等複数ベンダの製品における解放済みメモリの使用に関する脆弱性",
+        "description": "In monitor_hang, there is a possible memory corruption due to use after free. This could lead to local escalation of privilege if a malicious actor has already obtained the System privilege. User interaction is not needed for exploitation. Patch ID: ALPS09989078; Issue ID: MSV-3964.",
+        "technologies": ["Android", "Yocto", "OpenWrt"],
+        "version": ["Android 13.0",
+            "Android 14.0",
+            "Android 15.0",
+            "Android 16.0",
+            "Yocto 2.6",
+            "OpenWrt 19.07.0",
+            "OpenWrt 21.02.0"]
+    },
+    "JVNDB-2025-012390":{
+        "title": "Linux Foundation の MaterialX における NULL ポインタデリファレンスに関する脆弱性",
+        "description": "MaterialX is an open standard for the exchange of rich material and look-development content across applications and renderers. In version 1.39.2, when parsing shader nodes in a MTLX file, the MaterialXCore code accesses a potentially null pointer, which can lead to crashes with maliciously crafted files. An attacker could intentionally crash a target program that uses OpenEXR by sending a malicious MTLX file. This is fixed in version 1.39.3.",
+        "technologies": "MaterialX",
+        "version": "1.39.2"
+    },
+    "JVNDB-2025-012389":{
+        "title": "Linux Foundation の MaterialX における NULL ポインタデリファレンスに関する脆弱性",
+        "description": "MaterialX is an open standard for the exchange of rich material and look-development content across applications and renderers. In version 1.39.2, when parsing shader nodes in a MTLX file, the MaterialXCore code accesses a potentially null pointer, which can lead to crashes with maliciously crafted files. An attacker could intentionally crash a target program that uses MaterialX by sending a malicious MTLX file. This is fixed in version 1.39.3.",
+        "technologies": "MaterialX",
+        "version": "1.39.2"
+    },
+    "JVNDB-2025-012002":{
+        "title": "Linux Foundation の MaterialX におけるスタックベースのバッファオーバーフローの脆弱性",
+        "description": "MaterialX is an open standard for the exchange of rich material and look-development content across applications and renderers. In versions 1.39.2 and below, when parsing an MTLX file with multiple nested nodegraph implementations, the MaterialX XML parsing logic can potentially crash due to stack exhaustion. An attacker could intentionally crash a target program that uses OpenEXR by sending a malicious MTLX file. This is fixed in version 1.39.3.",
+        "technologies": "MaterialX",
+        "version": "1.39.2"
+    },
+    "JVNDB-2025-010901":{
+        "title": "IBM の Linux 用 IBM DB2 におけるデータクエリロジックの特殊要素の不適切な中立化に関する脆弱性",
+        "description": "IBM Db2 for Linux 12.1.0, 12.1.1, and 12.1.2 is vulnerable to denial of service with a specially crafted query under certain non-default conditions.",
+        "technologies": "IBM DB2",
+        "version": ["12.1.0 以上 12.1.2 以下"]
+    },
+    "JVNDB-2025-010900":{
+        "title": "IBM の Linux 用 IBM DB2 におけるデッドロックに関する脆弱性",
+        "description": "IBM Db2 for Linux 12.1.0, 12.1.1, and 12.1.2 could allow an unauthenticated user to cause a denial of service due to executable segments that are waiting for each other to release a necessary lock.",
+        "technologies": "IBM DB2",
+        "version": ["12.1.0 以上 12.1.2 以下"]
+    },
+    "JVNDB-2025-010843":{
+        "title": "IBM の Linux 用 IBM DB2 における過剰なサイズ値のメモリ割り当てに関する脆弱性",
+        "description": "IBM Db2 for Linux 12.1.0, 12.1.1, and 12.1.2 is vulnerable to a denial of service as the server may crash under certain conditions with a specially crafted query.",
+        "technologies": "IBM DB2",
+        "version": ["12.1.0 以上 12.1.2 以下"]
+    },
+    "JVNDB-2025-010842":{
+        "title": "IBM の Linux 用 IBM DB2 におけるスタックベースのバッファオーバーフローの脆弱性",
+        "description": "IBM Db2 for Linux 12.1.0, 12.1.1, and 12.1.2 is vulnerable to a stack-based buffer overflow in db2fm, caused by improper bounds checking. A local user could overflow the buffer and execute arbitrary code on the system.",
+        "technologies": "IBM DB2",
+        "version": ["12.1.0 以上 12.1.2 以下"]
+    },
+    "JVNDB-2025-010808":{
+        "title": "Zoom Video Communications, Inc. の Linux 用 Zoom Workplace Desktop における証明書検証に関する脆弱性",
+        "description": "Improper certificate validation in Zoom Workplace for Linux before version 6.4.13 may allow an unauthorized user to conduct an information disclosure via network access.",
+        "technologies": "Zoom Workplace Desktop",
+        "version": "6.4.13 未満"
+    },
+    "JVNDB-2025-006441":{
+        "title": "Linux の Linux Kernel における古典的バッファオーバーフローの脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: udmabuf: fix a buf size overflow issue during udmabuf creation by casting size_limit_mb to u64 when calculate pglimit.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.4.293 未満",
+            "Linux Kernel 5.5 以上 5.10.237 未満",
+            "Linux Kernel 5.11 以上 5.15.181 未満",
+            "Linux Kernel 5.16 以上 6.1.136 未満",
+            "Linux Kernel 6.2 以上 6.6.89 未満",
+            "Linux Kernel 6.7 以上 6.14.5 未満",
+            "Linux Kernel 6.15"]
+    },
+    "JVNDB-2025-006348":{
+        "title": "Linux Foundation の DocArray におけるオブジェクトプロトタイプ属性の不適切に制御された変更に関する脆弱性",
+        "description": "A vulnerability was found in docarray up to 0.40.1. It has been rated as critical. Affected by this issue is the function __getitem__ of the file /docarray/data/torch_dataset.py of the component Web API. The manipulation leads to improperly controlled modification of object prototype attributes ('prototype pollution'). The attack may be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+        "technologies": "DocArray",
+        "version": "0.40.1 およびそれ以前"
+    },
+    "JVNDB-2025-005907":{
+        "title": "Linux Foundation の Python 用 pytorch における信頼できないデータのデシリアライゼーションに関する脆弱性",
+        "description": "PyTorch is a Python package that provides tensor computation with strong GPU acceleration and deep neural networks built on a tape-based autograd system. In version 2.5.1 and prior, a Remote Command Execution (RCE) vulnerability exists in PyTorch when loading a model using torch.load with weights_only=True. This issue has been patched in version 2.6.0.",
+        "technologies": "pytorch",
+        "version": "2.6.0 未満"
+    },
+    "JVNDB-2025-004788":{
+        "title": "ソフォスの Linux 用 Taegis Endpoint Agent におけるコードインジェクションの脆弱性",
+        "description": "A code injection vulnerability in the Debian package component of Taegis Endpoint Agent (Linux) versions older than 1.3.10 allows local users arbitrary code execution as root. Redhat-based systems using RPM packages are not affected.",
+        "technologies": "Taegis Endpoint Agent",
+        "version": "1.3.10 未満"
+    },
+    "JVNDB-2025-004598":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: memstick: rtsx_usb_ms: Fix slab-use-after-free in rtsx_usb_ms_drv_remove This fixes the following crash: ================================================================== BUG: KASAN: slab-use-after-free in rtsx_usb_ms_poll_card+0x159/0x200 [rtsx_usb_ms] Read of size 8 at addr ffff888136335380 by task kworker/6:0/140241 CPU: 6 UID: 0 PID: 140241 Comm: kworker/6:0 Kdump: loaded Tainted: G E 6.14.0-rc6+ #1 Tainted: [E]=UNSIGNED_MODULE Hardware name: LENOVO 30FNA1V7CW/1057, BIOS S0EKT54A 07/01/2024 Workqueue: events rtsx_usb_ms_poll_card [rtsx_usb_ms] Call Trace: <TASK> dump_stack_lvl+0x51/0x70 print_address_description.constprop.0+0x27/0x320 ? rtsx_usb_ms_poll_card+0x159/0x200 [rtsx_usb_ms] print_report+0x3e/0x70 kasan_report+0xab/0xe0 ? rtsx_usb_ms_poll_card+0x159/0x200 [rtsx_usb_ms] rtsx_usb_ms_poll_card+0x159/0x200 [rtsx_usb_ms] ? __pfx_rtsx_usb_ms_poll_card+0x10/0x10 [rtsx_usb_ms] ? __pfx___schedule+0x10/0x10 ? kick_pool+0x3b/0x270 process_one_work+0x357/0x660 worker_thread+0x390/0x4c0 ? __pfx_worker_thread+0x10/0x10 kthread+0x190/0x1d0 ? __pfx_kthread+0x10/0x10 ret_from_fork+0x2d/0x50 ? __pfx_kthread+0x10/0x10 ret_from_fork_asm+0x1a/0x30 </TASK> Allocated by task 161446: kasan_save_stack+0x20/0x40 kasan_save_track+0x10/0x30 __kasan_kmalloc+0x7b/0x90 __kmalloc_noprof+0x1a7/0x470 memstick_alloc_host+0x1f/0xe0 [memstick] rtsx_usb_ms_drv_probe+0x47/0x320 [rtsx_usb_ms] platform_probe+0x60/0xe0 call_driver_probe+0x35/0x120 really_probe+0x123/0x410 __driver_probe_device+0xc7/0x1e0 driver_probe_device+0x49/0xf0 __device_attach_driver+0xc6/0x160 bus_for_each_drv+0xe4/0x160 __device_attach+0x13a/0x2b0 bus_probe_device+0xbd/0xd0 device_add+0x4a5/0x760 platform_device_add+0x189/0x370 mfd_add_device+0x587/0x5e0 mfd_add_devices+0xb1/0x130 rtsx_usb_probe+0x28e/0x2e0 [rtsx_usb] usb_probe_interface+0x15c/0x460 call_driver_probe+0x35/0x120 really_probe+0x123/0x410 __driver_probe_device+0xc7/0x1e0 driver_probe_device+0x49/0xf0 __device_attach_driver+0xc6/0x160 bus_for_each_drv+0xe4/0x160 __device_attach+0x13a/0x2b0 rebind_marked_interfaces.isra.0+0xcc/0x110 usb_reset_device+0x352/0x410 usbdev_do_ioctl+0xe5c/0x1860 usbdev_ioctl+0xa/0x20 __x64_sys_ioctl+0xc5/0xf0 do_syscall_64+0x59/0x170 entry_SYSCALL_64_after_hwframe+0x76/0x7e Freed by task 161506: kasan_save_stack+0x20/0x40 kasan_save_track+0x10/0x30 kasan_save_free_info+0x36/0x60 __kasan_slab_free+0x34/0x50 kfree+0x1fd/0x3b0 device_release+0x56/0xf0 kobject_cleanup+0x73/0x1c0 rtsx_usb_ms_drv_remove+0x13d/0x220 [rtsx_usb_ms] platform_remove+0x2f/0x50 device_release_driver_internal+0x24b/0x2e0 bus_remove_device+0x124/0x1d0 device_del+0x239/0x530 platform_device_del.part.0+0x19/0xe0 platform_device_unregister+0x1c/0x40 mfd_remove_devices_fn+0x167/0x170 device_for_each_child_reverse+0xc9/0x130 mfd_remove_devices+0x6e/0xa0 rtsx_usb_disconnect+0x2e/0xd0 [rtsx_usb] usb_unbind_interface+0xf3/0x3f0 device_release_driver_internal+0x24b/0x2e0 proc_disconnect_claim+0x13d/0x220 usbdev_do_ioctl+0xb5e/0x1860 usbdev_ioctl+0xa/0x20 __x64_sys_ioctl+0xc5/0xf0 do_syscall_64+0x59/0x170 entry_SYSCALL_64_after_hwframe+0x76/0x7e Last potentially related work creation: kasan_save_stack+0x20/0x40 kasan_record_aux_stack+0x85/0x90 insert_work+0x29/0x100 __queue_work+0x34a/0x540 call_timer_fn+0x2a/0x160 expire_timers+0x5f/0x1f0 __run_timer_base.part.0+0x1b6/0x1e0 run_timer_softirq+0x8b/0xe0 handle_softirqs+0xf9/0x360 __irq_exit_rcu+0x114/0x130 sysvec_apic_timer_interrupt+0x72/0x90 asm_sysvec_apic_timer_interrupt+0x16/0x20 Second to last potentially related work creation: kasan_save_stack+0x20/0x40 kasan_record_aux_stack+0x85/0x90 insert_work+0x29/0x100 __queue_work+0x34a/0x540 call_timer_fn+0x2a/0x160 expire_timers+0x5f/0x1f0 __run_timer_base.part.0+0x1b6/0x1e0 run_timer_softirq+0x8b/0xe0 handle_softirqs+0xf9/0x ---truncated---",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.0 以上 5.4.292 未満",
+            "Linux Kernel 5.5 以上 5.10.236 未満",
+            "Linux Kernel 5.11 以上 5.15.180 未満",
+            "Linux Kernel 5.16 以上 6.1.133 未満",
+            "Linux Kernel 6.2 以上 6.6.86 未満",
+            "Linux Kernel 6.7 以上 6.12.22 未満",
+            "Linux Kernel 6.13 以上 6.13.10 未満",
+            "Linux Kernel 6.14 以上 6.14.1 未満"]
+    },
+    "JVNDB-2025-004528":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ublk: make sure ubq->canceling is set when queue is frozen Now ublk driver depends on `ubq->canceling` for deciding if the request can be dispatched via uring_cmd & io_uring_cmd_complete_in_task(). Once ubq->canceling is set, the uring_cmd can be done via ublk_cancel_cmd() and io_uring_cmd_done(). So set ubq->canceling when queue is frozen, this way makes sure that the flag can be observed from ublk_queue_rq() reliably, and avoids use-after-free on uring_cmd.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.7 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004397":{
+        "title": "Linux の Linux Kernel における配列インデックスの検証に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: spi: cadence: Fix out-of-bounds array access in cdns_mrvl_xspi_setup_clock() If requested_clk > 128, cdns_mrvl_xspi_setup_clock() iterates over the entire cdns_mrvl_xspi_clk_div_list array without breaking out early, causing 'i' to go beyond the array bounds. Fix that by stopping the loop when it gets to the last entry, clamping the clock to the minimum 6.25 MHz. Fixes the following warning with an UBSAN kernel: vmlinux.o: warning: objtool: cdns_mrvl_xspi_setup_clock: unexpected end of section .text.cdns_mrvl_xspi_setup_clock",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.7 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004289":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: jfs: fix slab-out-of-bounds read in ea_get() During the \"size_check\" label in ea_get(), the code checks if the extended attribute list (xattr) size matches ea_size. If not, it logs \"ea_get: invalid extended attribute\" and calls print_hex_dump(). Here, EALIST_SIZE(ea_buf->xattr) returns 4110417968, which exceeds INT_MAX (2,147,483,647). Then ea_size is clamped: int size = clamp_t(int, ea_size, 0, EALIST_SIZE(ea_buf->xattr)); Although clamp_t aims to bound ea_size between 0 and 4110417968, the upper limit is treated as an int, causing an overflow above 2^31 - 1. This leads \"size\" to wrap around and become negative (-184549328). The \"size\" is then passed to print_hex_dump() (called \"len\" in print_hex_dump()), it is passed as type size_t (an unsigned type), this is then stored inside a variable called \"int remaining\", which is then assigned to \"int linelen\" which is then passed to hex_dump_to_buffer(). In print_hex_dump() the for loop, iterates through 0 to len-1, where len is 18446744073525002176, calling hex_dump_to_buffer() on each iteration: for (i = 0; i < len; i += rowsize) { linelen = min(remaining, rowsize); remaining -= rowsize; hex_dump_to_buffer(ptr + i, linelen, rowsize, groupsize, linebuf, sizeof(linebuf), ascii); ... } The expected stopping condition (i < len) is effectively broken since len is corrupted and very large. This eventually leads to the \"ptr+i\" being passed to hex_dump_to_buffer() to get closer to the end of the actual bounds of \"ptr\", eventually an out of bounds access is done in hex_dump_to_buffer() in the following for loop: for (j = 0; j < len; j++) { if (linebuflen < lx + 2) goto overflow2; ch = ptr[j]; ... } To fix this we should validate \"EALIST_SIZE(ea_buf->xattr)\" before it is utilised.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.19.325 以上 4.20 未満",
+            "Linux Kernel 5.4.287 以上 5.4.292 未満",
+            "Linux Kernel 5.10.231 以上 5.10.236 未満",
+            "Linux Kernel 5.15.174 以上 5.15.180 未満",
+            "Linux Kernel 6.1.120 以上 6.1.134 未満",
+            "Linux Kernel 6.6.64 以上 6.6.87 未満",
+            "Linux Kernel 6.11.11 以上 6.12 未満",
+            "Linux Kernel 6.12.2 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004271":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: HSI: ssi_protocol: Fix use after free vulnerability in ssi_protocol Driver Due to Race Condition In the ssi_protocol_probe() function, &ssi->work is bound with ssip_xmit_work(), In ssip_pn_setup(), the ssip_pn_xmit() function within the ssip_pn_ops structure is capable of starting the work. If we remove the module which will call ssi_protocol_remove() to make a cleanup, it will free ssi through kfree(ssi), while the work mentioned above will be used. The sequence of operations that may lead to a UAF bug is as follows: CPU0 CPU1 | ssip_xmit_work ssi_protocol_remove | kfree(ssi); | | struct hsi_client *cl = ssi->cl; | // use ssi Fix it by ensuring that the work is canceled before proceeding with the cleanup in ssi_protocol_remove().",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.1.135 未満",
+            "Linux Kernel 6.2 以上 6.6.88 未満",
+            "Linux Kernel 6.7 以上 6.12.24 未満",
+            "Linux Kernel 6.13 以上 6.13.12 未満",
+            "Linux Kernel 6.14 以上 6.14.3 未満"]
+    },
+    "JVNDB-2025-004269":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: tracing: Fix use-after-free in print_graph_function_flags during tracer switching Kairui reported a UAF issue in print_graph_function_flags() during ftrace stress testing [1]. This issue can be reproduced if puting a 'mdelay(10)' after 'mutex_unlock(&trace_types_lock)' in s_start(), and executing the following script: $ echo function_graph > current_tracer $ cat trace > /dev/null & $ sleep 5 # Ensure the 'cat' reaches the 'mdelay(10)' point $ echo timerlat > current_tracer The root cause lies in the two calls to print_graph_function_flags within print_trace_line during each s_show(): * One through 'iter->trace->print_line()'; * Another through 'event->funcs->trace()', which is hidden in print_trace_fmt() before print_trace_line returns. Tracer switching only updates the former, while the latter continues to use the print_line function of the old tracer, which in the script above is print_graph_function_flags. Moreover, when switching from the 'function_graph' tracer to the 'timerlat' tracer, s_start only calls graph_trace_close of the 'function_graph' tracer to free 'iter->private', but does not set it to NULL. This provides an opportunity for 'event->funcs->trace()' to use an invalid 'iter->private'. To fix this issue, set 'iter->private' to NULL immediately after freeing it in graph_trace_close(), ensuring that an invalid pointer is not passed to other tracers. Additionally, clean up the unnecessary 'iter->private = NULL' during each 'cat trace' when using wakeup and irqsoff tracers. [1] https://lore.kernel.org/all/20231112150030.84609-1-ryncsn@gmail.com/",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.14.324 以上 4.15 未満",
+            "Linux Kernel 4.19.293 以上 4.20 未満",
+            "Linux Kernel 5.4.255 以上 5.4.292 未満",
+            "Linux Kernel 5.10.193 以上 5.10.236 未満",
+            "Linux Kernel 5.15.129 以上 5.15.180 未満",
+            "Linux Kernel 6.1.50 以上 6.1.134 未満",
+            "Linux Kernel 6.4.13 以上 6.6.87 未満",
+            "Linux Kernel 6.7 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004268":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ksmbd: fix use-after-free in ksmbd_sessions_deregister() In multichannel mode, UAF issue can occur in session_deregister when the second channel sets up a session through the connection of the first channel. session that is freed through the global session table can be accessed again through ->sessions of connection.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.1.134 未満",
+            "Linux Kernel 6.2 以上 6.6.87 未満",
+            "Linux Kernel 6.7 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004257":{
+        "title": "Linux の Linux Kernel における配列インデックスの検証に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: objtool, spi: amd: Fix out-of-bounds stack access in amd_set_spi_freq() If speed_hz < AMD_SPI_MIN_HZ, amd_set_spi_freq() iterates over the entire amd_spi_freq array without breaking out early, causing 'i' to go beyond the array bounds. Fix that by stopping the loop when it gets to the last entry, so the low speed_hz value gets clamped up to AMD_SPI_MIN_HZ. Fixes the following warning with an UBSAN kernel: drivers/spi/spi-amd.o: error: objtool: amd_set_spi_freq() falls through to next function amd_spi_set_opcode()",
+        "technologies": "Linux Kernel",
+        "version": "6.1 以上 6.14.2 未満"
+    },
+    "JVNDB-2025-004254":{
+        "title": "Linux の Linux Kernel における境界外書き込みに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: netfilter: nft_tunnel: fix geneve_opt type confusion addition When handling multiple NFTA_TUNNEL_KEY_OPTS_GENEVE attributes, the parsing logic should place every geneve_opt structure one by one compactly. Hence, when deciding the next geneve_opt position, the pointer addition should be in units of char *. However, the current implementation erroneously does type conversion before the addition, which will lead to heap out-of-bounds write. [ 6.989857] ================================================================== [ 6.990293] BUG: KASAN: slab-out-of-bounds in nft_tunnel_obj_init+0x977/0xa70 [ 6.990725] Write of size 124 at addr ffff888005f18974 by task poc/178 [ 6.991162] [ 6.991259] CPU: 0 PID: 178 Comm: poc-oob-write Not tainted 6.1.132 #1 [ 6.991655] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.0-0-gd239552ce722-prebuilt.qemu.org 04/01/2014 [ 6.992281] Call Trace: [ 6.992423] <TASK> [ 6.992586] dump_stack_lvl+0x44/0x5c [ 6.992801] print_report+0x184/0x4be [ 6.993790] kasan_report+0xc5/0x100 [ 6.994252] kasan_check_range+0xf3/0x1a0 [ 6.994486] memcpy+0x38/0x60 [ 6.994692] nft_tunnel_obj_init+0x977/0xa70 [ 6.995677] nft_obj_init+0x10c/0x1b0 [ 6.995891] nf_tables_newobj+0x585/0x950 [ 6.996922] nfnetlink_rcv_batch+0xdf9/0x1020 [ 6.998997] nfnetlink_rcv+0x1df/0x220 [ 6.999537] netlink_unicast+0x395/0x530 [ 7.000771] netlink_sendmsg+0x3d0/0x6d0 [ 7.001462] __sock_sendmsg+0x99/0xa0 [ 7.001707] ____sys_sendmsg+0x409/0x450 [ 7.002391] ___sys_sendmsg+0xfd/0x170 [ 7.003145] __sys_sendmsg+0xea/0x170 [ 7.004359] do_syscall_64+0x5e/0x90 [ 7.005817] entry_SYSCALL_64_after_hwframe+0x6e/0xd8 [ 7.006127] RIP: 0033:0x7ec756d4e407 [ 7.006339] Code: 48 89 fa 4c 89 df e8 38 aa 00 00 8b 93 08 03 00 00 59 5e 48 83 f8 fc 74 1a 5b c3 0f 1f 84 00 00 00 00 00 48 8b 44 24 10 0f 05 <5b> c3 0f 1f 80 00 00 00 00 83 e2 39 83 faf [ 7.007364] RSP: 002b:00007ffed5d46760 EFLAGS: 00000202 ORIG_RAX: 000000000000002e [ 7.007827] RAX: ffffffffffffffda RBX: 00007ec756cc4740 RCX: 00007ec756d4e407 [ 7.008223] RDX: 0000000000000000 RSI: 00007ffed5d467f0 RDI: 0000000000000003 [ 7.008620] RBP: 00007ffed5d468a0 R08: 0000000000000000 R09: 0000000000000000 [ 7.009039] R10: 0000000000000000 R11: 0000000000000202 R12: 0000000000000000 [ 7.009429] R13: 00007ffed5d478b0 R14: 00007ec756ee5000 R15: 00005cbd4e655cb8 Fix this bug with correct pointer addition and conversion in parse and dump code.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.7 以上 5.10.236 未満",
+            "Linux Kernel 5.11 以上 5.15.180 未満",
+            "Linux Kernel 5.16 以上 6.1.134 未満",
+            "Linux Kernel 6.2 以上 6.6.87 未満",
+            "Linux Kernel 6.7 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004253":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ksmbd: validate zero num_subauth before sub_auth is accessed Access psid->sub_auth[psid->num_subauth - 1] without checking if num_subauth is non-zero leads to an out-of-bounds read. This patch adds a validation step to ensure num_subauth != 0 before sub_auth is accessed.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.1.134 未満",
+            "Linux Kernel 6.2 以上 6.6.87 未満",
+            "Linux Kernel 6.7 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004174":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ext4: fix OOB read when checking dotdot dir Mounting a corrupted filesystem with directory which contains '.' dir entry with rec_len == block size results in out-of-bounds read (later on, when the corrupted directory is removed). ext4_empty_dir() assumes every ext4 directory contains at least '.' and '..' as directory entries in the first data block. It first loads the '.' dir entry, performs sanity checks by calling ext4_check_dir_entry() and then uses its rec_len member to compute the location of '..' dir entry (in ext4_next_entry). It assumes the '..' dir entry fits into the same data block. If the rec_len of '.' is precisely one block (4KB), it slips through the sanity checks (it is considered the last directory entry in the data block) and leaves \"struct ext4_dir_entry_2 *de\" point exactly past the memory slot allocated to the data block. The following call to ext4_check_dir_entry() on new value of de then dereferences this pointer which results in out-of-bounds mem access. Fix this by extending __ext4_check_dir_entry() to check for '.' dir entries that reach the end of data block. Make sure to ignore the phony dir entries for checksum (by checking name_len for non-zero). Note: This is reported by KASAN as use-after-free in case another structure was recently freed from the slot past the bound, but it is really an OOB read. This issue was found by syzkaller tool. Call Trace: [ 38.594108] BUG: KASAN: slab-use-after-free in __ext4_check_dir_entry+0x67e/0x710 [ 38.594649] Read of size 2 at addr ffff88802b41a004 by task syz-executor/5375 [ 38.595158] [ 38.595288] CPU: 0 UID: 0 PID: 5375 Comm: syz-executor Not tainted 6.14.0-rc7 #1 [ 38.595298] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.3-0-ga6ed6b701f0a-prebuilt.qemu.org 04/01/2014 [ 38.595304] Call Trace: [ 38.595308] <TASK> [ 38.595311] dump_stack_lvl+0xa7/0xd0 [ 38.595325] print_address_description.constprop.0+0x2c/0x3f0 [ 38.595339] ? __ext4_check_dir_entry+0x67e/0x710 [ 38.595349] print_report+0xaa/0x250 [ 38.595359] ? __ext4_check_dir_entry+0x67e/0x710 [ 38.595368] ? kasan_addr_to_slab+0x9/0x90 [ 38.595378] kasan_report+0xab/0xe0 [ 38.595389] ? __ext4_check_dir_entry+0x67e/0x710 [ 38.595400] __ext4_check_dir_entry+0x67e/0x710 [ 38.595410] ext4_empty_dir+0x465/0x990 [ 38.595421] ? __pfx_ext4_empty_dir+0x10/0x10 [ 38.595432] ext4_rmdir.part.0+0x29a/0xd10 [ 38.595441] ? __dquot_initialize+0x2a7/0xbf0 [ 38.595455] ? __pfx_ext4_rmdir.part.0+0x10/0x10 [ 38.595464] ? __pfx___dquot_initialize+0x10/0x10 [ 38.595478] ? down_write+0xdb/0x140 [ 38.595487] ? __pfx_down_write+0x10/0x10 [ 38.595497] ext4_rmdir+0xee/0x140 [ 38.595506] vfs_rmdir+0x209/0x670 [ 38.595517] ? lookup_one_qstr_excl+0x3b/0x190 [ 38.595529] do_rmdir+0x363/0x3c0 [ 38.595537] ? __pfx_do_rmdir+0x10/0x10 [ 38.595544] ? strncpy_from_user+0x1ff/0x2e0 [ 38.595561] __x64_sys_unlinkat+0xf0/0x130 [ 38.595570] do_syscall_64+0x5b/0x180 [ 38.595583] entry_SYSCALL_64_after_hwframe+0x76/0x7e",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.19 以上 5.10.236 未満",
+"Linux Kernel 5.11 以上 5.15.180 未満",
+"Linux Kernel 5.16 以上 6.1.134 未満",
+"Linux Kernel 6.2 以上 6.6.87 未満",
+"Linux Kernel 6.7 以上 6.12.23 未満",
+"Linux Kernel 6.13 以上 6.13.11 未満",
+"Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004172":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: objtool, nvmet: Fix out-of-bounds stack access in nvmet_ctrl_state_show() The csts_state_names[] array only has six sparse entries, but the iteration code in nvmet_ctrl_state_show() iterates seven, resulting in a potential out-of-bounds stack read. Fix that. Fixes the following warning with an UBSAN kernel: vmlinux.o: warning: objtool: .text.nvmet_ctrl_state_show: unexpected end of section",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.11 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004170":{
+        "title": "Linux の Linux Kernel における競合状態に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: exfat: fix random stack corruption after get_block When get_block is called with a buffer_head allocated on the stack, such as do_mpage_readpage, stack corruption due to buffer_head UAF may occur in the following race condition situation. <CPU 0> <CPU 1> mpage_read_folio <<bh on stack>> do_mpage_readpage exfat_get_block bh_read __bh_read get_bh(bh) submit_bh wait_on_buffer ... end_buffer_read_sync __end_buffer_read_notouch unlock_buffer <<keep going>> ... ... ... ... <<bh is not valid out of mpage_read_folio>> . . another_function <<variable A on stack>> put_bh(bh) atomic_dec(bh->b_count) * stack corruption here * This patch returns -EAGAIN if a folio does not have buffers when bh_read needs to be called. By doing this, the caller can fallback to functions like block_read_full_folio(), create a buffer_head in the folio, and then call get_block again. Let's do not call bh_read() with on-stack buffer_head.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.8 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004136":{
+        "title": "Linux の Linux Kernel における配列インデックスの検証に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: iio: light: Add check for array bounds in veml6075_read_int_time_ms The array contains only 5 elements, but the index calculated by veml6075_read_int_time_index can range from 0 to 7, which could lead to out-of-bounds access. The check prevents this issue. Coverity Issue CID 1574309: (#1 of 1): Out-of-bounds read (OVERRUN) overrun-local: Overrunning array veml6075_it_ms of 5 4-byte elements at element index 7 (byte offset 31) using index int_index (which evaluates to 7) This is hardening against potentially broken hardware. Good to have but not necessary to backport.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.8 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004075":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: RDMA/erdma: Prevent use-after-free in erdma_accept_newconn() After the erdma_cep_put(new_cep) being called, new_cep will be freed, and the following dereference will cause a UAF problem. Fix this issue.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.0 以上 6.1.134 未満",
+            "Linux Kernel 6.2 以上 6.6.87 未満",
+            "Linux Kernel 6.7 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004074":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: drm/vkms: Fix use after free and double free on init error If the driver initialization fails, the vkms_exit() function might access an uninitialized or freed default_config pointer and it might double free it. Fix both possible errors by initializing default_config only when the driver initialization succeeded.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.12 以上 5.15.180 未満",
+            "Linux Kernel 5.16 以上 6.1.134 未満",
+            "Linux Kernel 6.2 以上 6.6.87 未満",
+            "Linux Kernel 6.7 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004073":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: RDMA/core: Fix use-after-free when rename device name Syzbot reported a slab-use-after-free with the following call trace: ================================================================== BUG: KASAN: slab-use-after-free in nla_put+0xd3/0x150 lib/nlattr.c:1099 Read of size 5 at addr ffff888140ea1c60 by task syz.0.988/10025 CPU: 0 UID: 0 PID: 10025 Comm: syz.0.988 Not tainted 6.14.0-rc4-syzkaller-00859-gf77f12010f67 #0 Hardware name: Google Compute Engine, BIOS Google 02/12/2025 Call Trace: <TASK> __dump_stack lib/dump_stack.c:94 [inline] dump_stack_lvl+0x241/0x360 lib/dump_stack.c:120 print_address_description mm/kasan/report.c:408 [inline] print_report+0x16e/0x5b0 mm/kasan/report.c:521 kasan_report+0x143/0x180 mm/kasan/report.c:634 kasan_check_range+0x282/0x290 mm/kasan/generic.c:189 __asan_memcpy+0x29/0x70 mm/kasan/shadow.c:105 nla_put+0xd3/0x150 lib/nlattr.c:1099 nla_put_string include/net/netlink.h:1621 [inline] fill_nldev_handle+0x16e/0x200 drivers/infiniband/core/nldev.c:265 rdma_nl_notify_event+0x561/0xef0 drivers/infiniband/core/nldev.c:2857 ib_device_notify_register+0x22/0x230 drivers/infiniband/core/device.c:1344 ib_register_device+0x1292/0x1460 drivers/infiniband/core/device.c:1460 rxe_register_device+0x233/0x350 drivers/infiniband/sw/rxe/rxe_verbs.c:1540 rxe_net_add+0x74/0xf0 drivers/infiniband/sw/rxe/rxe_net.c:550 rxe_newlink+0xde/0x1a0 drivers/infiniband/sw/rxe/rxe.c:212 nldev_newlink+0x5ea/0x680 drivers/infiniband/core/nldev.c:1795 rdma_nl_rcv_skb drivers/infiniband/core/netlink.c:239 [inline] rdma_nl_rcv+0x6dd/0x9e0 drivers/infiniband/core/netlink.c:259 netlink_unicast_kernel net/netlink/af_netlink.c:1313 [inline] netlink_unicast+0x7f6/0x990 net/netlink/af_netlink.c:1339 netlink_sendmsg+0x8de/0xcb0 net/netlink/af_netlink.c:1883 sock_sendmsg_nosec net/socket.c:709 [inline] __sock_sendmsg+0x221/0x270 net/socket.c:724 ____sys_sendmsg+0x53a/0x860 net/socket.c:2564 ___sys_sendmsg net/socket.c:2618 [inline] __sys_sendmsg+0x269/0x350 net/socket.c:2650 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f RIP: 0033:0x7f42d1b8d169 Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 ... RSP: 002b:00007f42d2960038 EFLAGS: 00000246 ORIG_RAX: 000000000000002e RAX: ffffffffffffffda RBX: 00007f42d1da6320 RCX: 00007f42d1b8d169 RDX: 0000000000000000 RSI: 00004000000002c0 RDI: 000000000000000c RBP: 00007f42d1c0e2a0 R08: 0000000000000000 R09: 0000000000000000 R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000 R13: 0000000000000000 R14: 00007f42d1da6320 R15: 00007ffe399344a8 </TASK> Allocated by task 10025: kasan_save_stack mm/kasan/common.c:47 [inline] kasan_save_track+0x3f/0x80 mm/kasan/common.c:68 poison_kmalloc_redzone mm/kasan/common.c:377 [inline] __kasan_kmalloc+0x98/0xb0 mm/kasan/common.c:394 kasan_kmalloc include/linux/kasan.h:260 [inline] __do_kmalloc_node mm/slub.c:4294 [inline] __kmalloc_node_track_caller_noprof+0x28b/0x4c0 mm/slub.c:4313 __kmemdup_nul mm/util.c:61 [inline] kstrdup+0x42/0x100 mm/util.c:81 kobject_set_name_vargs+0x61/0x120 lib/kobject.c:274 dev_set_name+0xd5/0x120 drivers/base/core.c:3468 assign_name drivers/infiniband/core/device.c:1202 [inline] ib_register_device+0x178/0x1460 drivers/infiniband/core/device.c:1384 rxe_register_device+0x233/0x350 drivers/infiniband/sw/rxe/rxe_verbs.c:1540 rxe_net_add+0x74/0xf0 drivers/infiniband/sw/rxe/rxe_net.c:550 rxe_newlink+0xde/0x1a0 drivers/infiniband/sw/rxe/rxe.c:212 nldev_newlink+0x5ea/0x680 drivers/infiniband/core/nldev.c:1795 rdma_nl_rcv_skb drivers/infiniband/core/netlink.c:239 [inline] rdma_nl_rcv+0x6dd/0x9e0 drivers/infiniband/core/netlink.c:259 netlink_unicast_kernel net/netlink/af_netlink.c:1313 [inline] netlink_unicast+0x7f6/0x990 net/netlink/af_netlink.c:1339 netlink_sendmsg+0x8de/0xcb0 net ---truncated---",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.12 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004072":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ksmbd: fix session use-after-free in multichannel connection There is a race condition between session setup and ksmbd_sessions_deregister. The session can be freed before the connection is added to channel list of session. This patch check reference count of session before freeing it.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.1.134 未満",
+            "Linux Kernel 6.2 以上 6.6.87 未満",
+            "Linux Kernel 6.7 以上 6.12.23 未満",
+            "Linux Kernel 6.13 以上 6.13.11 未満",
+            "Linux Kernel 6.14 以上 6.14.2 未満"]
+    },
+    "JVNDB-2025-004047":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: HID: intel-ish-hid: Fix use-after-free issue in ishtp_hid_remove() The system can experience a random crash a few minutes after the driver is removed. This issue occurs due to improper handling of memory freeing in the ishtp_hid_remove() function. The function currently frees the `driver_data` directly within the loop that destroys the HID devices, which can lead to accessing freed memory. Specifically, `hid_destroy_device()` uses `driver_data` when it calls `hid_ishtp_set_feature()` to power off the sensor, so freeing `driver_data` beforehand can result in accessing invalid memory. This patch resolves the issue by storing the `driver_data` in a temporary variable before calling `hid_destroy_device()`, and then freeing the `driver_data` after the device is destroyed.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.9 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.131 未満",
+            "Linux Kernel 6.2 以上 6.6.83 未満",
+            "Linux Kernel 6.7 以上 6.12.19 未満",
+            "Linux Kernel 6.13 以上 6.13.7 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-004033":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ksmbd: fix use-after-free in smb2_lock If smb_lock->zero_len has value, ->llist of smb_lock is not delete and flock is old one. It will cause use-after-free on error handling routine.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.15 以上 6.1.131 未満",
+            "Linux Kernel 6.2 以上 6.6.83 未満",
+            "Linux Kernel 6.7 以上 6.12.19 未満",
+            "Linux Kernel 6.13 以上 6.13.7 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003992":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: keys: Fix UAF in key_put() Once a key's reference count has been reduced to 0, the garbage collector thread may destroy it at any time and so key_put() is not allowed to touch the key after that point. The most key_put() is normally allowed to do is to touch key_gc_work as that's a static global variable. However, in an effort to speed up the reclamation of quota, this is now done in key_put() once the key's usage is reduced to 0 - but now the code is looking at the key after the deadline, which is forbidden. Fix this by using a flag to indicate that a key can be gc'd now rather than looking at the key's refcount in the garbage collector.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.10 以上 6.12.21 未満",
+            "Linux Kernel 6.13 以上 6.13.9 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003911":{
+        "title": "Linux Foundation の Yocto 等複数ベンダの製品における境界外書き込みに関する脆弱性",
+        "description": "In wlan STA driver, there is a possible out of bounds write due to improper input validation. This could lead to remote (proximal/adjacent) code execution with no additional execution privileges needed. User interaction is not needed for exploitation. Patch ID: WCNCR00389496 / ALPS09137491; Issue ID: MSV-1835.",
+        "technologies": ["Android", "Yocto", "OpenWrt", "software development kit"],
+        "version": ["Android 13.0",
+            "Android 14.0",
+            "Android 15.0",
+            "Yocto 3.3",
+            "Yocto 4.0",
+            "Yocto 5.0",
+            "OpenWrt 23.05",
+            "software development kit 2.5 およびそれ以前"]
+    },
+    "JVNDB-2025-003895":{
+        "title": "Linux Foundation の Yocto 等複数ベンダの製品における境界外書き込みに関する脆弱性",
+        "description": "In wlan STA FW, there is a possible out of bounds write due to improper input validation. This could lead to remote (proximal/adjacent) code execution with no additional execution privileges needed. User interaction is not needed for exploitation. Patch ID: WCNCR00389045 / ALPS09136494; Issue ID: MSV-1796.",
+        "technologies": ["Android", "Yocto", "software development kit"],
+        "version": ["Android 13.0",
+            "Android 14.0",
+            "Android 15.0",
+            "Yocto 3.3",
+            "Yocto 4.0",
+            "Yocto 5.0",
+            "software development kit 2.4 およびそれ以前"]
+    },
+    "JVNDB-2025-003667":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: btrfs: fix use-after-free on inode when scanning root during em shrinking At btrfs_scan_root() we are accessing the inode's root (and fs_info) in a call to btrfs_fs_closing() after we have scheduled the inode for a delayed iput, and that can result in a use-after-free on the inode in case the cleaner kthread does the iput before we dereference the inode in the call to btrfs_fs_closing(). Fix this by using the fs_info stored already in a local variable instead of doing inode->root->fs_info.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.13 以上 6.13.6 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003659":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: cdx: Fix possible UAF error in driver_override_show() Fixed a possible UAF problem in driver_override_show() in drivers/cdx/cdx.c This function driver_override_show() is part of DEVICE_ATTR_RW, which includes both driver_override_show() and driver_override_store(). These functions can be executed concurrently in sysfs. The driver_override_store() function uses driver_set_override() to update the driver_override value, and driver_set_override() internally locks the device (device_lock(dev)). If driver_override_show() reads cdx_dev->driver_override without locking, it could potentially access a freed pointer if driver_override_store() frees the string concurrently. This could lead to printing a kernel address, which is a security risk since DEVICE_ATTR can be read by all users. Additionally, a similar pattern is used in drivers/amba/bus.c, as well as many other bus drivers, where device_lock() is taken in the show function, and it has been working without issues. This potential bug was detected by our experimental static analysis tool, which analyzes locking APIs and paired functions to identify data races and atomicity violations.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.10 以上 6.6.83 未満",
+            "Linux Kernel 6.7 以上 6.12.19 未満",
+            "Linux Kernel 6.13 以上 6.13.7 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003596":{
+        "title": "Linux の Linux Kernel における境界外書き込みに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: dm-flakey: Fix memory corruption in optional corrupt_bio_byte feature Fix memory corruption due to incorrect parameter being passed to bio_init",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.5 以上 6.6.84 未満",
+            "Linux Kernel 6.7 以上 6.12.20 未満",
+            "Linux Kernel 6.13 以上 6.13.8 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003595":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: Bluetooth: L2CAP: Fix slab-use-after-free Read in l2cap_send_cmd After the hci sync command releases l2cap_conn, the hci receive data work queue references the released l2cap_conn when sending to the upper layer. Add hci dev lock to the hci receive data work queue to synchronize the two. [1] BUG: KASAN: slab-use-after-free in l2cap_send_cmd+0x187/0x8d0 net/bluetooth/l2cap_core.c:954 Read of size 8 at addr ffff8880271a4000 by task kworker/u9:2/5837 CPU: 0 UID: 0 PID: 5837 Comm: kworker/u9:2 Not tainted 6.13.0-rc5-syzkaller-00163-gab75170520d4 #0 Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 09/13/2024 Workqueue: hci1 hci_rx_work Call Trace: <TASK> __dump_stack lib/dump_stack.c:94 [inline] dump_stack_lvl+0x241/0x360 lib/dump_stack.c:120 print_address_description mm/kasan/report.c:378 [inline] print_report+0x169/0x550 mm/kasan/report.c:489 kasan_report+0x143/0x180 mm/kasan/report.c:602 l2cap_build_cmd net/bluetooth/l2cap_core.c:2964 [inline] l2cap_send_cmd+0x187/0x8d0 net/bluetooth/l2cap_core.c:954 l2cap_sig_send_rej net/bluetooth/l2cap_core.c:5502 [inline] l2cap_sig_channel net/bluetooth/l2cap_core.c:5538 [inline] l2cap_recv_frame+0x221f/0x10db0 net/bluetooth/l2cap_core.c:6817 hci_acldata_packet net/bluetooth/hci_core.c:3797 [inline] hci_rx_work+0x508/0xdb0 net/bluetooth/hci_core.c:4040 process_one_work kernel/workqueue.c:3229 [inline] process_scheduled_works+0xa66/0x1840 kernel/workqueue.c:3310 worker_thread+0x870/0xd30 kernel/workqueue.c:3391 kthread+0x2f0/0x390 kernel/kthread.c:389 ret_from_fork+0x4b/0x80 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244 </TASK> Allocated by task 5837: kasan_save_stack mm/kasan/common.c:47 [inline] kasan_save_track+0x3f/0x80 mm/kasan/common.c:68 poison_kmalloc_redzone mm/kasan/common.c:377 [inline] __kasan_kmalloc+0x98/0xb0 mm/kasan/common.c:394 kasan_kmalloc include/linux/kasan.h:260 [inline] __kmalloc_cache_noprof+0x243/0x390 mm/slub.c:4329 kmalloc_noprof include/linux/slab.h:901 [inline] kzalloc_noprof include/linux/slab.h:1037 [inline] l2cap_conn_add+0xa9/0x8e0 net/bluetooth/l2cap_core.c:6860 l2cap_connect_cfm+0x115/0x1090 net/bluetooth/l2cap_core.c:7239 hci_connect_cfm include/net/bluetooth/hci_core.h:2057 [inline] hci_remote_features_evt+0x68e/0xac0 net/bluetooth/hci_event.c:3726 hci_event_func net/bluetooth/hci_event.c:7473 [inline] hci_event_packet+0xac2/0x1540 net/bluetooth/hci_event.c:7525 hci_rx_work+0x3f3/0xdb0 net/bluetooth/hci_core.c:4035 process_one_work kernel/workqueue.c:3229 [inline] process_scheduled_works+0xa66/0x1840 kernel/workqueue.c:3310 worker_thread+0x870/0xd30 kernel/workqueue.c:3391 kthread+0x2f0/0x390 kernel/kthread.c:389 ret_from_fork+0x4b/0x80 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244 Freed by task 54: kasan_save_stack mm/kasan/common.c:47 [inline] kasan_save_track+0x3f/0x80 mm/kasan/common.c:68 kasan_save_free_info+0x40/0x50 mm/kasan/generic.c:582 poison_slab_object mm/kasan/common.c:247 [inline] __kasan_slab_free+0x59/0x70 mm/kasan/common.c:264 kasan_slab_free include/linux/kasan.h:233 [inline] slab_free_hook mm/slub.c:2353 [inline] slab_free mm/slub.c:4613 [inline] kfree+0x196/0x430 mm/slub.c:4761 l2cap_connect_cfm+0xcc/0x1090 net/bluetooth/l2cap_core.c:7235 hci_connect_cfm include/net/bluetooth/hci_core.h:2057 [inline] hci_conn_failed+0x287/0x400 net/bluetooth/hci_conn.c:1266 hci_abort_conn_sync+0x56c/0x11f0 net/bluetooth/hci_sync.c:5603 hci_cmd_sync_work+0x22b/0x400 net/bluetooth/hci_sync.c:332 process_one_work kernel/workqueue.c:3229 [inline] process_scheduled_works+0xa66/0x1840 kernel/workqueue.c:3310 worker_thread+0x870/0xd30 kernel/workqueue.c:3391 kthread+0x2f0/0x390 kernel/kthread.c:389 ret_from_fork+0x4b/0x80 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entr ---truncated---",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.6.84 未満",
+            "Linux Kernel 6.7 以上 6.12.20 未満",
+            "Linux Kernel 6.13 以上 6.13.8 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003590":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: net: davicom: fix UAF in dm9000_drv_remove dm is netdev private data and it cannot be used after free_netdev() call. Using dm after free_netdev() can cause UAF bug. Fix it by moving free_netdev() at the end of the function. This is similar to the issue fixed in commit ad297cd2db89 (\"net: qcom/emac: fix UAF in emac_remove\"). This bug is detected by our static analysis tool.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.4.262 以上 4.5 未満",
+            "Linux Kernel 4.9.262 以上 4.10 未満",
+            "Linux Kernel 4.14.226 以上 4.15 未満",
+            "Linux Kernel 4.19.181 以上 4.20 未満",
+            "Linux Kernel 5.4.106 以上 5.4.291 未満",
+            "Linux Kernel 5.10.24 以上 5.10.235 未満",
+            "Linux Kernel 5.11.7 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.76 未満",
+            "Linux Kernel 6.7 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-003549":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ksmbd: fix use-after-free in ksmbd_free_work_struct ->interim_entry of ksmbd_work could be deleted after oplock is freed. We don't need to manage it with linked list. The interim request could be immediately sent whenever a oplock break wait is needed.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.15 以上 6.6.84 未満",
+            "Linux Kernel 6.7 以上 6.12.20 未満",
+            "Linux Kernel 6.13 以上 6.13.8 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003521":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: wifi: iwlwifi: limit printed string from FW file There's no guarantee here that the file is always with a NUL-termination, so reading the string may read beyond the end of the TLV. If that's the last TLV in the file, it can perhaps even read beyond the end of the file buffer. Fix that by limiting the print format to the size of the buffer we have.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.2 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.131 未満",
+            "Linux Kernel 6.2 以上 6.6.83 未満",
+            "Linux Kernel 6.7 以上 6.12.19 未満",
+            "Linux Kernel 6.13 以上 6.13.7 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003503":{
+        "title": "Linux の Linux Kernel における境界外書き込みに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: sched/fair: Fix potential memory corruption in child_cfs_rq_on_list child_cfs_rq_on_list attempts to convert a 'prev' pointer to a cfs_rq. This 'prev' pointer can originate from struct rq's leaf_cfs_rq_list, making the conversion invalid and potentially leading to memory corruption. Depending on the relative positions of leaf_cfs_rq_list and the task group (tg) pointer within the struct, this can cause a memory fault or access garbage data. The issue arises in list_add_leaf_cfs_rq, where both cfs_rq->leaf_cfs_rq_list and rq->leaf_cfs_rq_list are added to the same leaf list. Also, rq->tmp_alone_branch can be set to rq->leaf_cfs_rq_list. This adds a check `if (prev == &rq->leaf_cfs_rq_list)` after the main conditional in child_cfs_rq_on_list. This ensures that the container_of operation will convert a correct cfs_rq struct. This check is sufficient because only cfs_rqs on the same CPU are added to the list, so verifying the 'prev' pointer against the current rq's list head is enough. Fixes a potential memory corruption issue that due to current struct layout might not be manifesting as a crash but could lead to unpredictable behavior when the layout changes.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.13 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.131 未満",
+            "Linux Kernel 6.2 以上 6.6.83 未満",
+            "Linux Kernel 6.7 以上 6.12.19 未満",
+            "Linux Kernel 6.13 以上 6.13.7 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003487":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: wifi: cfg80211: cancel wiphy_work before freeing wiphy A wiphy_work can be queued from the moment the wiphy is allocated and initialized (i.e. wiphy_new_nm). When a wiphy_work is queued, the rdev::wiphy_work is getting queued. If wiphy_free is called before the rdev::wiphy_work had a chance to run, the wiphy memory will be freed, and then when it eventally gets to run it'll use invalid memory. Fix this by canceling the work before freeing the wiphy.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.1.57 以上 6.1.132 未満",
+            "Linux Kernel 6.5 以上 6.6.84 未満",
+            "Linux Kernel 6.7 以上 6.12.20 未満",
+            "Linux Kernel 6.13 以上 6.13.8 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003486":{
+        "title": "Linux の Linux Kernel における配列インデックスの検証に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: x86/microcode/AMD: Fix out-of-bounds on systems with CPU-less NUMA nodes Currently, load_microcode_amd() iterates over all NUMA nodes, retrieves their CPU masks and unconditionally accesses per-CPU data for the first CPU of each mask. According to Documentation/admin-guide/mm/numaperf.rst: \"Some memory may share the same node as a CPU, and others are provided as memory only nodes.\" Therefore, some node CPU masks may be empty and wouldn't have a \"first CPU\". On a machine with far memory (and therefore CPU-less NUMA nodes): - cpumask_of_node(nid) is 0 - cpumask_first(0) is CONFIG_NR_CPUS - cpu_data(CONFIG_NR_CPUS) accesses the cpu_info per-CPU array at an index that is 1 out of bounds This does not have any security implications since flashing microcode is a privileged operation but I believe this has reliability implications by potentially corrupting memory while flashing a microcode update. When booting with CONFIG_UBSAN_BOUNDS=y on an AMD machine that flashes a microcode update. I get the following splat: UBSAN: array-index-out-of-bounds in arch/x86/kernel/cpu/microcode/amd.c:X:Y index 512 is out of range for type 'unsigned long[512]' [...] Call Trace: dump_stack __ubsan_handle_out_of_bounds load_microcode_amd request_microcode_amd reload_store kernfs_fop_write_iter vfs_write ksys_write do_syscall_64 entry_SYSCALL_64_after_hwframe Change the loop to go over only NUMA nodes which have CPUs before determining whether the first CPU on the respective node needs microcode update. [ bp: Massage commit message, fix typo. ]",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.14.308 以上 4.15 未満",
+            "Linux Kernel 4.19.276 以上 4.20 未満",
+            "Linux Kernel 5.4.235 以上 5.5 未満",
+            "Linux Kernel 5.10.173 以上 5.11 未満",
+            "Linux Kernel 5.15.99 以上 5.16 未満",
+            "Linux Kernel 6.1.16 以上 6.1.132 未満",
+            "Linux Kernel 6.2.3 以上 6.6.84 未満",
+            "Linux Kernel 6.7 以上 6.12.20 未満",
+            "Linux Kernel 6.13 以上 6.13.8 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003457":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: rapidio: fix an API misues when rio_add_net() fails rio_add_net() calls device_register() and fails when device_register() fails. Thus, put_device() should be used rather than kfree(). Add \"mport->net = NULL;\" to avoid a use after free issue.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.6 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.131 未満",
+            "Linux Kernel 6.2 以上 6.6.83 未満",
+            "Linux Kernel 6.7 以上 6.12.19 未満",
+            "Linux Kernel 6.13 以上 6.13.7 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003442":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: drm/amd/display: Fix slab-use-after-free on hdcp_work [Why] A slab-use-after-free is reported when HDCP is destroyed but the property_validate_dwork queue is still running. [How] Cancel the delayed work when destroying workqueue. (cherry picked from commit 725a04ba5a95e89c89633d4322430cfbca7ce128)",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.5 以上 5.10.236 未満",
+            "Linux Kernel 5.11 以上 5.15.180 未満",
+            "Linux Kernel 5.16 以上 6.1.132 未満",
+            "Linux Kernel 6.2 以上 6.6.84 未満",
+            "Linux Kernel 6.7 以上 6.12.20 未満",
+            "Linux Kernel 6.13 以上 6.13.8 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003375":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: vlan: enforce underlying device type Currently, VLAN devices can be created on top of non-ethernet devices. Besides the fact that it doesn't make much sense, this also causes a bug which leaks the address of a kernel function to usermode. When creating a VLAN device, we initialize GARP (garp_init_applicant) and MRP (mrp_init_applicant) for the underlying device. As part of the initialization process, we add the multicast address of each applicant to the underlying device, by calling dev_mc_add. __dev_mc_add uses dev->addr_len to determine the length of the new multicast address. This causes an out-of-bounds read if dev->addr_len is greater than 6, since the multicast addresses provided by GARP and MRP are only 6 bytes long. This behaviour can be reproduced using the following commands: ip tunnel add gretest mode ip6gre local ::1 remote ::2 dev lo ip l set up dev gretest ip link add link gretest name vlantest type vlan id 100 Then, the following command will display the address of garp_pdu_rcv: ip maddr show | grep 01:80:c2:00:00:21 Fix the bug by enforcing the type of the underlying device during VLAN device initialization.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.35 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.131 未満",
+            "Linux Kernel 6.2 以上 6.6.83 未満",
+            "Linux Kernel 6.7 以上 6.12.19 未満",
+            "Linux Kernel 6.13 以上 6.13.7 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003363":{
+        "title": "Linux の Linux Kernel における境界外書き込みに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: nvme-tcp: fix potential memory corruption in nvme_tcp_recv_pdu() nvme_tcp_recv_pdu() doesn't check the validity of the header length. When header digests are enabled, a target might send a packet with an invalid header length (e.g. 255), causing nvme_tcp_verify_hdgst() to access memory outside the allocated area and cause memory corruptions by overwriting it with the calculated digest. Fix this by rejecting packets with an unexpected header length.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.0 以上 6.12.19 未満",
+            "Linux Kernel 6.13 以上 6.13.7 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003362":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: HID: hid-steam: Fix use-after-free when detaching device When a hid-steam device is removed it must clean up the client_hdev used for intercepting hidraw access. This can lead to scheduling deferred work to reattach the input device. Though the cleanup cancels the deferred work, this was done before the client_hdev itself is cleaned up, so it gets rescheduled. This patch fixes the ordering to make sure the deferred work is properly canceled.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.6.79 以上 6.6.83 未満",
+            "Linux Kernel 6.12.16 以上 6.12.19 未満",
+            "Linux Kernel 6.13.4 以上 6.13.7 未満"]
+    },
+    "JVNDB-2025-003361":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: proc: fix UAF in proc_get_inode() Fix race between rmmod and /proc/XXX's inode instantiation. The bug is that pde->proc_ops don't belong to /proc, it belongs to a module, therefore dereferencing it after /proc entry has been registered is a bug unless use_pde/unuse_pde() pair has been used. use_pde/unuse_pde can be avoided (2 atomic ops!) because pde->proc_ops never changes so information necessary for inode instantiation can be saved _before_ proc_register() in PDE itself and used later, avoiding pde->proc_ops->... dereference. rmmod lookup sys_delete_module proc_lookup_de pde_get(de); proc_get_inode(dir->i_sb, de); mod->exit() proc_remove remove_proc_subtree proc_entry_rundown(de); free_module(mod); if (S_ISREG(inode->i_mode)) if (de->proc_ops->proc_read_iter) --> As module is already freed, will trigger UAF BUG: unable to handle page fault for address: fffffbfff80a702b PGD 817fc4067 P4D 817fc4067 PUD 817fc0067 PMD 102ef4067 PTE 0 Oops: Oops: 0000 [#1] PREEMPT SMP KASAN PTI CPU: 26 UID: 0 PID: 2667 Comm: ls Tainted: G Hardware name: QEMU Standard PC (i440FX + PIIX, 1996) RIP: 0010:proc_get_inode+0x302/0x6e0 RSP: 0018:ffff88811c837998 EFLAGS: 00010a06 RAX: dffffc0000000000 RBX: ffffffffc0538140 RCX: 0000000000000007 RDX: 1ffffffff80a702b RSI: 0000000000000001 RDI: ffffffffc0538158 RBP: ffff8881299a6000 R08: 0000000067bbe1e5 R09: 1ffff11023906f20 R10: ffffffffb560ca07 R11: ffffffffb2b43a58 R12: ffff888105bb78f0 R13: ffff888100518048 R14: ffff8881299a6004 R15: 0000000000000001 FS: 00007f95b9686840(0000) GS:ffff8883af100000(0000) knlGS:0000000000000000 CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: fffffbfff80a702b CR3: 0000000117dd2000 CR4: 00000000000006f0 DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 Call Trace: <TASK> proc_lookup_de+0x11f/0x2e0 __lookup_slow+0x188/0x350 walk_component+0x2ab/0x4f0 path_lookupat+0x120/0x660 filename_lookup+0x1ce/0x560 vfs_statx+0xac/0x150 __do_sys_newstat+0x96/0x110 do_syscall_64+0x5f/0x170 entry_SYSCALL_64_after_hwframe+0x76/0x7e [adobriyan@gmail.com: don't do 2 atomic ops on the common path]",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.23 以上 6.1.132 未満",
+            "Linux Kernel 6.2 以上 6.6.85 未満",
+            "Linux Kernel 6.7 以上 6.12.21 未満",
+            "Linux Kernel 6.13 以上 6.13.9 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003284":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: HID: intel-ish-hid: Fix use-after-free issue in hid_ishtp_cl_remove() During the `rmmod` operation for the `intel_ishtp_hid` driver, a use-after-free issue can occur in the hid_ishtp_cl_remove() function. The function hid_ishtp_cl_deinit() is called before ishtp_hid_remove(), which can lead to accessing freed memory or resources during the removal process. Call Trace: ? ishtp_cl_send+0x168/0x220 [intel_ishtp] ? hid_output_report+0xe3/0x150 [hid] hid_ishtp_set_feature+0xb5/0x120 [intel_ishtp_hid] ishtp_hid_request+0x7b/0xb0 [intel_ishtp_hid] hid_hw_request+0x1f/0x40 [hid] sensor_hub_set_feature+0x11f/0x190 [hid_sensor_hub] _hid_sensor_power_state+0x147/0x1e0 [hid_sensor_trigger] hid_sensor_runtime_resume+0x22/0x30 [hid_sensor_trigger] sensor_hub_remove+0xa8/0xe0 [hid_sensor_hub] hid_device_remove+0x49/0xb0 [hid] hid_destroy_device+0x6f/0x90 [hid] ishtp_hid_remove+0x42/0x70 [intel_ishtp_hid] hid_ishtp_cl_remove+0x6b/0xb0 [intel_ishtp_hid] ishtp_cl_device_remove+0x4a/0x60 [intel_ishtp] ... Additionally, ishtp_hid_remove() is a HID level power off, which should occur before the ISHTP level disconnect. This patch resolves the issue by reordering the calls in hid_ishtp_cl_remove(). The function ishtp_hid_remove() is now called before hid_ishtp_cl_deinit().",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.8 以上 6.12.19 未満",
+            "Linux Kernel 6.13 以上 6.13.7 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003210":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: iscsi_ibft: Fix UBSAN shift-out-of-bounds warning in ibft_attr_show_nic() When performing an iSCSI boot using IPv6, iscsistart still reads the /sys/firmware/ibft/ethernetX/subnet-mask entry. Since the IPv6 prefix length is 64, this causes the shift exponent to become negative, triggering a UBSAN warning. As the concept of a subnet mask does not apply to IPv6, the value is set to ~0 to suppress the warning message.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.1.132 未満",
+            "Linux Kernel 6.2 以上 6.6.84 未満",
+            "Linux Kernel 6.7 以上 6.12.20 未満",
+            "Linux Kernel 6.13 以上 6.13.8 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-003153":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: net: atm: fix use after free in lec_send() The ->send() operation frees skb so save the length before calling ->send() to avoid a use after free.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.12 以上 6.1.132 未満",
+            "Linux Kernel 6.2 以上 6.6.85 未満",
+            "Linux Kernel 6.7 以上 6.12.21 未満",
+            "Linux Kernel 6.13 以上 6.13.9 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002992":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: bpf, test_run: Fix use-after-free issue in eth_skb_pkt_type() KMSAN reported a use-after-free issue in eth_skb_pkt_type()[1]. The cause of the issue was that eth_skb_pkt_type() accessed skb's data that didn't contain an Ethernet header. This occurs when bpf_prog_test_run_xdp() passes an invalid value as the user_data argument to bpf_test_init(). Fix this by returning an error when user_data is less than ETH_HLEN in bpf_test_init(). Additionally, remove the check for \"if (user_size > size)\" as it is unnecessary. [1] BUG: KMSAN: use-after-free in eth_skb_pkt_type include/linux/etherdevice.h:627 [inline] BUG: KMSAN: use-after-free in eth_type_trans+0x4ee/0x980 net/ethernet/eth.c:165 eth_skb_pkt_type include/linux/etherdevice.h:627 [inline] eth_type_trans+0x4ee/0x980 net/ethernet/eth.c:165 __xdp_build_skb_from_frame+0x5a8/0xa50 net/core/xdp.c:635 xdp_recv_frames net/bpf/test_run.c:272 [inline] xdp_test_run_batch net/bpf/test_run.c:361 [inline] bpf_test_run_xdp_live+0x2954/0x3330 net/bpf/test_run.c:390 bpf_prog_test_run_xdp+0x148e/0x1b10 net/bpf/test_run.c:1318 bpf_prog_test_run+0x5b7/0xa30 kernel/bpf/syscall.c:4371 __sys_bpf+0x6a6/0xe20 kernel/bpf/syscall.c:5777 __do_sys_bpf kernel/bpf/syscall.c:5866 [inline] __se_sys_bpf kernel/bpf/syscall.c:5864 [inline] __x64_sys_bpf+0xa4/0xf0 kernel/bpf/syscall.c:5864 x64_sys_call+0x2ea0/0x3d90 arch/x86/include/generated/asm/syscalls_64.h:322 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xd9/0x1d0 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f Uninit was created at: free_pages_prepare mm/page_alloc.c:1056 [inline] free_unref_page+0x156/0x1320 mm/page_alloc.c:2657 __free_pages+0xa3/0x1b0 mm/page_alloc.c:4838 bpf_ringbuf_free kernel/bpf/ringbuf.c:226 [inline] ringbuf_map_free+0xff/0x1e0 kernel/bpf/ringbuf.c:235 bpf_map_free kernel/bpf/syscall.c:838 [inline] bpf_map_free_deferred+0x17c/0x310 kernel/bpf/syscall.c:862 process_one_work kernel/workqueue.c:3229 [inline] process_scheduled_works+0xa2b/0x1b60 kernel/workqueue.c:3310 worker_thread+0xedf/0x1550 kernel/workqueue.c:3391 kthread+0x535/0x6b0 kernel/kthread.c:389 ret_from_fork+0x6e/0x90 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244 CPU: 1 UID: 0 PID: 17276 Comm: syz.1.16450 Not tainted 6.12.0-05490-g9bb88c659673 #8 Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-3.fc41 04/01/2014",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.18 以上 6.1.130 未満",
+            "Linux Kernel 6.2 以上 6.6.80 未満",
+            "Linux Kernel 6.7 以上 6.12.17 未満",
+            "Linux Kernel 6.13 以上 6.13.5 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002984":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ovl: fix UAF in ovl_dentry_update_reval by moving dput() in ovl_link_up The issue was caused by dput(upper) being called before ovl_dentry_update_reval(), while upper->d_flags was still accessed in ovl_dentry_remote(). Move dput(upper) after its last use to prevent use-after-free. BUG: KASAN: slab-use-after-free in ovl_dentry_remote fs/overlayfs/util.c:162 [inline] BUG: KASAN: slab-use-after-free in ovl_dentry_update_reval+0xd2/0xf0 fs/overlayfs/util.c:167 Call Trace: <TASK> __dump_stack lib/dump_stack.c:88 [inline] dump_stack_lvl+0x116/0x1f0 lib/dump_stack.c:114 print_address_description mm/kasan/report.c:377 [inline] print_report+0xc3/0x620 mm/kasan/report.c:488 kasan_report+0xd9/0x110 mm/kasan/report.c:601 ovl_dentry_remote fs/overlayfs/util.c:162 [inline] ovl_dentry_update_reval+0xd2/0xf0 fs/overlayfs/util.c:167 ovl_link_up fs/overlayfs/copy_up.c:610 [inline] ovl_copy_up_one+0x2105/0x3490 fs/overlayfs/copy_up.c:1170 ovl_copy_up_flags+0x18d/0x200 fs/overlayfs/copy_up.c:1223 ovl_rename+0x39e/0x18c0 fs/overlayfs/dir.c:1136 vfs_rename+0xf84/0x20a0 fs/namei.c:4893 ... </TASK>",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.10.188 以上 5.11 未満",
+            "Linux Kernel 5.15.121 以上 5.15.179 未満",
+            "Linux Kernel 6.1.39 以上 6.1.130 未満",
+            "Linux Kernel 6.3.13 以上 6.4 未満",
+            "Linux Kernel 6.4.4 以上 6.6.81 未満",
+            "Linux Kernel 6.7 以上 6.12.18 未満",
+            "Linux Kernel 6.13 以上 6.13.6 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002671":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: btrfs: fix use-after-free when attempting to join an aborted transaction When we are trying to join the current transaction and if it's aborted, we read its 'aborted' field after unlocking fs_info->trans_lock and without holding any extra reference count on it. This means that a concurrent task that is aborting the transaction may free the transaction before we read its 'aborted' field, leading to a use-after-free. Fix this by reading the 'aborted' field while holding fs_info->trans_lock since any freeing task must first acquire that lock and set fs_info->running_transaction to NULL before freeing the transaction. This was reported by syzbot and Dmitry with the following stack traces from KASAN: ================================================================== BUG: KASAN: slab-use-after-free in join_transaction+0xd9b/0xda0 fs/btrfs/transaction.c:278 Read of size 4 at addr ffff888011839024 by task kworker/u4:9/1128 CPU: 0 UID: 0 PID: 1128 Comm: kworker/u4:9 Not tainted 6.13.0-rc7-syzkaller-00019-gc45323b7560e #0 Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2~bpo12+1 04/01/2014 Workqueue: events_unbound btrfs_async_reclaim_data_space Call Trace: <TASK> __dump_stack lib/dump_stack.c:94 [inline] dump_stack_lvl+0x241/0x360 lib/dump_stack.c:120 print_address_description mm/kasan/report.c:378 [inline] print_report+0x169/0x550 mm/kasan/report.c:489 kasan_report+0x143/0x180 mm/kasan/report.c:602 join_transaction+0xd9b/0xda0 fs/btrfs/transaction.c:278 start_transaction+0xaf8/0x1670 fs/btrfs/transaction.c:697 flush_space+0x448/0xcf0 fs/btrfs/space-info.c:803 btrfs_async_reclaim_data_space+0x159/0x510 fs/btrfs/space-info.c:1321 process_one_work kernel/workqueue.c:3236 [inline] process_scheduled_works+0xa66/0x1840 kernel/workqueue.c:3317 worker_thread+0x870/0xd30 kernel/workqueue.c:3398 kthread+0x2f0/0x390 kernel/kthread.c:389 ret_from_fork+0x4b/0x80 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244 </TASK> Allocated by task 5315: kasan_save_stack mm/kasan/common.c:47 [inline] kasan_save_track+0x3f/0x80 mm/kasan/common.c:68 poison_kmalloc_redzone mm/kasan/common.c:377 [inline] __kasan_kmalloc+0x98/0xb0 mm/kasan/common.c:394 kasan_kmalloc include/linux/kasan.h:260 [inline] __kmalloc_cache_noprof+0x243/0x390 mm/slub.c:4329 kmalloc_noprof include/linux/slab.h:901 [inline] join_transaction+0x144/0xda0 fs/btrfs/transaction.c:308 start_transaction+0xaf8/0x1670 fs/btrfs/transaction.c:697 btrfs_create_common+0x1b2/0x2e0 fs/btrfs/inode.c:6572 lookup_open fs/namei.c:3649 [inline] open_last_lookups fs/namei.c:3748 [inline] path_openat+0x1c03/0x3590 fs/namei.c:3984 do_filp_open+0x27f/0x4e0 fs/namei.c:4014 do_sys_openat2+0x13e/0x1d0 fs/open.c:1402 do_sys_open fs/open.c:1417 [inline] __do_sys_creat fs/open.c:1495 [inline] __se_sys_creat fs/open.c:1489 [inline] __x64_sys_creat+0x123/0x170 fs/open.c:1489 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f Freed by task 5336: kasan_save_stack mm/kasan/common.c:47 [inline] kasan_save_track+0x3f/0x80 mm/kasan/common.c:68 kasan_save_free_info+0x40/0x50 mm/kasan/generic.c:582 poison_slab_object mm/kasan/common.c:247 [inline] __kasan_slab_free+0x59/0x70 mm/kasan/common.c:264 kasan_slab_free include/linux/kasan.h:233 [inline] slab_free_hook mm/slub.c:2353 [inline] slab_free mm/slub.c:4613 [inline] kfree+0x196/0x430 mm/slub.c:4761 cleanup_transaction fs/btrfs/transaction.c:2063 [inline] btrfs_commit_transaction+0x2c97/0x3720 fs/btrfs/transaction.c:2598 insert_balance_item+0x1284/0x20b0 fs/btrfs/volumes.c:3757 btrfs_balance+0x992/ ---truncated---",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 3.4 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.78 未満",
+            "Linux Kernel 6.7 以上 6.12.14 未満",
+            "Linux Kernel 6.13 以上 6.13.3 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002617":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: netem: Update sch->q.qlen before qdisc_tree_reduce_backlog() qdisc_tree_reduce_backlog() notifies parent qdisc only if child qdisc becomes empty, therefore we need to reduce the backlog of the child qdisc before calling it. Otherwise it would miss the opportunity to call cops->qlen_notify(), in the case of DRR, it resulted in UAF since DRR uses ->qlen_notify() to maintain its active list.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.4.288 以上 5.4.291 未満",
+            "Linux Kernel 5.10.232 以上 5.10.235 未満",
+            "Linux Kernel 5.15.175 以上 5.15.179 未満",
+            "Linux Kernel 6.1.121 以上 6.1.129 未満",
+            "Linux Kernel 6.6.67 以上 6.6.78 未満",
+            "Linux Kernel 6.12.6 以上 6.12.14 未満",
+            "Linux Kernel 6.13 以上 6.13.3 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002608":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: openvswitch: use RCU protection in ovs_vport_cmd_fill_info() ovs_vport_cmd_fill_info() can be called without RTNL or RCU. Use RCU protection and dev_net_rcu() to avoid potential UAF.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.15 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002607":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ipv6: mcast: extend RCU protection in igmp6_send() igmp6_send() can be called without RTNL or RCU being held. Extend RCU protection so that we can safely fetch the net pointer and avoid a potential UAF. Note that we no longer can use sock_alloc_send_skb() because ipv6.igmp_sk uses GFP_KERNEL allocations which can sleep. Instead use alloc_skb() and charge the net->ipv6.igmp_sk socket under RCU protection.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.26 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002606":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: net/mlx5: HWS, change error flow on matcher disconnect Currently, when firmware failure occurs during matcher disconnect flow, the error flow of the function reconnects the matcher back and returns an error, which continues running the calling function and eventually frees the matcher that is being disconnected. This leads to a case where we have a freed matcher on the matchers list, which in turn leads to use-after-free and eventual crash. This patch fixes that by not trying to reconnect the matcher back when some FW command fails during disconnect. Note that we're dealing here with FW error. We can't overcome this problem. This might lead to bad steering state (e.g. wrong connection between matchers), and will also lead to resource leakage, as it is the case with any other error handling during resource destruction. However, the goal here is to allow the driver to continue and not crash the machine with use-after-free error.",
+        "technologies": "Linux Kernel",
+        "version": "Linux Kernel 6.13.3 未満"
+    },
+    "JVNDB-2025-002605":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: padata: fix UAF in padata_reorder A bug was found when run ltp test: BUG: KASAN: slab-use-after-free in padata_find_next+0x29/0x1a0 Read of size 4 at addr ffff88bbfe003524 by task kworker/u113:2/3039206 CPU: 0 PID: 3039206 Comm: kworker/u113:2 Kdump: loaded Not tainted 6.6.0+ Workqueue: pdecrypt_parallel padata_parallel_worker Call Trace: <TASK> dump_stack_lvl+0x32/0x50 print_address_description.constprop.0+0x6b/0x3d0 print_report+0xdd/0x2c0 kasan_report+0xa5/0xd0 padata_find_next+0x29/0x1a0 padata_reorder+0x131/0x220 padata_parallel_worker+0x3d/0xc0 process_one_work+0x2ec/0x5a0 If 'mdelay(10)' is added before calling 'padata_find_next' in the 'padata_reorder' function, this issue could be reproduced easily with ltp test (pcrypt_aead01). This can be explained as bellow: pcrypt_aead_encrypt ... padata_do_parallel refcount_inc(&pd->refcnt); // add refcnt ... padata_do_serial padata_reorder // pd while (1) { padata_find_next(pd, true); // using pd queue_work_on ... padata_serial_worker crypto_del_alg padata_put_pd_cnt // sub refcnt padata_free_shell padata_put_pd(ps->pd); // pd is freed // loop again, but pd is freed // call padata_find_next, UAF } In the padata_reorder function, when it loops in 'while', if the alg is deleted, the refcnt may be decreased to 0 before entering 'padata_find_next', which leads to UAF. As mentioned in [1], do_serial is supposed to be called with BHs disabled and always happen under RCU protection, to address this issue, add synchronize_rcu() in 'padata_free_shell' wait for all _do_serial calls to finish. [1] https://lore.kernel.org/all/20221028160401.cccypv4euxikusiq@parnassus.localdomain/ [2] https://lore.kernel.org/linux-kernel/jfjz5d7zwbytztackem7ibzalm5lnxldi2eofeiczqmqs2m7o6@fq426cwnjtkm/",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.4 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.76 未満",
+            "Linux Kernel 6.7 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002604":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: nilfs2: do not force clear folio if buffer is referenced Patch series \"nilfs2: protect busy buffer heads from being force-cleared\". This series fixes the buffer head state inconsistency issues reported by syzbot that occurs when the filesystem is corrupted and falls back to read-only, and the associated buffer head use-after-free issue. This patch (of 2): Syzbot has reported that after nilfs2 detects filesystem corruption and falls back to read-only, inconsistencies in the buffer state may occur. One of the inconsistencies is that when nilfs2 calls mark_buffer_dirty() to set a data or metadata buffer as dirty, but it detects that the buffer is not in the uptodate state: WARNING: CPU: 0 PID: 6049 at fs/buffer.c:1177 mark_buffer_dirty+0x2e5/0x520 fs/buffer.c:1177 ... Call Trace: <TASK> nilfs_palloc_commit_alloc_entry+0x4b/0x160 fs/nilfs2/alloc.c:598 nilfs_ifile_create_inode+0x1dd/0x3a0 fs/nilfs2/ifile.c:73 nilfs_new_inode+0x254/0x830 fs/nilfs2/inode.c:344 nilfs_mkdir+0x10d/0x340 fs/nilfs2/namei.c:218 vfs_mkdir+0x2f9/0x4f0 fs/namei.c:4257 do_mkdirat+0x264/0x3a0 fs/namei.c:4280 __do_sys_mkdirat fs/namei.c:4295 [inline] __se_sys_mkdirat fs/namei.c:4293 [inline] __x64_sys_mkdirat+0x87/0xa0 fs/namei.c:4293 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f The other is when nilfs_btree_propagate(), which propagates the dirty state to the ancestor nodes of a b-tree that point to a dirty buffer, detects that the origin buffer is not dirty, even though it should be: WARNING: CPU: 0 PID: 5245 at fs/nilfs2/btree.c:2089 nilfs_btree_propagate+0xc79/0xdf0 fs/nilfs2/btree.c:2089 ... Call Trace: <TASK> nilfs_bmap_propagate+0x75/0x120 fs/nilfs2/bmap.c:345 nilfs_collect_file_data+0x4d/0xd0 fs/nilfs2/segment.c:587 nilfs_segctor_apply_buffers+0x184/0x340 fs/nilfs2/segment.c:1006 nilfs_segctor_scan_file+0x28c/0xa50 fs/nilfs2/segment.c:1045 nilfs_segctor_collect_blocks fs/nilfs2/segment.c:1216 [inline] nilfs_segctor_collect fs/nilfs2/segment.c:1540 [inline] nilfs_segctor_do_construct+0x1c28/0x6b90 fs/nilfs2/segment.c:2115 nilfs_segctor_construct+0x181/0x6b0 fs/nilfs2/segment.c:2479 nilfs_segctor_thread_construct fs/nilfs2/segment.c:2587 [inline] nilfs_segctor_thread+0x69e/0xe80 fs/nilfs2/segment.c:2701 kthread+0x2f0/0x390 kernel/kthread.c:389 ret_from_fork+0x4b/0x80 arch/x86/kernel/process.c:147 ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244 </TASK> Both of these issues are caused by the callbacks that handle the page/folio write requests, forcibly clear various states, including the working state of the buffers they hold, at unexpected times when they detect read-only fallback. Fix these issues by checking if the buffer is referenced before clearing the page/folio state, and skipping the clear if it is.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 3.10 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002582":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: net: sched: Disallow replacing of child qdisc from one parent to another Lion Ackermann was able to create a UAF which can be abused for privilege escalation with the following script Step 1. create root qdisc tc qdisc add dev lo root handle 1:0 drr step2. a class for packet aggregation do demonstrate uaf tc class add dev lo classid 1:1 drr step3. a class for nesting tc class add dev lo classid 1:2 drr step4. a class to graft qdisc to tc class add dev lo classid 1:3 drr step5. tc qdisc add dev lo parent 1:1 handle 2:0 plug limit 1024 step6. tc qdisc add dev lo parent 1:2 handle 3:0 drr step7. tc class add dev lo classid 3:1 drr step 8. tc qdisc add dev lo parent 3:1 handle 4:0 pfifo step 9. Display the class/qdisc layout tc class ls dev lo class drr 1:1 root leaf 2: quantum 64Kb class drr 1:2 root leaf 3: quantum 64Kb class drr 3:1 root leaf 4: quantum 64Kb tc qdisc ls qdisc drr 1: dev lo root refcnt 2 qdisc plug 2: dev lo parent 1:1 qdisc pfifo 4: dev lo parent 3:1 limit 1000p qdisc drr 3: dev lo parent 1:2 step10. trigger the bug <=== prevented by this patch tc qdisc replace dev lo parent 1:3 handle 4:0 step 11. Redisplay again the qdiscs/classes tc class ls dev lo class drr 1:1 root leaf 2: quantum 64Kb class drr 1:2 root leaf 3: quantum 64Kb class drr 1:3 root leaf 4: quantum 64Kb class drr 3:1 root leaf 4: quantum 64Kb tc qdisc ls qdisc drr 1: dev lo root refcnt 2 qdisc plug 2: dev lo parent 1:1 qdisc pfifo 4: dev lo parent 3:1 refcnt 2 limit 1000p qdisc drr 3: dev lo parent 1:2 Observe that a) parent for 4:0 does not change despite the replace request. There can only be one parent. b) refcount has gone up by two for 4:0 and c) both class 1:3 and 3:1 are pointing to it. Step 12. send one packet to plug echo \"\" | socat -u STDIN UDP4-DATAGRAM:127.0.0.1:8888,priority=$((0x10001)) step13. send one packet to the grafted fifo echo \"\" | socat -u STDIN UDP4-DATAGRAM:127.0.0.1:8888,priority=$((0x10003)) step14. lets trigger the uaf tc class delete dev lo classid 1:3 tc class delete dev lo classid 1:1 The semantics of \"replace\" is for a del/add _on the same node_ and not a delete from one node(3:1) and add to another node (1:3) as in step10. While we could \"fix\" with a more complex approach there could be consequences to expectations so the patch takes the preventive approach of \"disallow such config\". Joint work with Lion Ackermann <nnamrec@gmail.com>",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.12 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.76 未満",
+            "Linux Kernel 6.7 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002581":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: mm: zswap: properly synchronize freeing resources during CPU hotunplug In zswap_compress() and zswap_decompress(), the per-CPU acomp_ctx of the current CPU at the beginning of the operation is retrieved and used throughout. However, since neither preemption nor migration are disabled, it is possible that the operation continues on a different CPU. If the original CPU is hotunplugged while the acomp_ctx is still in use, we run into a UAF bug as some of the resources attached to the acomp_ctx are freed during hotunplug in zswap_cpu_comp_dead() (i.e. acomp_ctx.buffer, acomp_ctx.req, or acomp_ctx.acomp). The problem was introduced in commit 1ec3b5fe6eec (\"mm/zswap: move to use crypto_acomp API for hardware acceleration\") when the switch to the crypto_acomp API was made. Prior to that, the per-CPU crypto_comp was retrieved using get_cpu_ptr() which disables preemption and makes sure the CPU cannot go away from under us. Preemption cannot be disabled with the crypto_acomp API as a sleepable context is needed. Use the acomp_ctx.mutex to synchronize CPU hotplug callbacks allocating and freeing resources with compression/decompression paths. Make sure that acomp_ctx.req is NULL when the resources are freed. In the compression/decompression paths, check if acomp_ctx.req is NULL after acquiring the mutex (meaning the CPU was offlined) and retry on the new CPU. The initialization of acomp_ctx.mutex is moved from the CPU hotplug callback to the pool initialization where it belongs (where the mutex is allocated). In addition to adding clarity, this makes sure that CPU hotplug cannot reinitialize a mutex that is already locked by compression/decompression. Previously a fix was attempted by holding cpus_read_lock() [1]. This would have caused a potential deadlock as it is possible for code already holding the lock to fall into reclaim and enter zswap (causing a deadlock). A fix was also attempted using SRCU for synchronization, but Johannes pointed out that synchronize_srcu() cannot be used in CPU hotplug notifiers [2]. Alternative fixes that were considered/attempted and could have worked: - Refcounting the per-CPU acomp_ctx. This involves complexity in handling the race between the refcount dropping to zero in zswap_[de]compress() and the refcount being re-initialized when the CPU is onlined. - Disabling migration before getting the per-CPU acomp_ctx [3], but that's discouraged and is a much bigger hammer than needed, and could result in subtle performance issues. [1]https://lkml.kernel.org/20241219212437.2714151-1-yosryahmed@google.com/ [2]https://lkml.kernel.org/20250107074724.1756696-2-yosryahmed@google.com/ [3]https://lkml.kernel.org/20250107222236.2715883-2-yosryahmed@google.com/ [yosryahmed@google.com: remove comment]",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.11 以上 6.12.12 未満", "Linux Kernel 6.13"]
+    },
+    "JVNDB-2025-002566":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ndisc: use RCU protection in ndisc_alloc_skb() ndisc_alloc_skb() can be called without RTNL or RCU being held. Add RCU protection to avoid possible UAF.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 3.9 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002564":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ndisc: extend RCU protection in ndisc_send_skb() ndisc_send_skb() can be called without RTNL or RCU held. Acquire rcu_read_lock() earlier, so that we can use dev_net_rcu() and avoid a potential UAF.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.26 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002563":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: vsock: Keep the binding until socket destruction Preserve sockets bindings; this includes both resulting from an explicit bind() and those implicitly bound through autobind during connect(). Prevents socket unbinding during a transport reassignment, which fixes a use-after-free: 1. vsock_create() (refcnt=1) calls vsock_insert_unbound() (refcnt=2) 2. transport->release() calls vsock_remove_bound() without checking if sk was bound and moved to bound list (refcnt=1) 3. vsock_bind() assumes sk is in unbound list and before __vsock_insert_bound(vsock_bound_sockets()) calls __vsock_remove_bound() which does: list_del_init(&vsk->bound_table); // nop sock_put(&vsk->sk); // refcnt=0 BUG: KASAN: slab-use-after-free in __vsock_bind+0x62e/0x730 Read of size 4 at addr ffff88816b46a74c by task a.out/2057 dump_stack_lvl+0x68/0x90 print_report+0x174/0x4f6 kasan_report+0xb9/0x190 __vsock_bind+0x62e/0x730 vsock_bind+0x97/0xe0 __sys_bind+0x154/0x1f0 __x64_sys_bind+0x6e/0xb0 do_syscall_64+0x93/0x1b0 entry_SYSCALL_64_after_hwframe+0x76/0x7e Allocated by task 2057: kasan_save_stack+0x1e/0x40 kasan_save_track+0x10/0x30 __kasan_slab_alloc+0x85/0x90 kmem_cache_alloc_noprof+0x131/0x450 sk_prot_alloc+0x5b/0x220 sk_alloc+0x2c/0x870 __vsock_create.constprop.0+0x2e/0xb60 vsock_create+0xe4/0x420 __sock_create+0x241/0x650 __sys_socket+0xf2/0x1a0 __x64_sys_socket+0x6e/0xb0 do_syscall_64+0x93/0x1b0 entry_SYSCALL_64_after_hwframe+0x76/0x7e Freed by task 2057: kasan_save_stack+0x1e/0x40 kasan_save_track+0x10/0x30 kasan_save_free_info+0x37/0x60 __kasan_slab_free+0x4b/0x70 kmem_cache_free+0x1a1/0x590 __sk_destruct+0x388/0x5a0 __vsock_bind+0x5e1/0x730 vsock_bind+0x97/0xe0 __sys_bind+0x154/0x1f0 __x64_sys_bind+0x6e/0xb0 do_syscall_64+0x93/0x1b0 entry_SYSCALL_64_after_hwframe+0x76/0x7e refcount_t: addition on 0; use-after-free. WARNING: CPU: 7 PID: 2057 at lib/refcount.c:25 refcount_warn_saturate+0xce/0x150 RIP: 0010:refcount_warn_saturate+0xce/0x150 __vsock_bind+0x66d/0x730 vsock_bind+0x97/0xe0 __sys_bind+0x154/0x1f0 __x64_sys_bind+0x6e/0xb0 do_syscall_64+0x93/0x1b0 entry_SYSCALL_64_after_hwframe+0x76/0x7e refcount_t: underflow; use-after-free. WARNING: CPU: 7 PID: 2057 at lib/refcount.c:28 refcount_warn_saturate+0xee/0x150 RIP: 0010:refcount_warn_saturate+0xee/0x150 vsock_remove_bound+0x187/0x1e0 __vsock_release+0x383/0x4a0 vsock_release+0x90/0x120 __sock_release+0xa3/0x250 sock_close+0x14/0x20 __fput+0x359/0xa80 task_work_run+0x107/0x1d0 do_exit+0x847/0x2560 do_group_exit+0xb8/0x250 __x64_sys_exit_group+0x3a/0x50 x64_sys_call+0xfec/0x14f0 do_syscall_64+0x93/0x1b0 entry_SYSCALL_64_after_hwframe+0x76/0x7e",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.131 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満"]
+    },
+    "JVNDB-2025-002562":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: scsi: ufs: core: Fix use-after free in init error and remove paths devm_blk_crypto_profile_init() registers a cleanup handler to run when the associated (platform-) device is being released. For UFS, the crypto private data and pointers are stored as part of the ufs_hba's data structure 'struct ufs_hba::crypto_profile'. This structure is allocated as part of the underlying ufshcd and therefore Scsi_host allocation. During driver release or during error handling in ufshcd_pltfrm_init(), this structure is released as part of ufshcd_dealloc_host() before the (platform-) device associated with the crypto call above is released. Once this device is released, the crypto cleanup code will run, using the just-released 'struct ufs_hba::crypto_profile'. This causes a use-after-free situation: Call trace: kfree+0x60/0x2d8 (P) kvfree+0x44/0x60 blk_crypto_profile_destroy_callback+0x28/0x70 devm_action_release+0x1c/0x30 release_nodes+0x6c/0x108 devres_release_all+0x98/0x100 device_unbind_cleanup+0x20/0x70 really_probe+0x218/0x2d0 In other words, the initialisation code flow is: platform-device probe ufshcd_pltfrm_init() ufshcd_alloc_host() scsi_host_alloc() allocation of struct ufs_hba creation of scsi-host devices devm_blk_crypto_profile_init() devm registration of cleanup handler using platform-device and during error handling of ufshcd_pltfrm_init() or during driver removal: ufshcd_dealloc_host() scsi_host_put() put_device(scsi-host) release of struct ufs_hba put_device(platform-device) crypto cleanup handler To fix this use-after free, change ufshcd_alloc_host() to register a devres action to automatically cleanup the underlying SCSI device on ufshcd destruction, without requiring explicit calls to ufshcd_dealloc_host(). This way: * the crypto profile and all other ufs_hba-owned resources are destroyed before SCSI (as they've been registered after) * a memleak is plugged in tc-dwc-g210-pci.c remove() as a side-effect * EXPORT_SYMBOL_GPL(ufshcd_dealloc_host) can be removed fully as it's not needed anymore * no future drivers using ufshcd_alloc_host() could ever forget adding the cleanup",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.12 以上 6.12.14 未満",
+            "Linux Kernel 6.13 以上 6.13.3 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002561":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: nbd: don't allow reconnect after disconnect Following process can cause nbd_config UAF: 1) grab nbd_config temporarily; 2) nbd_genl_disconnect() flush all recv_work() and release the initial reference: nbd_genl_disconnect nbd_disconnect_and_put nbd_disconnect flush_workqueue(nbd->recv_workq) if (test_and_clear_bit(NBD_RT_HAS_CONFIG_REF, ...)) nbd_config_put -> due to step 1), reference is still not zero 3) nbd_genl_reconfigure() queue recv_work() again; nbd_genl_reconfigure config = nbd_get_config_unlocked(nbd) if (!config) -> succeed if (!test_bit(NBD_RT_BOUND, ...)) -> succeed nbd_reconnect_socket queue_work(nbd->recv_workq, &args->work) 4) step 1) release the reference; 5) Finially, recv_work() will trigger UAF: recv_work nbd_config_put(nbd) -> nbd_config is freed atomic_dec(&config->recv_threads) -> UAF Fix the problem by clearing NBD_RT_BOUND in nbd_genl_disconnect(), so that nbd_genl_reconfigure() will fail.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.12 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.76 未満",
+            "Linux Kernel 6.7 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002560":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: wifi: rtw89: fix race between cancel_hw_scan and hw_scan completion The rtwdev->scanning flag isn't protected by mutex originally, so cancel_hw_scan can pass the condition, but suddenly hw_scan completion unset the flag and calls ieee80211_scan_completed() that will free local->hw_scan_req. Then, cancel_hw_scan raises null-ptr-deref and use-after-free. Fix it by moving the check condition to where protected by mutex. KASAN: null-ptr-deref in range [0x0000000000000088-0x000000000000008f] CPU: 2 PID: 6922 Comm: kworker/2:2 Tainted: G OE Hardware name: LENOVO 2356AD1/2356AD1, BIOS G7ETB6WW (2.76 ) 09/10/2019 Workqueue: events cfg80211_conn_work [cfg80211] RIP: 0010:rtw89_fw_h2c_scan_offload_be+0xc33/0x13c3 [rtw89_core] Code: 00 45 89 6c 24 1c 0f 85 23 01 00 00 48 8b 85 20 ff ff ff 48 8d RSP: 0018:ffff88811fd9f068 EFLAGS: 00010206 RAX: dffffc0000000000 RBX: ffff88811fd9f258 RCX: 0000000000000001 RDX: 0000000000000011 RSI: 0000000000000001 RDI: 0000000000000089 RBP: ffff88811fd9f170 R08: 0000000000000000 R09: 0000000000000000 R10: ffff88811fd9f108 R11: 0000000000000000 R12: ffff88810e47f960 R13: 0000000000000000 R14: 000000000000ffff R15: 0000000000000000 FS: 0000000000000000(0000) GS:ffff8881d6f00000(0000) knlGS:0000000000000000 CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: 00007531dfca55b0 CR3: 00000001be296004 CR4: 00000000001706e0 Call Trace: <TASK> ? show_regs+0x61/0x73 ? __die_body+0x20/0x73 ? die_addr+0x4f/0x7b ? exc_general_protection+0x191/0x1db ? asm_exc_general_protection+0x27/0x30 ? rtw89_fw_h2c_scan_offload_be+0xc33/0x13c3 [rtw89_core] ? rtw89_fw_h2c_scan_offload_be+0x458/0x13c3 [rtw89_core] ? __pfx_rtw89_fw_h2c_scan_offload_be+0x10/0x10 [rtw89_core] ? do_raw_spin_lock+0x75/0xdb ? __pfx_do_raw_spin_lock+0x10/0x10 rtw89_hw_scan_offload+0xb5e/0xbf7 [rtw89_core] ? _raw_spin_unlock+0xe/0x24 ? __mutex_lock.constprop.0+0x40c/0x471 ? __pfx_rtw89_hw_scan_offload+0x10/0x10 [rtw89_core] ? __mutex_lock_slowpath+0x13/0x1f ? mutex_lock+0xa2/0xdc ? __pfx_mutex_lock+0x10/0x10 rtw89_hw_scan_abort+0x58/0xb7 [rtw89_core] rtw89_ops_cancel_hw_scan+0x120/0x13b [rtw89_core] ieee80211_scan_cancel+0x468/0x4d0 [mac80211] ieee80211_prep_connection+0x858/0x899 [mac80211] ieee80211_mgd_auth+0xbea/0xdde [mac80211] ? __pfx_ieee80211_mgd_auth+0x10/0x10 [mac80211] ? cfg80211_find_elem+0x15/0x29 [cfg80211] ? is_bss+0x1b7/0x1d7 [cfg80211] ieee80211_auth+0x18/0x27 [mac80211] cfg80211_mlme_auth+0x3bb/0x3e7 [cfg80211] cfg80211_conn_do_work+0x410/0xb81 [cfg80211] ? __pfx_cfg80211_conn_do_work+0x10/0x10 [cfg80211] ? __kasan_check_read+0x11/0x1f ? psi_group_change+0x8bc/0x944 ? __kasan_check_write+0x14/0x22 ? mutex_lock+0x8e/0xdc ? __pfx_mutex_lock+0x10/0x10 ? __pfx___radix_tree_lookup+0x10/0x10 cfg80211_conn_work+0x245/0x34d [cfg80211] ? __pfx_cfg80211_conn_work+0x10/0x10 [cfg80211] ? update_cfs_rq_load_avg+0x3bc/0x3d7 ? sched_clock_noinstr+0x9/0x1a ? sched_clock+0x10/0x24 ? sched_clock_cpu+0x7e/0x42e ? newidle_balance+0x796/0x937 ? __pfx_sched_clock_cpu+0x10/0x10 ? __pfx_newidle_balance+0x10/0x10 ? __kasan_check_read+0x11/0x1f ? psi_group_change+0x8bc/0x944 ? _raw_spin_unlock+0xe/0x24 ? raw_spin_rq_unlock+0x47/0x54 ? raw_spin_rq_unlock_irq+0x9/0x1f ? finish_task_switch.isra.0+0x347/0x586 ? __schedule+0x27bf/0x2892 ? mutex_unlock+0x80/0xd0 ? do_raw_spin_lock+0x75/0xdb ? __pfx___schedule+0x10/0x10 process_scheduled_works+0x58c/0x821 worker_thread+0x4c7/0x586 ? __kasan_check_read+0x11/0x1f kthread+0x285/0x294 ? __pfx_worker_thread+0x10/0x10 ? __pfx_kthread+0x10/0x10 ret_from_fork+0x29/0x6f ? __pfx_kthread+0x10/0x10 ret_from_fork_asm+0x1b/0x30 </TASK>",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.18 以上 6.12.13 未満","Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002559":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: padata: avoid UAF for reorder_work Although the previous patch can avoid ps and ps UAF for _do_serial, it can not avoid potential UAF issue for reorder_work. This issue can happen just as below: crypto_request crypto_request crypto_del_alg padata_do_serial ... padata_reorder // processes all remaining // requests then breaks while (1) { if (!padata) break; ... } padata_do_serial // new request added list_add // sees the new request queue_work(reorder_work) padata_reorder queue_work_on(squeue->work) ... <kworker context> padata_serial_worker // completes new request, // no more outstanding // requests crypto_del_alg // free pd <kworker context> invoke_padata_reorder // UAF of pd To avoid UAF for 'reorder_work', get 'pd' ref before put 'reorder_work' into the 'serial_wq' and put 'pd' ref until the 'serial_wq' finish.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.4.19 以上 5.5 未満",
+            "Linux Kernel 5.5.3 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.79 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.76 未満",
+            "Linux Kernel 6.7 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002558":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: RDMA/mlx5: Fix implicit ODP use after free Prevent double queueing of implicit ODP mr destroy work by using __xa_cmpxchg() to make sure this is the only time we are destroying this specific mr. Without this change, we could try to invalidate this mr twice, which in turn could result in queuing a MR work destroy twice, and eventually the second work could execute after the MR was freed due to the first work, causing a user after free and trace below. refcount_t: underflow; use-after-free. WARNING: CPU: 2 PID: 12178 at lib/refcount.c:28 refcount_warn_saturate+0x12b/0x130 Modules linked in: bonding ib_ipoib vfio_pci ip_gre geneve nf_tables ip6_gre gre ip6_tunnel tunnel6 ipip tunnel4 ib_umad rdma_ucm mlx5_vfio_pci vfio_pci_core vfio_iommu_type1 mlx5_ib vfio ib_uverbs mlx5_core iptable_raw openvswitch nsh rpcrdma ib_iser libiscsi scsi_transport_iscsi rdma_cm iw_cm ib_cm ib_core xt_conntrack xt_MASQUERADE nf_conntrack_netlink nfnetlink xt_addrtype iptable_nat nf_nat br_netfilter rpcsec_gss_krb5 auth_rpcgss oid_registry overlay zram zsmalloc fuse [last unloaded: ib_uverbs] CPU: 2 PID: 12178 Comm: kworker/u20:5 Not tainted 6.5.0-rc1_net_next_mlx5_58c644e #1 Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS rel-1.13.0-0-gf21b5a4aeb02-prebuilt.qemu.org 04/01/2014 Workqueue: events_unbound free_implicit_child_mr_work [mlx5_ib] RIP: 0010:refcount_warn_saturate+0x12b/0x130 Code: 48 c7 c7 38 95 2a 82 c6 05 bc c6 fe 00 01 e8 0c 66 aa ff 0f 0b 5b c3 48 c7 c7 e0 94 2a 82 c6 05 a7 c6 fe 00 01 e8 f5 65 aa ff <0f> 0b 5b c3 90 8b 07 3d 00 00 00 c0 74 12 83 f8 01 74 13 8d 50 ff RSP: 0018:ffff8881008e3e40 EFLAGS: 00010286 RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000027 RDX: ffff88852c91b5c8 RSI: 0000000000000001 RDI: ffff88852c91b5c0 RBP: ffff8881dacd4e00 R08: 00000000ffffffff R09: 0000000000000019 R10: 000000000000072e R11: 0000000063666572 R12: ffff88812bfd9e00 R13: ffff8881c792d200 R14: ffff88810011c005 R15: ffff8881002099c0 FS: 0000000000000000(0000) GS:ffff88852c900000(0000) knlGS:0000000000000000 CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: 00007f5694b5e000 CR3: 00000001153f6003 CR4: 0000000000370ea0 DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 Call Trace: <TASK> ? refcount_warn_saturate+0x12b/0x130 free_implicit_child_mr_work+0x180/0x1b0 [mlx5_ib] process_one_work+0x1cc/0x3c0 worker_thread+0x218/0x3c0 kthread+0xc6/0xf0 ret_from_fork+0x1f/0x30 </TASK>",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.5 以上 6.12.13 未満", "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002518":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: arp: use RCU protection in arp_xmit() arp_xmit() can be called without RTNL or RCU protection. Use RCU protection to avoid potential UAF.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.4 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002504":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: nilfs2: protect access to buffers with no active references nilfs_lookup_dirty_data_buffers(), which iterates through the buffers attached to dirty data folios/pages, accesses the attached buffers without locking the folios/pages. For data cache, nilfs_clear_folio_dirty() may be called asynchronously when the file system degenerates to read only, so nilfs_lookup_dirty_data_buffers() still has the potential to cause use after free issues when buffers lose the protection of their dirty state midway due to this asynchronous clearing and are unintentionally freed by try_to_free_buffers(). Eliminate this race issue by adjusting the lock section in this function.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 3.10 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.76 未満",
+            "Linux Kernel 6.7 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002503":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: nfsd: clear acl_access/acl_default after releasing them If getting acl_default fails, acl_access and acl_default will be released simultaneously. However, acl_access will still retain a pointer pointing to the released posix_acl, which will trigger a WARNING in nfs3svc_release_getacl like this: ------------[ cut here ]------------ refcount_t: underflow; use-after-free. WARNING: CPU: 26 PID: 3199 at lib/refcount.c:28 refcount_warn_saturate+0xb5/0x170 Modules linked in: CPU: 26 UID: 0 PID: 3199 Comm: nfsd Not tainted 6.12.0-rc6-00079-g04ae226af01f-dirty #8 Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.1-2.fc37 04/01/2014 RIP: 0010:refcount_warn_saturate+0xb5/0x170 Code: cc cc 0f b6 1d b3 20 a5 03 80 fb 01 0f 87 65 48 d8 00 83 e3 01 75 e4 48 c7 c7 c0 3b 9b 85 c6 05 97 20 a5 03 01 e8 fb 3e 30 ff <0f> 0b eb cd 0f b6 1d 8a3 RSP: 0018:ffffc90008637cd8 EFLAGS: 00010282 RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffffff83904fde RDX: dffffc0000000000 RSI: 0000000000000008 RDI: ffff88871ed36380 RBP: ffff888158beeb40 R08: 0000000000000001 R09: fffff520010c6f56 R10: ffffc90008637ab7 R11: 0000000000000001 R12: 0000000000000001 R13: ffff888140e77400 R14: ffff888140e77408 R15: ffffffff858b42c0 FS: 0000000000000000(0000) GS:ffff88871ed00000(0000) knlGS:0000000000000000 CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033 CR2: 0000562384d32158 CR3: 000000055cc6a000 CR4: 00000000000006f0 DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000 DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400 Call Trace: <TASK> ? refcount_warn_saturate+0xb5/0x170 ? __warn+0xa5/0x140 ? refcount_warn_saturate+0xb5/0x170 ? report_bug+0x1b1/0x1e0 ? handle_bug+0x53/0xa0 ? exc_invalid_op+0x17/0x40 ? asm_exc_invalid_op+0x1a/0x20 ? tick_nohz_tick_stopped+0x1e/0x40 ? refcount_warn_saturate+0xb5/0x170 ? refcount_warn_saturate+0xb5/0x170 nfs3svc_release_getacl+0xc9/0xe0 svc_process_common+0x5db/0xb60 ? __pfx_svc_process_common+0x10/0x10 ? __rcu_read_unlock+0x69/0xa0 ? __pfx_nfsd_dispatch+0x10/0x10 ? svc_xprt_received+0xa1/0x120 ? xdr_init_decode+0x11d/0x190 svc_process+0x2a7/0x330 svc_handle_xprt+0x69d/0x940 svc_recv+0x180/0x2d0 nfsd+0x168/0x200 ? __pfx_nfsd+0x10/0x10 kthread+0x1a2/0x1e0 ? kthread+0xf4/0x1e0 ? __pfx_kthread+0x10/0x10 ret_from_fork+0x34/0x60 ? __pfx_kthread+0x10/0x10 ret_from_fork_asm+0x1a/0x30 </TASK> Kernel panic - not syncing: kernel: panic_on_warn set ... Clear acl_access/acl_default after posix_acl_release is called to prevent UAF from being triggered.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.13 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002502":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: workqueue: Put the pwq after detaching the rescuer from the pool The commit 68f83057b913(\"workqueue: Reap workers via kthread_stop() and remove detach_completion\") adds code to reap the normal workers but mistakenly does not handle the rescuer and also removes the code waiting for the rescuer in put_unbound_pool(), which caused a use-after-free bug reported by Cheung Wall. To avoid the use-after-free bug, the pool’s reference must be held until the detachment is complete. Therefore, move the code that puts the pwq after detaching the rescuer from the pool.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.12.16 未満", "Linux Kernel 6.13 以上 6.13.4 未満"]
+    },
+    "JVNDB-2025-002497":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: neighbour: use RCU protection in __neigh_notify() __neigh_notify() can be called without RTNL or RCU protection. Use RCU protection to avoid potential UAF.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.25 以上 5.4.291 未満",
+            "Linux Kernel 5.5 以上 5.10.235 未満",
+            "Linux Kernel 5.11 以上 5.15.179 未満",
+            "Linux Kernel 5.16 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002496":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ax25: rcu protect dev->ax25_ptr syzbot found a lockdep issue [1]. We should remove ax25 RTNL dependency in ax25_setsockopt() This should also fix a variety of possible UAF in ax25. [1] WARNING: possible circular locking dependency detected 6.13.0-rc3-syzkaller-00762-g9268abe611b0 #0 Not tainted ------------------------------------------------------ syz.5.1818/12806 is trying to acquire lock: ffffffff8fcb3988 (rtnl_mutex){+.+.}-{4:4}, at: ax25_setsockopt+0xa55/0xe90 net/ax25/af_ax25.c:680 but task is already holding lock: ffff8880617ac258 (sk_lock-AF_AX25){+.+.}-{0:0}, at: lock_sock include/net/sock.h:1618 [inline] ffff8880617ac258 (sk_lock-AF_AX25){+.+.}-{0:0}, at: ax25_setsockopt+0x209/0xe90 net/ax25/af_ax25.c:574 which lock already depends on the new lock. the existing dependency chain (in reverse order) is: -> #1 (sk_lock-AF_AX25){+.+.}-{0:0}: lock_acquire+0x1ed/0x550 kernel/locking/lockdep.c:5849 lock_sock_nested+0x48/0x100 net/core/sock.c:3642 lock_sock include/net/sock.h:1618 [inline] ax25_kill_by_device net/ax25/af_ax25.c:101 [inline] ax25_device_event+0x24d/0x580 net/ax25/af_ax25.c:146 notifier_call_chain+0x1a5/0x3f0 kernel/notifier.c:85 __dev_notify_flags+0x207/0x400 dev_change_flags+0xf0/0x1a0 net/core/dev.c:9026 dev_ifsioc+0x7c8/0xe70 net/core/dev_ioctl.c:563 dev_ioctl+0x719/0x1340 net/core/dev_ioctl.c:820 sock_do_ioctl+0x240/0x460 net/socket.c:1234 sock_ioctl+0x626/0x8e0 net/socket.c:1339 vfs_ioctl fs/ioctl.c:51 [inline] __do_sys_ioctl fs/ioctl.c:906 [inline] __se_sys_ioctl+0xf5/0x170 fs/ioctl.c:892 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f -> #0 (rtnl_mutex){+.+.}-{4:4}: check_prev_add kernel/locking/lockdep.c:3161 [inline] check_prevs_add kernel/locking/lockdep.c:3280 [inline] validate_chain+0x18ef/0x5920 kernel/locking/lockdep.c:3904 __lock_acquire+0x1397/0x2100 kernel/locking/lockdep.c:5226 lock_acquire+0x1ed/0x550 kernel/locking/lockdep.c:5849 __mutex_lock_common kernel/locking/mutex.c:585 [inline] __mutex_lock+0x1ac/0xee0 kernel/locking/mutex.c:735 ax25_setsockopt+0xa55/0xe90 net/ax25/af_ax25.c:680 do_sock_setsockopt+0x3af/0x720 net/socket.c:2324 __sys_setsockopt net/socket.c:2349 [inline] __do_sys_setsockopt net/socket.c:2355 [inline] __se_sys_setsockopt net/socket.c:2352 [inline] __x64_sys_setsockopt+0x1ee/0x280 net/socket.c:2352 do_syscall_x64 arch/x86/entry/common.c:52 [inline] do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe+0x77/0x7f other info that might help us debug this: Possible unsafe locking scenario: CPU0 CPU1 ---- ---- lock(sk_lock-AF_AX25); lock(rtnl_mutex); lock(sk_lock-AF_AX25); lock(rtnl_mutex); *** DEADLOCK *** 1 lock held by syz.5.1818/12806: #0: ffff8880617ac258 (sk_lock-AF_AX25){+.+.}-{0:0}, at: lock_sock include/net/sock.h:1618 [inline] #0: ffff8880617ac258 (sk_lock-AF_AX25){+.+.}-{0:0}, at: ax25_setsockopt+0x209/0xe90 net/ax25/af_ax25.c:574 stack backtrace: CPU: 1 UID: 0 PID: 12806 Comm: syz.5.1818 Not tainted 6.13.0-rc3-syzkaller-00762-g9268abe611b0 #0 Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 09/13/2024 Call Trace: <TASK> __dump_stack lib/dump_stack.c:94 [inline] dump_stack_lvl+0x241/0x360 lib/dump_stack.c:120 print_circular_bug+0x13a/0x1b0 kernel/locking/lockdep.c:2074 check_noncircular+0x36a/0x4a0 kernel/locking/lockdep.c:2206 check_prev_add kernel/locking/lockdep.c:3161 [inline] check_prevs_add kernel/lockin ---truncated---",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 3.18.132 以上 3.19 未満",
+            "Linux Kernel 4.4.170 以上 4.5 未満",
+            "Linux Kernel 4.9.149 以上 4.10 未満",
+            "Linux Kernel 4.14.92 以上 4.15 未満",
+            "Linux Kernel 4.19.14 以上 4.20 未満",
+            "Linux Kernel 4.20.1 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.76 未満",
+            "Linux Kernel 6.7 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002434":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ibmvnic: Don't reference skb after sending to VIOS Previously, after successfully flushing the xmit buffer to VIOS, the tx_bytes stat was incremented by the length of the skb. It is invalid to access the skb memory after sending the buffer to the VIOS because, at any point after sending, the VIOS can trigger an interrupt to free this memory. A race between reading skb->len and freeing the skb is possible (especially during LPM) and will result in use-after-free: ================================================================== BUG: KASAN: slab-use-after-free in ibmvnic_xmit+0x75c/0x1808 [ibmvnic] Read of size 4 at addr c00000024eb48a70 by task hxecom/14495 <...> Call Trace: [c000000118f66cf0] [c0000000018cba6c] dump_stack_lvl+0x84/0xe8 (unreliable) [c000000118f66d20] [c0000000006f0080] print_report+0x1a8/0x7f0 [c000000118f66df0] [c0000000006f08f0] kasan_report+0x128/0x1f8 [c000000118f66f00] [c0000000006f2868] __asan_load4+0xac/0xe0 [c000000118f66f20] [c0080000046eac84] ibmvnic_xmit+0x75c/0x1808 [ibmvnic] [c000000118f67340] [c0000000014be168] dev_hard_start_xmit+0x150/0x358 <...> Freed by task 0: kasan_save_stack+0x34/0x68 kasan_save_track+0x2c/0x50 kasan_save_free_info+0x64/0x108 __kasan_mempool_poison_object+0x148/0x2d4 napi_skb_cache_put+0x5c/0x194 net_tx_action+0x154/0x5b8 handle_softirqs+0x20c/0x60c do_softirq_own_stack+0x6c/0x88 <...> The buggy address belongs to the object at c00000024eb48a00 which belongs to the cache skbuff_head_cache of size 224",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.5 以上 6.1.130 未満",
+            "Linux Kernel 6.2 以上 6.6.80 未満",
+            "Linux Kernel 6.7 以上 6.12.17 未満",
+            "Linux Kernel 6.13 以上 6.13.5 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002433":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: geneve: Fix use-after-free in geneve_find_dev(). syzkaller reported a use-after-free in geneve_find_dev() [0] without repro. geneve_configure() links struct geneve_dev.next to net_generic(net, geneve_net_id)->geneve_list. The net here could differ from dev_net(dev) if IFLA_NET_NS_PID, IFLA_NET_NS_FD, or IFLA_TARGET_NETNSID is set. When dev_net(dev) is dismantled, geneve_exit_batch_rtnl() finally calls unregister_netdevice_queue() for each dev in the netns, and later the dev is freed. However, its geneve_dev.next is still linked to the backend UDP socket netns. Then, use-after-free will occur when another geneve dev is created in the netns. Let's call geneve_dellink() instead in geneve_destroy_tunnels(). [0]: BUG: KASAN: slab-use-after-free in geneve_find_dev drivers/net/geneve.c:1295 [inline] BUG: KASAN: slab-use-after-free in geneve_configure+0x234/0x858 drivers/net/geneve.c:1343 Read of size 2 at addr ffff000054d6ee24 by task syz.1.4029/13441 CPU: 1 UID: 0 PID: 13441 Comm: syz.1.4029 Not tainted 6.13.0-g0ad9617c78ac #24 dc35ca22c79fb82e8e7bc5c9c9adafea898b1e3d Hardware name: linux,dummy-virt (DT) Call trace: show_stack+0x38/0x50 arch/arm64/kernel/stacktrace.c:466 (C) __dump_stack lib/dump_stack.c:94 [inline] dump_stack_lvl+0xbc/0x108 lib/dump_stack.c:120 print_address_description mm/kasan/report.c:378 [inline] print_report+0x16c/0x6f0 mm/kasan/report.c:489 kasan_report+0xc0/0x120 mm/kasan/report.c:602 __asan_report_load2_noabort+0x20/0x30 mm/kasan/report_generic.c:379 geneve_find_dev drivers/net/geneve.c:1295 [inline] geneve_configure+0x234/0x858 drivers/net/geneve.c:1343 geneve_newlink+0xb8/0x128 drivers/net/geneve.c:1634 rtnl_newlink_create+0x23c/0x868 net/core/rtnetlink.c:3795 __rtnl_newlink net/core/rtnetlink.c:3906 [inline] rtnl_newlink+0x1054/0x1630 net/core/rtnetlink.c:4021 rtnetlink_rcv_msg+0x61c/0x918 net/core/rtnetlink.c:6911 netlink_rcv_skb+0x1dc/0x398 net/netlink/af_netlink.c:2543 rtnetlink_rcv+0x34/0x50 net/core/rtnetlink.c:6938 netlink_unicast_kernel net/netlink/af_netlink.c:1322 [inline] netlink_unicast+0x618/0x838 net/netlink/af_netlink.c:1348 netlink_sendmsg+0x5fc/0x8b0 net/netlink/af_netlink.c:1892 sock_sendmsg_nosec net/socket.c:713 [inline] __sock_sendmsg net/socket.c:728 [inline] ____sys_sendmsg+0x410/0x6f8 net/socket.c:2568 ___sys_sendmsg+0x178/0x1d8 net/socket.c:2622 __sys_sendmsg net/socket.c:2654 [inline] __do_sys_sendmsg net/socket.c:2659 [inline] __se_sys_sendmsg net/socket.c:2657 [inline] __arm64_sys_sendmsg+0x12c/0x1c8 net/socket.c:2657 __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline] invoke_syscall+0x90/0x278 arch/arm64/kernel/syscall.c:49 el0_svc_common+0x13c/0x250 arch/arm64/kernel/syscall.c:132 do_el0_svc+0x54/0x70 arch/arm64/kernel/syscall.c:151 el0_svc+0x4c/0xa8 arch/arm64/kernel/entry-common.c:744 el0t_64_sync_handler+0x78/0x108 arch/arm64/kernel/entry-common.c:762 el0t_64_sync+0x198/0x1a0 arch/arm64/kernel/entry.S:600 Allocated by task 13247: kasan_save_stack mm/kasan/common.c:47 [inline] kasan_save_track+0x30/0x68 mm/kasan/common.c:68 kasan_save_alloc_info+0x44/0x58 mm/kasan/generic.c:568 poison_kmalloc_redzone mm/kasan/common.c:377 [inline] __kasan_kmalloc+0x84/0xa0 mm/kasan/common.c:394 kasan_kmalloc include/linux/kasan.h:260 [inline] __do_kmalloc_node mm/slub.c:4298 [inline] __kmalloc_node_noprof+0x2a0/0x560 mm/slub.c:4304 __kvmalloc_node_noprof+0x9c/0x230 mm/util.c:645 alloc_netdev_mqs+0xb8/0x11a0 net/core/dev.c:11470 rtnl_create_link+0x2b8/0xb50 net/core/rtnetlink.c:3604 rtnl_newlink_create+0x19c/0x868 net/core/rtnetlink.c:3780 __rtnl_newlink net/core/rtnetlink.c:3906 [inline] rtnl_newlink+0x1054/0x1630 net/core/rtnetlink.c:4021 rtnetlink_rcv_msg+0x61c/0x918 net/core/rtnetlink.c:6911 netlink_rcv_skb+0x1dc/0x398 net/netlink/af_netlink.c:2543 rtnetlink_rcv+0x34/0x50 net/core/rtnetlink.c:6938 netlink_unicast_kernel net/netlink/af_n ---truncated---",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.2 以上 6.1.130 未満",
+            "Linux Kernel 6.2 以上 6.6.80 未満",
+            "Linux Kernel 6.7 以上 6.12.17 未満",
+            "Linux Kernel 6.13 以上 6.13.5 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002416":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: HID: corsair-void: Add missing delayed work cancel for headset status The cancel_delayed_work_sync() call was missed, causing a use-after-free in corsair_void_remove().",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.13 以上 6.13.4 未満", "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002411":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: vrf: use RCU protection in l3mdev_l3_out() l3mdev_l3_out() can be called without RCU being held: raw_sendmsg() ip_push_pending_frames() ip_send_skb() ip_local_out() __ip_local_out() l3mdev_ip_out() Add rcu_read_lock() / rcu_read_unlock() pair to avoid a potential UAF.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.9 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002409":{
+        "title": "Linux の Linux Kernel における脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: io_uring: prevent opcode speculation sqe->opcode is used for different tables, make sure we santitise it against speculations.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.6 以上 6.6.80 未満",
+            "Linux Kernel 6.7 以上 6.12.17 未満",
+            "Linux Kernel 6.13 以上 6.13.5 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002405":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: s390/ism: add release function for struct device According to device_release() in /drivers/base/core.c, a device without a release function is a broken device and must be fixed. The current code directly frees the device after calling device_add() without waiting for other kernel parts to release their references. Thus, a reference could still be held to a struct device, e.g., by sysfs, leading to potential use-after-free issues if a proper release function is not set.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.3 以上 6.6.80 未満",
+            "Linux Kernel 6.7 以上 6.12.17 未満",
+            "Linux Kernel 6.13 以上 6.13.5 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002372":{
+        "title": "Linux の Linux Kernel における競合状態に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: net: rose: fix timer races against user threads Rose timers only acquire the socket spinlock, without checking if the socket is owned by one user thread. Add a check and rearm the timers if needed. BUG: KASAN: slab-use-after-free in rose_timer_expiry+0x31d/0x360 net/rose/rose_timer.c:174 Read of size 2 at addr ffff88802f09b82a by task swapper/0/0 CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 6.13.0-rc5-syzkaller-00172-gd1bf27c4e176 #0 Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 09/13/2024 Call Trace: <IRQ> __dump_stack lib/dump_stack.c:94 [inline] dump_stack_lvl+0x241/0x360 lib/dump_stack.c:120 print_address_description mm/kasan/report.c:378 [inline] print_report+0x169/0x550 mm/kasan/report.c:489 kasan_report+0x143/0x180 mm/kasan/report.c:602 rose_timer_expiry+0x31d/0x360 net/rose/rose_timer.c:174 call_timer_fn+0x187/0x650 kernel/time/timer.c:1793 expire_timers kernel/time/timer.c:1844 [inline] __run_timers kernel/time/timer.c:2418 [inline] __run_timer_base+0x66a/0x8e0 kernel/time/timer.c:2430 run_timer_base kernel/time/timer.c:2439 [inline] run_timer_softirq+0xb7/0x170 kernel/time/timer.c:2449 handle_softirqs+0x2d4/0x9b0 kernel/softirq.c:561 __do_softirq kernel/softirq.c:595 [inline] invoke_softirq kernel/softirq.c:435 [inline] __irq_exit_rcu+0xf7/0x220 kernel/softirq.c:662 irq_exit_rcu+0x9/0x30 kernel/softirq.c:678 instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline] sysvec_apic_timer_interrupt+0xa6/0xc0 arch/x86/kernel/apic/apic.c:1049 </IRQ>",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 2.6.12 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.76 未満",
+            "Linux Kernel 6.7 以上 6.12.13 未満",
+            "Linux Kernel 6.13 以上 6.13.2 未満"]
+    },
+    "JVNDB-2025-002340":{
+        "title": "Linux の Linux Kernel における境界外書き込みに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo array The loop that detects/populates cache information already has a bounds check on the array size but does not account for cache levels with separate data/instructions cache. Fix this by incrementing the index for any populated leaf (instead of any populated level).",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.0 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002338":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: usbnet: ipheth: fix possible overflow in DPE length check Originally, it was possible for the DPE length check to overflow if wDatagramIndex + wDatagramLength > U16_MAX. This could lead to an OoB read. Move the wDatagramIndex term to the other side of the inequality. An existing condition ensures that wDatagramIndex < urb->actual_length.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.5 以上 6.6.78 未満",
+            "Linux Kernel 6.7 以上 6.12.14 未満",
+            "Linux Kernel 6.13 以上 6.13.3 未満"]
+    },
+    "JVNDB-2025-002337":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: HID: hid-thrustmaster: fix stack-out-of-bounds read in usb_check_int_endpoints() Syzbot[1] has detected a stack-out-of-bounds read of the ep_addr array from hid-thrustmaster driver. This array is passed to usb_check_int_endpoints function from usb.c core driver, which executes a for loop that iterates over the elements of the passed array. Not finding a null element at the end of the array, it tries to read the next, non-existent element, crashing the kernel. To fix this, a 0 element was added at the end of the array to break the for loop. [1] https://syzkaller.appspot.com/bug?extid=9c9179ac46169c56c1ad",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.6.76 以上 6.6.79 未満",
+            "Linux Kernel 6.12.13 以上 6.12.16 未満",
+            "Linux Kernel 6.13.2 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002318":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: usbnet: ipheth: use static NDP16 location in URB Original code allowed for the start of NDP16 to be anywhere within the URB based on the `wNdpIndex` value in NTH16. Only the start position of NDP16 was checked, so it was possible for even the fixed-length part of NDP16 to extend past the end of URB, leading to an out-of-bounds read. On iOS devices, the NDP16 header always directly follows NTH16. Rely on and check for this specific format. This, along with NCM-specific minimal URB length check that already exists, will ensure that the fixed-length part of NDP16 plus a set amount of DPEs fit within the URB. Note that this commit alone does not fully address the OoB read. The limit on the amount of DPEs needs to be enforced separately.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.5 以上 6.6.78 未満",
+            "Linux Kernel 6.7 以上 6.12.14 未満",
+            "Linux Kernel 6.13 以上 6.13.3 未満"]
+    },
+    "JVNDB-2025-002287":{
+        "title": "Linux の Linux Kernel における古典的バッファオーバーフローの脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: drm/amdgpu: avoid buffer overflow attach in smu_sys_set_pp_table() It malicious user provides a small pptable through sysfs and then a bigger pptable, it may cause buffer overflow attack in function smu_sys_set_pp_table().",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+                },
+    "JVNDB-2025-002260":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: usbnet: ipheth: fix DPE OoB read Fix an out-of-bounds DPE read, limit the number of processed DPEs to the amount that fits into the fixed-size NDP16 header.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.5 以上 6.6.78 未満",
+            "Linux Kernel 6.7 以上 6.12.14 未満",
+            "Linux Kernel 6.13 以上 6.13.3 未満"]
+    },
+    "JVNDB-2025-002209":{
+        "title": "Linux の Linux Kernel における境界外書き込みに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: net: hns3: fixed hclge_fetch_pf_reg accesses bar space out of bounds issue The TQP BAR space is divided into two segments. TQPs 0-1023 and TQPs 1024-1279 are in different BAR space addresses. However, hclge_fetch_pf_reg does not distinguish the tqp space information when reading the tqp space information. When the number of TQPs is greater than 1024, access bar space overwriting occurs. The problem of different segments has been considered during the initialization of tqp.io_base. Therefore, tqp.io_base is directly used when the queue is read in hclge_fetch_pf_reg. The error message: Unable to handle kernel paging request at virtual address ffff800037200000 pc : hclge_fetch_pf_reg+0x138/0x250 [hclge] lr : hclge_get_regs+0x84/0x1d0 [hclge] Call trace: hclge_fetch_pf_reg+0x138/0x250 [hclge] hclge_get_regs+0x84/0x1d0 [hclge] hns3_get_regs+0x2c/0x50 [hns3] ethtool_get_regs+0xf4/0x270 dev_ethtool+0x674/0x8a0 dev_ioctl+0x270/0x36c sock_do_ioctl+0x110/0x2a0 sock_ioctl+0x2ac/0x530 __arm64_sys_ioctl+0xa8/0x100 invoke_syscall+0x4c/0x124 el0_svc_common.constprop.0+0x140/0x15c do_el0_svc+0x30/0xd0 el0_svc+0x1c/0x2c el0_sync_handler+0xb0/0xb4 el0_sync+0x168/0x180",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.4.16 以上 6.5 未満",
+            "Linux Kernel 6.5.3 以上 6.12.10 未満",
+            "Linux Kernel 6.13"]
+    },
+    "JVNDB-2025-002190":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: LoongArch: csum: Fix OoB access in IP checksum code for negative lengths Commit 69e3a6aa6be2 (\"LoongArch: Add checksum optimization for 64-bit system\") would cause an undefined shift and an out-of-bounds read. Commit 8bd795fedb84 (\"arm64: csum: Fix OoB access in IP checksum code for negative lengths\") fixes the same issue on ARM64.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.4 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満",
+            "Linux Kernel 6.14"]
+    },
+    "JVNDB-2025-002164":{
+        "title": "Linux の Linux Kernel における境界外書き込みに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: NFC: nci: Add bounds checking in nci_hci_create_pipe() The \"pipe\" variable is a u8 which comes from the network. If it's more than 127, then it results in memory corruption in the caller, nci_hci_connect_gate().",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.4 以上 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.78 未満",
+            "Linux Kernel 6.7 以上 6.12.14 未満",
+            "Linux Kernel 6.13 以上 6.13.3 未満"]
+    },
+    "JVNDB-2025-002093":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: orangefs: fix a oob in orangefs_debug_write I got a syzbot report: slab-out-of-bounds Read in orangefs_debug_write... several people suggested fixes, I tested Al Viro's suggestion and made this patch.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.1.129 未満",
+            "Linux Kernel 6.2 以上 6.6.79 未満",
+            "Linux Kernel 6.7 以上 6.12.16 未満",
+            "Linux Kernel 6.13 以上 6.13.4 未満"]
+    },
+    "JVNDB-2025-001780":{
+        "title": "Linux の Linux Kernel における配列インデックスの検証に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: net: sched: fix ets qdisc OOB Indexing Haowei Yan <g1042620637@gmail.com> found that ets_class_from_arg() can index an Out-Of-Bound class in ets_class_from_arg() when passed clid of 0. The overflow may cause local privilege escalation. [ 18.852298] ------------[ cut here ]------------ [ 18.853271] UBSAN: array-index-out-of-bounds in net/sched/sch_ets.c:93:20 [ 18.853743] index 18446744073709551615 is out of range for type 'ets_class [16]' [ 18.854254] CPU: 0 UID: 0 PID: 1275 Comm: poc Not tainted 6.12.6-dirty #17 [ 18.854821] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1 04/01/2014 [ 18.856532] Call Trace: [ 18.857441] <TASK> [ 18.858227] dump_stack_lvl+0xc2/0xf0 [ 18.859607] dump_stack+0x10/0x20 [ 18.860908] __ubsan_handle_out_of_bounds+0xa7/0xf0 [ 18.864022] ets_class_change+0x3d6/0x3f0 [ 18.864322] tc_ctl_tclass+0x251/0x910 [ 18.864587] ? lock_acquire+0x5e/0x140 [ 18.865113] ? __mutex_lock+0x9c/0xe70 [ 18.866009] ? __mutex_lock+0xa34/0xe70 [ 18.866401] rtnetlink_rcv_msg+0x170/0x6f0 [ 18.866806] ? __lock_acquire+0x578/0xc10 [ 18.867184] ? __pfx_rtnetlink_rcv_msg+0x10/0x10 [ 18.867503] netlink_rcv_skb+0x59/0x110 [ 18.867776] rtnetlink_rcv+0x15/0x30 [ 18.868159] netlink_unicast+0x1c3/0x2b0 [ 18.868440] netlink_sendmsg+0x239/0x4b0 [ 18.868721] ____sys_sendmsg+0x3e2/0x410 [ 18.869012] ___sys_sendmsg+0x88/0xe0 [ 18.869276] ? rseq_ip_fixup+0x198/0x260 [ 18.869563] ? rseq_update_cpu_node_id+0x10a/0x190 [ 18.869900] ? trace_hardirqs_off+0x5a/0xd0 [ 18.870196] ? syscall_exit_to_user_mode+0xcc/0x220 [ 18.870547] ? do_syscall_64+0x93/0x150 [ 18.870821] ? __memcg_slab_free_hook+0x69/0x290 [ 18.871157] __sys_sendmsg+0x69/0xd0 [ 18.871416] __x64_sys_sendmsg+0x1d/0x30 [ 18.871699] x64_sys_call+0x9e2/0x2670 [ 18.871979] do_syscall_64+0x87/0x150 [ 18.873280] ? do_syscall_64+0x93/0x150 [ 18.874742] ? lock_release+0x7b/0x160 [ 18.876157] ? do_user_addr_fault+0x5ce/0x8f0 [ 18.877833] ? irqentry_exit_to_user_mode+0xc2/0x210 [ 18.879608] ? irqentry_exit+0x77/0xb0 [ 18.879808] ? clear_bhb_loop+0x15/0x70 [ 18.880023] ? clear_bhb_loop+0x15/0x70 [ 18.880223] ? clear_bhb_loop+0x15/0x70 [ 18.880426] entry_SYSCALL_64_after_hwframe+0x76/0x7e [ 18.880683] RIP: 0033:0x44a957 [ 18.880851] Code: ff ff e8 fc 00 00 00 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 64 8b 04 25 18 00 00 00 85 c0 75 10 b8 2e 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 51 c3 48 83 ec 28 89 54 24 1c 48 8974 24 10 [ 18.881766] RSP: 002b:00007ffcdd00fad8 EFLAGS: 00000246 ORIG_RAX: 000000000000002e [ 18.882149] RAX: ffffffffffffffda RBX: 00007ffcdd010db8 RCX: 000000000044a957 [ 18.882507] RDX: 0000000000000000 RSI: 00007ffcdd00fb70 RDI: 0000000000000003 [ 18.885037] RBP: 00007ffcdd010bc0 R08: 000000000703c770 R09: 000000000703c7c0 [ 18.887203] R10: 0000000000000080 R11: 0000000000000246 R12: 0000000000000001 [ 18.888026] R13: 00007ffcdd010da8 R14: 00000000004ca7d0 R15: 0000000000000001 [ 18.888395] </TASK> [ 18.888610] ---[ end trace ]---",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.6 以上 5.10.234 未満",
+            "Linux Kernel 5.11 以上 5.15.178 未満",
+            "Linux Kernel 5.16 以上 6.1.128 未満",
+            "Linux Kernel 6.2 以上 6.6.75 未満",
+            "Linux Kernel 6.7 以上 6.12.12 未満",
+            "Linux Kernel 6.13"]
+    },
+    "JVNDB-2025-001709":{
+        "title": "Linux の Linux Kernel における境界外読み取りに関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: vfio/platform: check the bounds of read/write syscalls count and offset are passed from user space and not checked, only offset is capped to 40 bits, which can be used to read/write out of bounds of the device.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 4.1 以上 5.4.290 未満",
+            "Linux Kernel 5.5 以上 5.10.234 未満",
+            "Linux Kernel 5.11 以上 5.15.178 未満",
+            "Linux Kernel 5.16 以上 6.1.128 未満",
+            "Linux Kernel 6.2 以上 6.6.75 未満",
+            "Linux Kernel 6.7 以上 6.12.12 未満",
+            "Linux Kernel 6.13"]
+    },
+    "JVNDB-2025-001392":{
+        "title": "Linux の Linux Kernel における配列インデックスの検証に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: pktgen: Avoid out-of-bounds access in get_imix_entries Passing a sufficient amount of imix entries leads to invalid access to the pkt_dev->imix_entries array because of the incorrect boundary check. UBSAN: array-index-out-of-bounds in net/core/pktgen.c:874:24 index 20 is out of range for type 'imix_pkt [20]' CPU: 2 PID: 1210 Comm: bash Not tainted 6.10.0-rc1 #121 Hardware name: QEMU Standard PC (i440FX + PIIX, 1996) Call Trace: <TASK> dump_stack_lvl lib/dump_stack.c:117 __ubsan_handle_out_of_bounds lib/ubsan.c:429 get_imix_entries net/core/pktgen.c:874 pktgen_if_write net/core/pktgen.c:1063 pde_write fs/proc/inode.c:334 proc_reg_write fs/proc/inode.c:346 vfs_write fs/read_write.c:593 ksys_write fs/read_write.c:644 do_syscall_64 arch/x86/entry/common.c:83 entry_SYSCALL_64_after_hwframe arch/x86/entry/entry_64.S:130 Found by Linux Verification Center (linuxtesting.org) with SVACE. [ fp: allow to fill the array completely; minor changelog cleanup ]",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.15 以上 5.15.177 未満",
+            "Linux Kernel 5.16 以上 6.1.127 未満",
+            "Linux Kernel 6.2 以上 6.6.74 未満",
+            "Linux Kernel 6.7 以上 6.12.11 未満",
+            "Linux Kernel 6.13"]
+    },
+    "JVNDB-2025-001390":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: ipvlan: Fix use-after-free in ipvlan_get_iflink(). syzbot presented an use-after-free report [0] regarding ipvlan and linkwatch. ipvlan does not hold a refcnt of the lower device unlike vlan and macvlan. If the linkwatch work is triggered for the ipvlan dev, the lower dev might have already been freed, resulting in UAF of ipvlan->phy_dev in ipvlan_get_iflink(). We can delay the lower dev unregistration like vlan and macvlan by holding the lower dev's refcnt in dev->netdev_ops->ndo_init() and releasing it in dev->priv_destructor(). Jakub pointed out calling .ndo_XXX after unregister_netdevice() has returned is error prone and suggested [1] addressing this UAF in the core by taking commit 750e51603395 (\"net: avoid potential UAF in default_operstate()\") further. Let's assume unregistering devices DOWN and use RCU protection in default_operstate() not to race with the device unregistration. [0]: BUG: KASAN: slab-use-after-free in ipvlan_get_iflink+0x84/0x88 drivers/net/ipvlan/ipvlan_main.c:353 Read of size 4 at addr ffff0000d768c0e0 by task kworker/u8:35/6944 CPU: 0 UID: 0 PID: 6944 Comm: kworker/u8:35 Not tainted 6.13.0-rc2-g9bc5c9515b48 #12 4c3cb9e8b4565456f6a355f312ff91f4f29b3c47 Hardware name: linux,dummy-virt (DT) Workqueue: events_unbound linkwatch_event Call trace: show_stack+0x38/0x50 arch/arm64/kernel/stacktrace.c:484 (C) __dump_stack lib/dump_stack.c:94 [inline] dump_stack_lvl+0xbc/0x108 lib/dump_stack.c:120 print_address_description mm/kasan/report.c:378 [inline] print_report+0x16c/0x6f0 mm/kasan/report.c:489 kasan_report+0xc0/0x120 mm/kasan/report.c:602 __asan_report_load4_noabort+0x20/0x30 mm/kasan/report_generic.c:380 ipvlan_get_iflink+0x84/0x88 drivers/net/ipvlan/ipvlan_main.c:353 dev_get_iflink+0x7c/0xd8 net/core/dev.c:674 default_operstate net/core/link_watch.c:45 [inline] rfc2863_policy+0x144/0x360 net/core/link_watch.c:72 linkwatch_do_dev+0x60/0x228 net/core/link_watch.c:175 __linkwatch_run_queue+0x2f4/0x5b8 net/core/link_watch.c:239 linkwatch_event+0x64/0xa8 net/core/link_watch.c:282 process_one_work+0x700/0x1398 kernel/workqueue.c:3229 process_scheduled_works kernel/workqueue.c:3310 [inline] worker_thread+0x8c4/0xe10 kernel/workqueue.c:3391 kthread+0x2b0/0x360 kernel/kthread.c:389 ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:862 Allocated by task 9303: kasan_save_stack mm/kasan/common.c:47 [inline] kasan_save_track+0x30/0x68 mm/kasan/common.c:68 kasan_save_alloc_info+0x44/0x58 mm/kasan/generic.c:568 poison_kmalloc_redzone mm/kasan/common.c:377 [inline] __kasan_kmalloc+0x84/0xa0 mm/kasan/common.c:394 kasan_kmalloc include/linux/kasan.h:260 [inline] __do_kmalloc_node mm/slub.c:4283 [inline] __kmalloc_node_noprof+0x2a0/0x560 mm/slub.c:4289 __kvmalloc_node_noprof+0x9c/0x230 mm/util.c:650 alloc_netdev_mqs+0xb4/0x1118 net/core/dev.c:11209 rtnl_create_link+0x2b8/0xb60 net/core/rtnetlink.c:3595 rtnl_newlink_create+0x19c/0x868 net/core/rtnetlink.c:3771 __rtnl_newlink net/core/rtnetlink.c:3896 [inline] rtnl_newlink+0x122c/0x15c0 net/core/rtnetlink.c:4011 rtnetlink_rcv_msg+0x61c/0x918 net/core/rtnetlink.c:6901 netlink_rcv_skb+0x1dc/0x398 net/netlink/af_netlink.c:2542 rtnetlink_rcv+0x34/0x50 net/core/rtnetlink.c:6928 netlink_unicast_kernel net/netlink/af_netlink.c:1321 [inline] netlink_unicast+0x618/0x838 net/netlink/af_netlink.c:1347 netlink_sendmsg+0x5fc/0x8b0 net/netlink/af_netlink.c:1891 sock_sendmsg_nosec net/socket.c:711 [inline] __sock_sendmsg net/socket.c:726 [inline] __sys_sendto+0x2ec/0x438 net/socket.c:2197 __do_sys_sendto net/socket.c:2204 [inline] __se_sys_sendto net/socket.c:2200 [inline] __arm64_sys_sendto+0xe4/0x110 net/socket.c:2200 __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline] invoke_syscall+0x90/0x278 arch/arm64/kernel/syscall.c:49 el0_svc_common+0x13c/0x250 arch/arm64/kernel/syscall.c:132 do_el0_svc+0x54/0x70 arch/arm64/kernel/syscall.c:151 el ---truncated---",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.2 以上 6.6.72 未満",
+            "Linux Kernel 6.7 以上 6.12.10 未満",
+            "Linux Kernel 6.13"]
+    },
+    "JVNDB-2025-001342":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: block, bfq: fix waker_bfqq UAF after bfq_split_bfqq() Our syzkaller report a following UAF for v6.6: BUG: KASAN: slab-use-after-free in bfq_init_rq+0x175d/0x17a0 block/bfq-iosched.c:6958 Read of size 8 at addr ffff8881b57147d8 by task fsstress/232726 CPU: 2 PID: 232726 Comm: fsstress Not tainted 6.6.0-g3629d1885222 #39 Call Trace: <TASK> __dump_stack lib/dump_stack.c:88 [inline] dump_stack_lvl+0x91/0xf0 lib/dump_stack.c:106 print_address_description.constprop.0+0x66/0x300 mm/kasan/report.c:364 print_report+0x3e/0x70 mm/kasan/report.c:475 kasan_report+0xb8/0xf0 mm/kasan/report.c:588 hlist_add_head include/linux/list.h:1023 [inline] bfq_init_rq+0x175d/0x17a0 block/bfq-iosched.c:6958 bfq_insert_request.isra.0+0xe8/0xa20 block/bfq-iosched.c:6271 bfq_insert_requests+0x27f/0x390 block/bfq-iosched.c:6323 blk_mq_insert_request+0x290/0x8f0 block/blk-mq.c:2660 blk_mq_submit_bio+0x1021/0x15e0 block/blk-mq.c:3143 __submit_bio+0xa0/0x6b0 block/blk-core.c:639 __submit_bio_noacct_mq block/blk-core.c:718 [inline] submit_bio_noacct_nocheck+0x5b7/0x810 block/blk-core.c:747 submit_bio_noacct+0xca0/0x1990 block/blk-core.c:847 __ext4_read_bh fs/ext4/super.c:205 [inline] ext4_read_bh+0x15e/0x2e0 fs/ext4/super.c:230 __read_extent_tree_block+0x304/0x6f0 fs/ext4/extents.c:567 ext4_find_extent+0x479/0xd20 fs/ext4/extents.c:947 ext4_ext_map_blocks+0x1a3/0x2680 fs/ext4/extents.c:4182 ext4_map_blocks+0x929/0x15a0 fs/ext4/inode.c:660 ext4_iomap_begin_report+0x298/0x480 fs/ext4/inode.c:3569 iomap_iter+0x3dd/0x1010 fs/iomap/iter.c:91 iomap_fiemap+0x1f4/0x360 fs/iomap/fiemap.c:80 ext4_fiemap+0x181/0x210 fs/ext4/extents.c:5051 ioctl_fiemap.isra.0+0x1b4/0x290 fs/ioctl.c:220 do_vfs_ioctl+0x31c/0x11a0 fs/ioctl.c:811 __do_sys_ioctl fs/ioctl.c:869 [inline] __se_sys_ioctl+0xae/0x190 fs/ioctl.c:857 do_syscall_x64 arch/x86/entry/common.c:51 [inline] do_syscall_64+0x70/0x120 arch/x86/entry/common.c:81 entry_SYSCALL_64_after_hwframe+0x78/0xe2 Allocated by task 232719: kasan_save_stack+0x22/0x50 mm/kasan/common.c:45 kasan_set_track+0x25/0x30 mm/kasan/common.c:52 __kasan_slab_alloc+0x87/0x90 mm/kasan/common.c:328 kasan_slab_alloc include/linux/kasan.h:188 [inline] slab_post_alloc_hook mm/slab.h:768 [inline] slab_alloc_node mm/slub.c:3492 [inline] kmem_cache_alloc_node+0x1b8/0x6f0 mm/slub.c:3537 bfq_get_queue+0x215/0x1f00 block/bfq-iosched.c:5869 bfq_get_bfqq_handle_split+0x167/0x5f0 block/bfq-iosched.c:6776 bfq_init_rq+0x13a4/0x17a0 block/bfq-iosched.c:6938 bfq_insert_request.isra.0+0xe8/0xa20 block/bfq-iosched.c:6271 bfq_insert_requests+0x27f/0x390 block/bfq-iosched.c:6323 blk_mq_insert_request+0x290/0x8f0 block/blk-mq.c:2660 blk_mq_submit_bio+0x1021/0x15e0 block/blk-mq.c:3143 __submit_bio+0xa0/0x6b0 block/blk-core.c:639 __submit_bio_noacct_mq block/blk-core.c:718 [inline] submit_bio_noacct_nocheck+0x5b7/0x810 block/blk-core.c:747 submit_bio_noacct+0xca0/0x1990 block/blk-core.c:847 __ext4_read_bh fs/ext4/super.c:205 [inline] ext4_read_bh_nowait+0x15a/0x240 fs/ext4/super.c:217 ext4_read_bh_lock+0xac/0xd0 fs/ext4/super.c:242 ext4_bread_batch+0x268/0x500 fs/ext4/inode.c:958 __ext4_find_entry+0x448/0x10f0 fs/ext4/namei.c:1671 ext4_lookup_entry fs/ext4/namei.c:1774 [inline] ext4_lookup.part.0+0x359/0x6f0 fs/ext4/namei.c:1842 ext4_lookup+0x72/0x90 fs/ext4/namei.c:1839 __lookup_slow+0x257/0x480 fs/namei.c:1696 lookup_slow fs/namei.c:1713 [inline] walk_component+0x454/0x5c0 fs/namei.c:2004 link_path_walk.part.0+0x773/0xda0 fs/namei.c:2331 link_path_walk fs/namei.c:3826 [inline] path_openat+0x1b9/0x520 fs/namei.c:3826 do_filp_open+0x1b7/0x400 fs/namei.c:3857 do_sys_openat2+0x5dc/0x6e0 fs/open.c:1428 do_sys_open fs/open.c:1443 [inline] __do_sys_openat fs/open.c:1459 [inline] __se_sys_openat fs/open.c:1454 [inline] __x64_sys_openat+0x148/0x200 fs/open.c:1454 do_syscall_x64 arch/x86/entry/common.c:51 [inline] do_syscall_6 ---truncated---",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 5.15.168 以上 5.15.177 未満",
+            "Linux Kernel 6.1.113 以上 6.1.125 未満",
+            "Linux Kernel 6.6.54 以上 6.6.72 未満",
+            "Linux Kernel 6.10.13 以上 6.11 未満",
+            "Linux Kernel 6.11.2 以上 6.12.10 未満",
+            "Linux Kernel 6.13"]
+    },
+    "JVNDB-2025-001327":{
+        "title": "Linux の Linux Kernel における解放済みメモリの使用に関する脆弱性",
+        "description": "In the Linux kernel, the following vulnerability has been resolved: zram: fix potential UAF of zram table If zram_meta_alloc failed early, it frees allocated zram->table without setting it NULL. Which will potentially cause zram_meta_free to access the table if user reset an failed and uninitialized device.",
+        "technologies": "Linux Kernel",
+        "version": ["Linux Kernel 6.1.122 以上 6.1.127 未満",
+            "Linux Kernel 6.6.68 以上 6.6.74 未満",
+            "Linux Kernel 6.12.7 以上 6.12.11 未満"]
+    },
+    "JVNDB-2025-001027":{
+        "title": "Linux Ratfor におけるスタックベースのバッファオーバーフローの脆弱性",
+        "description": "Stack-based buffer overflow vulnerability exists in Linux Ratfor 1.06 and earlier. When the software processes a file which is specially crafted by an attacker, arbitrary code may be executed. As a result, the attacker may obtain or alter information of the user environment or cause the user environment to become unusable.",
+        "technologies": "Linux Ratfor",
+        "version": "1.06 およびそれ以前"
+    },
+    "":{
+        "title": "",
+        "description": "",
+        "technologies": "",
+        "version": ""
+    }
+}
