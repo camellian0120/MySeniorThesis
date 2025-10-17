@@ -1,4 +1,10 @@
 {
+    "JVNDB-2025-016156":{
+        "title": "Linux Foundation の Python 用 pytorch における脆弱性",
+        "description": "An issue in pytorch v2.7.0 can lead to a Denial of Service (DoS) when a PyTorch model consists of torch.Tensor.to_sparse() and torch.Tensor.to_dense() and is compiled by Inductor.",
+        "technologies": "pytorch",
+        "version": "2.7.0 およびそれ以前"
+    },
     "JVNDB-2025-015967":{
         "title": "escanav の Linux 用 escan anti-virus におけるバッファエラーの脆弱性",
         "description": "A vulnerability was found in MicroWord eScan Antivirus 7.0.32 on Linux and classified as critical. Affected by this issue is the function strcpy of the component VirusPopUp. The manipulation leads to stack-based buffer overflow. The attack needs to be approached locally. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
