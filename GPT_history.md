@@ -5,7 +5,241 @@
 ---
 <br/>
 
-# query
+# query-task2
+以下の条件を満たすPythonプログラムを作成してください
+
+## ライブラリ
+- scrapy
+
+## 実装仕様
+- scrapyで以下のWEBサイトからスクレイピング\
+"https://jvndb.jvn.jp/ja/contents/2025/JVNDB-2025-016156.html"
+- 上記サイト内に含まれる"https://www.cve.org/CVERecord?id=CVE-XXXX-XXXXXX.html"内もクローリング
+- scrapyのプロジェクトファイルは"jvn_spider"とし、作成するクラスは"JvnSpider"とする
+- スクレイピング内容は、以下の5つ
+1. "JVNDB-"から始まる脆弱性番号
+2. "脆弱性"で終わる脆弱性の概要
+3. JVNDBのサイト内に記述されている影響を受ける技術
+4. JVNDBのサイト内に記述されている影響を受ける技術のバージョン
+5. CVERecordのサイト内のDescription
+- スクレイピング結果はjsonに保存
+- jsonファイルの形式は、上記でスクレイピングした内容を含み、以下の例に従う
+
+## 出力する.jsonファイルの例
+```json
+{
+    "JVNDB-XXXX-XXXXX":{
+        "title": "XXXの脆弱性",
+        "description": "An issue in pytorch v2.7.0 can lead to a Denial of Service (DoS) when a PyTorch model consists of torch.Tensor.to_sparse() and torch.Tensor.to_dense() and is compiled by Inductor.",
+        "technologies": "pytorch",
+        "version": "2.7.0 およびそれ以前"
+    },
+}
+```
+
+## 注意点
+- コードは読みやすくシンプルに記述する
+- 例外処理(エラーハンドリング)を適切に追加する
+- 日本語でコメントをつける
+
+---
+<br/>
+
+# output2
+以下は、あなたの要件をすべて満たす `Scrapy` プロジェクトのコード例です。
+
+---
+
+## 📁 ディレクトリ構成（`jvn_spider`）
+
+```
+jvn_spider/
+├── jvn_spider/
+│   ├── __init__.py
+│   ├── items.py
+│   ├── middlewares.py
+│   ├── pipelines.py
+│   ├── settings.py
+│   └── spiders/
+│       ├── __init__.py
+│       └── jvn_spider.py  ← メインクローラ
+├── scrapy.cfg
+```
+
+---
+
+## ✅ 実装手順
+
+### 1. プロジェクト作成
+
+```bash
+scrapy startproject jvn_spider
+```
+
+---
+
+### 2. `items.py`：出力用のデータ構造を定義
+
+```python
+# jvn_spider/items.py
+
+import scrapy
+
+class JvnItem(scrapy.Item):
+    jvndb_id = scrapy.Field()
+    title = scrapy.Field()
+    description = scrapy.Field()
+    technologies = scrapy.Field()
+    version = scrapy.Field()
+```
+
+---
+
+### 3. `jvn_spider.py`：スクレイピング処理本体
+
+```python
+# jvn_spider/spiders/jvn_spider.py
+
+import scrapy
+from jvn_spider.items import JvnItem
+
+class JvnSpider(scrapy.Spider):
+    name = "jvn_spider"
+    allowed_domains = ["jvndb.jvn.jp", "cve.org"]
+    start_urls = [
+        "https://jvndb.jvn.jp/ja/contents/2025/JVNDB-2025-016156.html"
+    ]
+
+    def parse(self, response):
+        item = JvnItem()
+
+        try:
+            # 1. JVNDB ID を抽出
+            jvndb_id = response.css('h1::text').re_first(r"(JVNDB-\d{4}-\d+)")
+            item['jvndb_id'] = jvndb_id
+
+            # 2. タイトル (概要) を抽出
+            title = response.css("div.vulnOverview h2::text").get()
+            item['title'] = title.strip() if title else ""
+
+            # 3. 影響を受ける技術
+            tech = response.xpath("//th[contains(text(), '影響を受けるシステム')]/following-sibling::td//text()").get()
+            item['technologies'] = tech.strip() if tech else ""
+
+            # 4. バージョン情報
+            version = response.xpath("//th[contains(text(), 'バージョン')]/following-sibling::td//text()").get()
+            item['version'] = version.strip() if version else ""
+
+            # 5. CVE Record のURLを抽出
+            cve_url = response.css("a::attr(href)").re_first(r"https://www\.cve\.org/CVERecord\?id=CVE-\d{4}-\d+")
+            if cve_url:
+                # 次のページへ遷移して Description を取得
+                request = scrapy.Request(cve_url, callback=self.parse_cve)
+                request.meta['item'] = item
+                yield request
+            else:
+                self.logger.warning("CVE URL が見つかりませんでした")
+                item['description'] = ""
+                yield item
+
+        except Exception as e:
+            self.logger.error(f"解析中にエラーが発生しました: {e}")
+
+    def parse_cve(self, response):
+        item = response.meta['item']
+        try:
+            # 5. CVE の Description を抽出
+            desc = response.xpath("//h2[text()='Description']/following-sibling::p/text()").get()
+            item['description'] = desc.strip() if desc else ""
+        except Exception as e:
+            self.logger.error(f"CVEページ解析中にエラーが発生しました: {e}")
+            item['description'] = ""
+        yield item
+```
+
+---
+
+### 4. `pipelines.py`：結果を JSON 形式に変換して保存
+
+```python
+# jvn_spider/pipelines.py
+
+import json
+from collections import defaultdict
+
+class JvnSpiderPipeline:
+    def __init__(self):
+        self.data = defaultdict(dict)
+
+    def process_item(self, item, spider):
+        self.data[item['jvndb_id']] = {
+            "title": item['title'],
+            "description": item['description'],
+            "technologies": item['technologies'],
+            "version": item['version']
+        }
+        return item
+
+    def close_spider(self, spider):
+        # JSON ファイルへ出力
+        with open('jvn_results.json', 'w', encoding='utf-8') as f:
+            json.dump(self.data, f, ensure_ascii=False, indent=4)
+```
+
+---
+
+### 5. `settings.py`：パイプラインを有効化
+
+```python
+# jvn_spider/settings.py
+
+# 出力の文字コード設定
+FEED_EXPORT_ENCODING = 'utf-8'
+
+# パイプラインの有効化
+ITEM_PIPELINES = {
+   'jvn_spider.pipelines.JvnSpiderPipeline': 300,
+}
+```
+
+---
+
+### ✅ 実行方法
+
+```bash
+cd jvn_spider
+scrapy crawl jvn_spider
+```
+
+完了後、`jvn_results.json` というファイルが生成されます。
+
+---
+
+## 🔍 出力例
+
+```json
+{
+    "JVNDB-2025-016156": {
+        "title": "XXXの脆弱性",
+        "description": "An issue in pytorch v2.7.0 can lead to a Denial of Service (DoS)...",
+        "technologies": "pytorch",
+        "version": "2.7.0 およびそれ以前"
+    }
+}
+```
+
+---
+
+## ☑ 補足と注意
+
+* 例外処理は `try-except` により明示的に行っています。
+* CSS / XPath は将来的に HTML 構造が変わる可能性があるため、メンテナンス性も意識してください。
+* テスト時には対象URLの内容が変更されていないか確認してください。
+
+---
+<br/>
+
+# query-task2
 以下の条件を満たすPythonプログラムを作成してください
 
 ## ライブラリ
@@ -44,12 +278,6 @@ https://www.cve.org/CVERecord?id=CVE-2025-55560
 - コードは読みやすくシンプルに記述する
 - 例外処理(エラーハンドリング)を適切に追加する
 - 日本語でコメントをつける
-
----
-<br/>
-
-# output2
-
 
 ---
 <br/>
