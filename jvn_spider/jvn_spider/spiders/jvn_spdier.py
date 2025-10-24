@@ -3,6 +3,8 @@
 # クローリング用
 import scrapy
 from jvn_spider.items import JvnItem
+# from scrapy_playwright.page import PageMethod # need scrapy-playwright, playwright
+
 # 文字列置換用
 import re
 # テスト用
