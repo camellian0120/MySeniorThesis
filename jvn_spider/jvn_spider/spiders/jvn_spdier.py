@@ -54,14 +54,14 @@ class JvnSpider(scrapy.Spider):
             # blockquote属性をすべて取得してから先頭にある<ul><li>属性のついたものとする
             tech = response.css("blockquote").getall()
 
-            # 不要なタグを外してjsonに追加
+            # 先頭の要素を取り出す
             for loop in tech:
                 if re.match(r'<blockquote>[\s\S]*?<ul>[\s\S]*?<li>[\s\S]*?[\s\S]*?</blockquote>', loop):
                     tech_data = loop
                     break
-            
-            # 整形してデータをjsonに追加
-            # 不必要な要素を除いて、最初の要素を技術/その後の要素をバージョン情報とする
+
+            # 可能ならここで不要なタグやエスケープ文字を外して、データをjsonに追加
+            # 最初の要素は技術情報に
             count = 0
 
             # テスト
