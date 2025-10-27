@@ -3,7 +3,7 @@
 # クローリング用
 import scrapy
 from jvn_spider.items import JvnItem
-# from scrapy_playwright.page import PageMethod # need scrapy-playwright, playwright
+from scrapy_playwright.page import PageCoroutine
 
 # 文字列置換用
 import re
@@ -17,7 +17,7 @@ class JvnSpider(scrapy.Spider):
     
     # 許可されるドメイン
     allowed_domains = ["jvndb.jvn.jp", "cve.org"]
-    
+
     # 開始地点のドメイン
     start_urls = [
         "https://jvndb.jvn.jp/ja/contents/2025/JVNDB-2025-016156.html",
@@ -82,8 +82,20 @@ class JvnSpider(scrapy.Spider):
             # ページが見つかったなら実行
             if cve_url:
                 # 次のページへ遷移して Description を取得
-                request = scrapy.Request(cve_url, callback=self.parse_cve)
-                request.meta['item'] = item
+                self.logger.info(f"CVEページを取得中: {cve_url}")
+                # Playwrightを使用してJavaScriptをレンダリング
+                request = scrapy.Request(
+                    cve_url,
+                    callback=self.parse_cve,
+                    meta={
+                        "playwright": True,
+                        "playwright_include_page": True,
+                        "playwright_page_coroutines": [
+                            PageCoroutine("wait_for_selector", "p.content.cve-x-scroll")
+                        ],
+                        "item": item,
+                    },
+                )
                 yield request
             
             # ページが見つからなかったらdescriptionは空欄にして終了 
@@ -97,14 +109,17 @@ class JvnSpider(scrapy.Spider):
             self.logger.error(f"解析中にエラーが発生しました: {e}")
 
     # CVE用からのスクレイピング
-    def parse_cve(self, response):
+    async def parse_cve(self, response):
         item = response.meta['item']
         # 4. CVE の Description を抽出
         try:
-            # descriptionを取得してjsonに追加
-            desc = response.css('').getall()
-            print(desc)
-            item['description'] = desc
+            # CVE.org の Description（JSレンダリング後）を抽出してjsonに追加
+            desc = response.css("p.content.cve-x-scroll::text").get()
+            if desc:
+                item['description'] = desc.strip()
+            else:
+                self.logger.warning("CVEページで description が見つかりませんでした")
+                item['description'] = ""
         
         # エラーが起きた場合は例外+空欄で終了
         except Exception as e:
