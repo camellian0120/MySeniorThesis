@@ -96,3 +96,11 @@ ITEM_PIPELINES = {
    'jvn_spider.pipelines.JvnSpiderPipeline': 300,
 }
 
+# scrapy-playwright の設定
+DOWNLOAD_HANDLERS = {
+    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+}
+TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+
+PLAYWRIGHT_DEFAULT_NAVIGATION_TIMEOUT = 30000
