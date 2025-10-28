@@ -1,130 +1,147 @@
 # jvn_spider.py
-# imports ##########
-# クローリング用
+from bs4 import BeautifulSoup
 import scrapy
-from jvn_spider.items import JvnItem
-from scrapy_playwright.page import PageCoroutine
-
-# 文字列置換用
 import re
-# テスト用
 from pprint import pprint
+from jvn_spider.items import JvnItem
 
-# メインのクローラ
+
 class JvnSpider(scrapy.Spider):
-    # 呼び出し用の名前
     name = "jvn_spider"
-    
-    # 許可されるドメイン
     allowed_domains = ["jvndb.jvn.jp", "cve.org"]
 
-    # 開始地点のドメイン
+    # 検索ページをスタートURLとして指定
     start_urls = [
-        "https://jvndb.jvn.jp/ja/contents/2025/JVNDB-2025-016156.html",
-        "https://jvndb.jvn.jp/ja/contents/2024/JVNDB-2024-007579.html"
+        "https://jvndb.jvn.jp/search/index.php?"
+        "mode=_vulnerability_search_IA_VulnSearch"
+        "&lang=ja"
+        "&keyword=wordpress"
+        "&useSynonym=1"
+        "&vendor="
+        "&product="
+        "&datePublicFromYear=2023"
+        "&datePublicFromMonth=04"
+        "&datePublicToYear=2025"
+        "&datePublicToMonth=12"
+        "&dateLastPublishedFromYear="
+        "&dateLastPublishedFromMonth="
+        "&dateLastPublishedToYear="
+        "&dateLastPublishedToMonth="
+        "&v3Severity%5B%5D=01"
+        "&v3Severity%5B%5D=02"
+        "&v3Severity%5B%5D=03"
+        "&cwe="
+        "&searchProductId="
     ]
 
-    # メインの処理
     def parse(self, response):
-        # クラスからアイテムを形成
+        """検索結果ページからJVNDB詳細ページへのリンクを抽出"""
+        # 個別JVNDBページリンク
+        links = response.css("a::attr(href)").re(r"^/ja/contents/\d{4}/JVNDB-\d{4}-\d+\.html$")
+        self.logger.info(f"{len(links)} 件のJVNDBリンクを発見")
+
+        # 個別ページを解析用にリクエスト
+        for link in links:
+            url = response.urljoin(link)
+            yield scrapy.Request(url, callback=self.parse_detail)
+
+        # --- 自動で次ページに遷移 ---
+        if links:
+            # 現在の pageNo を取得（デフォルト1）
+            current_page_no = response.url.split("&pageNo=")[-1] if "&pageNo=" in response.url else "1"
+            try:
+                next_page_no = int(current_page_no) + 1
+            except ValueError:
+                next_page_no = 2
+
+            # 次ページのURLを作成
+            base_url = re.sub(r"&pageNo=\d+", "", response.url)  # 既存の pageNo を削除
+            next_page_url = f"{base_url}&pageNo={next_page_no}"
+
+            # 次ページを確認するためのリクエスト（リンクが存在すれば parse が呼ばれる）
+            self.logger.info(f"次のページに移動: {next_page_url}")
+            yield scrapy.Request(next_page_url, callback=self.parse)
+        else:
+            self.logger.info("次ページが存在しないためクロールを終了します")
+
+    def parse_detail(self, response):
+        """個別のJVNDBページを解析"""
         item = JvnItem()
-
-        # 実行してみる
         try:
-            # 1. JVNの脆弱性のタイトルを抽出
-            # <font face="arial, geneva, helvetica"> よりフォントが強制されている部分を判別
-            # 複数ある場合は大文字英+数+ハイフンのみが含まれているものを選択
-            jvndb_id = response.css('font::text').getall()  # jvndb_id = ['JVNDB-2025-016156']
-
-            # jsonに追加
+            # --- 1. JVNDB-ID抽出 ---
+            jvndb_id = response.css('font::text').getall()
             for loop in jvndb_id:
                 if re.fullmatch(r'JVNDB-[0-9]*-[0-9]*', loop):
                     item['jvndb_id'] = loop
-            
-            # 2. JVNDB-ID を抽出
-            # <h2> テキストをすべて取得、複数ある場合は日本語が含まれているかで判別
-            title = response.css('h2::text').getall()   # title = ['Linux\xa0Foundation\xa0の\xa0Python\xa0用\xa0pytorch\xa0における脆弱性']
-            
-            # 半角スペースを正常にしてjsonに追加
+
+            # --- 2. タイトル抽出 ---
+            title = response.css('h2::text').getall()
             for loop in title:
                 if re.match(r'.*\W.*', loop):
                     item['title'] = re.sub('\xa0', ' ', loop)
 
-            # 3. 影響を受ける技術/バージョン
-            # blockquote属性をすべて取得してから先頭にある<ul><li>属性のついたものとする
-            tech = response.css("blockquote").getall()
-
-            # 先頭の要素を取り出す
-            for loop in tech:
-                if re.match(r'<blockquote>[\s\S]*?<ul>[\s\S]*?<li>[\s\S]*?[\s\S]*?</blockquote>', loop):
+            # --- 3. 影響を受ける技術/バージョン ---
+            tech_blocks = response.css("blockquote").getall()
+            tech_data = ""
+            for loop in tech_blocks:
+                if re.match(r'<blockquote>[\s\S]*?<ul>[\s\S]*?<li>[\s\S]*?</blockquote>', loop):
                     tech_data = loop
                     break
 
-            # 可能ならここで不要なタグやエスケープ文字を外して、データをjsonに追加
-            # 最初の要素は技術情報に
-            count = 0
+            if tech_data:
+                soup = BeautifulSoup(tech_data, "html.parser")
+                text = soup.get_text(separator="\n", strip=True)
+                cleaned_text = re.sub(r"\s*\n\s*", "\n", text)
+                cleaned_text = re.sub(r"\xa0", " ", cleaned_text)
+                cleaned_text = cleaned_text.strip()
+                item["technologies"] = cleaned_text
+            else:
+                item["technologies"] = ""
 
-            # テスト
-            pprint(tech_data)
-            print(tech_data)
-            print(type(tech_data))
+            # --- 4. CVE URL抽出 ---
+            cve_url = response.css("a::attr(href)").re_first(
+                r"https://www\.cve\.org/CVERecord\?id=CVE-\d{4}-\d+"
+            )
 
-            # 技術情報を埋める
-            item['technologies'] = tech_data
-
-            # バージョン情報を埋める
-            item['version'] = tech_data
-
-            # 4. cve.orgからDescriptionを抽出
-            # cve.org/CVERecordのURLを抽出する
-            cve_url = response.css("a::attr(href)").re_first(r"https://www\.cve\.org/CVERecord\?id=CVE-\d{4}-\d+")
-
-            # ページが見つかったなら実行
             if cve_url:
-                # 次のページへ遷移して Description を取得
-                self.logger.info(f"CVEページを取得中: {cve_url}")
-                # Playwrightを使用してJavaScriptをレンダリング
                 request = scrapy.Request(
                     cve_url,
                     callback=self.parse_cve,
                     meta={
+                        "item": item,
                         "playwright": True,
                         "playwright_include_page": True,
-                        "playwright_page_coroutines": [
-                            PageCoroutine("wait_for_selector", "p.content.cve-x-scroll")
-                        ],
-                        "item": item,
                     },
                 )
                 yield request
-            
-            # ページが見つからなかったらdescriptionは空欄にして終了 
             else:
-                self.logger.warning("CVE URL が見つかりませんでした")
+                self.logger.warning(f"CVE URL が見つかりませんでした ({item.get('jvndb_id')})")
                 item['description'] = ""
                 yield item
 
-        # 例外処理の定義
         except Exception as e:
             self.logger.error(f"解析中にエラーが発生しました: {e}")
 
-    # CVE用からのスクレイピング
     async def parse_cve(self, response):
+        """CVE.orgの<p class='content cve-x-scroll'>を抽出"""
         item = response.meta['item']
-        # 4. CVE の Description を抽出
+        page = response.meta["playwright_page"]
+
         try:
-            # CVE.org の Description（JSレンダリング後）を抽出してjsonに追加
-            desc = response.css("p.content.cve-x-scroll::text").get()
-            if desc:
-                item['description'] = desc.strip()
-            else:
-                self.logger.warning("CVEページで description が見つかりませんでした")
-                item['description'] = ""
-        
-        # エラーが起きた場合は例外+空欄で終了
+            await page.wait_for_selector("p.content.cve-x-scroll", timeout=10000)
+            elements = await page.query_selector_all("p.content.cve-x-scroll")
+            texts = [await el.inner_text() for el in elements]
+            joined_text = "\n".join([t.strip() for t in texts])
+            cleaned_text = re.sub(r"\s+\n", "\n", joined_text).strip()
+            item["description"] = cleaned_text
+            await page.close()
+
         except Exception as e:
             self.logger.error(f"CVEページ解析中にエラーが発生しました: {e}")
-            item['description'] = ""
-        
-        # 完成したjsonを引き渡す
+            item["description"] = ""
+            try:
+                await page.close()
+            except:
+                pass
+
         yield item

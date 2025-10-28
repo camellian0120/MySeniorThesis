@@ -11,8 +11,8 @@ class JvnSpiderPipeline:
         self.data[item['jvndb_id']] = {
             "title": item['title'],
             "description": item['description'],
-            "technologies": item['technologies'],
-            "version": item['version']
+            "technologies": item['technologies']
+            # "version": item['version']
         }
         return item
 

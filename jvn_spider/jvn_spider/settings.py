@@ -93,14 +93,24 @@ FEED_EXPORT_ENCODING = "utf-8"
 
 # パイプラインの有効化
 ITEM_PIPELINES = {
-   'jvn_spider.pipelines.JvnSpiderPipeline': 300,
+    'jvn_spider.pipelines.JvnSpiderPipeline': 300,
 }
 
 # scrapy-playwright の設定
+# ---- Playwright設定 ----
+# HTTP と HTTPS のダウンロードハンドラーを指定する
 DOWNLOAD_HANDLERS = {
-    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
-    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    'http': 'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler',
+    'https': 'scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler',
 }
-TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+
+# Playwright 設定を有効にする
+TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
+
+# Playwright 設定（オプション）
+PLAYWRIGHT_BROWSER_TYPE = 'chromium'  # 'chromium', 'firefox'のいずれか
+PLAYWRIGHT_LAUNCH_OPTIONS = {
+    'headless': True,
+}
 
 PLAYWRIGHT_DEFAULT_NAVIGATION_TIMEOUT = 30000

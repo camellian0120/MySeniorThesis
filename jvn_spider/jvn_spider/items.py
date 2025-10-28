@@ -7,4 +7,4 @@ class JvnItem(scrapy.Item):
     title = scrapy.Field()
     description = scrapy.Field()
     technologies = scrapy.Field()
-    version = scrapy.Field()
+    # version = scrapy.Field()
