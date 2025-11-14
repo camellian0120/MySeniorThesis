@@ -1,0 +1,74 @@
+/* style.css */
+body {
+  font-family: "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  background: #f5f7fa;
+  color: #222;
+  padding: 20px;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.controls button {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+#status {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  gap: 2px;
+  background: #333;
+  padding: 4px;
+  width: max-content;
+}
+.cell {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  position: relative;
+  background: #fff;
+}
+.wall {
+  background: #222;
+}
+.player {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: #ffeb3b;
+}
+.goal {
+  background: #b2ff59;
+  font-weight: bold;
+}
+.message {
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 6px;
+}
+.message.error {
+  background: #ffdede;
+  color: #900;
+}
