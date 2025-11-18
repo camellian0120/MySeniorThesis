@@ -18,8 +18,9 @@ def merge_json_files(input_files, output_file):
 if __name__ == "__main__":
     # 結合したいファイルのパスを指定
     input_files = [
-        "in1.json",
-        "in2.json"
+        "jvn_results_php_randConv.json",
+        "jvn_results_wordpress202303_randConv.json",
+        "jvn_results_wordpress202304_randConv.json"
     ]
 
     output_file = "jvn_results_merged.json"
