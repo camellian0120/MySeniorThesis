@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Platformer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        #gameContainer {
+            position: relative;
+        }
+        canvas {
+            background-color: #5c94fc; /* マリオのような青空 */
+            border: 4px solid #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 0 #000;
+        }
+        #controls {
+            margin-top: 10px;
+            text-align: center;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="480"></canvas>
+        <div id="ui">SCORE: <span id="score">0</span></div>
+        
+        <div id="ranking">
+            <h2>ハイスコアランキング</h2>
+            <ol id="highscoreList"></ol>
+            <button onclick="window.location.reload()">再挑戦</button>
+        </div>
+        
+    </div>
+    <div id="controls">
+        操作方法: 矢印キー(← →)で移動、スペースキーでジャンプ
+    </div>
+</div>
+
+<script>
+    // --- ゲーム設定 ---
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreElement = document.getElementById('score');
+
+    // 物理定数
+    const GRAVITY = 0.5;
+    const FRICTION = 0.8;
+    const JUMP_FORCE = -10; // ジャンプ力
+    const SPEED = 5;
+
+    // ゲームの状態
+    let score = 0;
+    let gameOver = false;
+
+    // キー入力管理
+    const keys = {
+        right: false,
+        left: false,
+        up: false
+    };
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'ArrowRight') keys.right = true;
+        if (e.code === 'ArrowLeft') keys.left = true;
+        if (e.code === 'Space' || e.code === 'ArrowUp') keys.up = true;
+    });
+
+    document.addEventListener('keyup', (e) => {
+        if (e.code === 'ArrowRight') keys.right = false;
+        if (e.code === 'ArrowLeft') keys.left = false;
+        if (e.code === 'Space' || e.code === 'ArrowUp') keys.up = false;
+    });
+
+    // --- クラス定義 ---
+
+    // プレイヤー（マリオ役）
+    class Player {
+        constructor() {
+            this.width = 32;
+            this.height = 32;
+            this.x = 50;
+            this.y = 100;
+            this.velX = 0;
+            this.velY = 0;
+            this.jumping = false;
+            this.color = '#ff0000'; // 赤色
+        }
+
+        update() {
+            // 移動処理
+            if (keys.right) {
+                if (this.velX < SPEED) this.velX++;
+            }
+            if (keys.left) {
+                if (this.velX > -SPEED) this.velX--;
+            }
+
+            // 摩擦と重力
+            this.velX *= FRICTION;
+            this.velY += GRAVITY;
+
+            // ジャンプ
+            if (keys.up && !this.jumping) {
+                this.velY = JUMP_FORCE;
+                this.jumping = true;
+            }
+
+            // 位置更新
+            this.x += this.velX;
+            this.y += this.velY;
+
+            // 床の当たり判定（簡易版）
+            this.checkCanvasCollision();
+            this.checkPlatformCollision();
+        }
+
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+            
+            // 目を描いて向きを分かりやすくする
+            ctx.fillStyle = 'white';
+            let eyeOffset = this.velX >= 0 ? 20 : 4;
+            ctx.fillRect(this.x + eyeOffset, this.y + 4, 8, 8);
+        }
+
+        checkCanvasCollision() {
+            // 画面外落下（ゲームオーバー）
+            if (this.y + this.height > canvas.height) {
+                this.y = canvas.height - this.height;
+                this.velY = 0;
+                this.jumping = false;
+                // 落下したらリセット
+                alert("Game Over! Score: " + score);
+                document.location.reload();
+            }
+            // 左右の壁
+            if (this.x < 0) this.x = 0;
+            if (this.x + this.width > canvas.width) this.x = canvas.width - this.width;
+        }
+
+        checkPlatformCollision() {
+            platforms.forEach(platform => {
+                // AABB衝突判定（矩形同士の重なり）
+                if (
+                    this.x < platform.x + platform.width &&
+                    this.x + this.width > platform.x &&
+                    this.y < platform.y + platform.height &&
+                    this.y + this.height > platform.y
+                ) {
+                    // 下方向への落下中に衝突 = 着地
+                    if (this.velY > 0 && this.y + this.height - this.velY <= platform.y) {
+                        this.jumping = false;
+                        this.velY = 0;
+                        this.y = platform.y - this.height;
+                    }
+                    // 上方向（頭ぶつけ）
+                    else if (this.velY < 0 && this.y - this.velY >= platform.y + platform.height) {
+                        this.velY = 0;
+                        this.y = platform.y + platform.height;
+                    }
+                }
+            });
+        }
+    }
+
+    // 地形ブロック
+    class Platform {
+        constructor(x, y, width, height, type) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.type = type; // 1: 通常ブロック, 2: ゴール
+        }
+
+        draw() {
+            if (this.type === 2) {
+                ctx.fillStyle = '#FFD700'; // ゴールは金色
+            } else {
+                ctx.fillStyle = '#e75c10'; // 茶色のブロック
+                ctx.strokeStyle = 'black';
+                ctx.strokeRect(this.x, this.y, this.width, this.height);
+            }
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+            
+            // 草を描画（装飾）
+            if (this.type === 1) {
+                ctx.fillStyle = '#00aa00';
+                ctx.fillRect(this.x, this.y, this.width, 5);
+            }
+        }
+    }
+
+    // 敵キャラ（クリボー風）
+    class Enemy {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.width = 32;
+            this.height = 32;
+            this.speed = 2;
+            this.direction = 1; // 1: 右, -1: 左
+            this.active = true;
+        }
+
+        update() {
+            if (!this.active) return;
+            this.x += this.speed * this.direction;
+
+            // 一定距離で往復（簡易ロジック）
+            // 実際は壁判定を行いますが、今回はパトロール範囲で代用
+            platforms.forEach(p => {
+                 if (this.x > p.x + p.width || this.x < p.x) {
+                     this.direction *= -1;
+                 }
+            });
+        }
+
+        draw() {
+            if (!this.active) return;
+            ctx.fillStyle = '#8B4513'; // 茶色
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+            
+            // 怒った目
+            ctx.fillStyle = 'white';
+            ctx.fillRect(this.x + 5, this.y + 10, 8, 8);
+            ctx.fillRect(this.x + 20, this.y + 10, 8, 8);
+        }
+    }
+
+    // --- レベル生成 ---
+    const player = new Player();
+    const platforms = [];
+    const enemies = [];
+
+    // マップデータ (0:空, 1:ブロック, 2:ゴール, 9:敵)
+    // 15行 x 25列 (32px x 32px)
+    const levelMap = [
+        "0000000000000000000000000",
+        "0000000000000000000000000",
+        "0000000000000000000000000",
+        "0000000000000000000000000",
+        "0000000000000111000000000",
+        "0000000000000000000000002",
+        "0000000000100000000000111",
+        "0000000000000000000000000",
+        "0000111000000000111000000",
+        "0000000000000000000000000",
+        "0000000009000000000000000",
+        "1111111111111111110011111", // 床の穴
+        "0000000000000000000000000",
+        "0000000000000000000000000",
+        "0000000000000000000000000"
+    ];
+
+    // マップ読み込み
+    const TILE_SIZE = 32;
+    for (let row = 0; row < levelMap.length; row++) {
+        for (let col = 0; col < levelMap[row].length; col++) {
+            const tile = levelMap[row][col];
+            const x = col * TILE_SIZE;
+            const y = row * TILE_SIZE;
+
+            if (tile === '1') {
+                platforms.push(new Platform(x, y, TILE_SIZE, TILE_SIZE, 1));
+            } else if (tile === '2') {
+                platforms.push(new Platform(x, y, TILE_SIZE, TILE_SIZE, 2));
+            } else if (tile === '9') {
+                enemies.push(new Enemy(x, y));
+            }
+        }
+    }
+
+// --- メインループ (変更あり) ---
+    function gameLoop() {
+        if (gameOver) return; // ゲームオーバーフラグが立ったら処理停止
+
+        // 画面クリア
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // プレイヤー更新・描画
+        player.update();
+        player.draw();
+
+        // ブロック描画
+        platforms.forEach(platform => platform.draw());
+
+        // 敵の処理
+        enemies.forEach(enemy => {
+            enemy.update();
+            enemy.draw();
+
+            // 敵との衝突判定
+            if (enemy.active &&
+                player.x < enemy.x + enemy.width &&
+                player.x + player.width > enemy.x &&
+                player.y < enemy.y + enemy.height &&
+                player.y + player.height > enemy.y
+            ) {
+                // 上から踏んだら敵を倒す
+                if (player.velY > 0 && player.y + player.height - player.velY <= enemy.y + 10) {
+                    enemy.active = false;
+                    player.velY = -5; // 小ジャンプ
+                    score += 100;
+                    scoreElement.innerText = score;
+                } else {
+                    // 横や下から当たったらゲームオーバー
+                    alert("Game Over! Score: " + score);
+                    document.location.reload();
+                }
+            }
+        });
+
+// ゴール判定 (変更: alertから showRanking へ)
+        platforms.forEach(platform => {
+             if (platform.type === 2 && 
+                 player.x < platform.x + platform.width &&
+                 player.x + player.width > platform.x &&
+                 player.y < platform.y + platform.height &&
+                 player.y + player.height > platform.y) {
+                 
+                 gameOver = true; // ゲームオーバーフラグを立ててループを停止
+                 showRanking(score); // ランキング表示関数を呼び出し
+             }
+        });
+
+        // 画面外落下 (変更: alertから showRanking へ)
+        if (player.y + player.height > canvas.height) {
+            gameOver = true;
+            showRanking(score);
+        }
+
+
+        if (!gameOver) {
+            requestAnimationFrame(gameLoop);
+        }
+    }
+
+    // ゲーム開始
+    gameLoop();
+</script>
+</body>
+</html>
