@@ -10,6 +10,6 @@ My senior-thesis repository
 AI genereted code (chatGPT/Gemini)\
 and\
 human generated code (like under these project)
-> https://github.com/topics/php-project
+> https://github.com/topics/php-project \
 > https://github.com/ozh/top_100_PHP_projects
 
