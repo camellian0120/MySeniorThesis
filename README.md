@@ -6,6 +6,9 @@ My senior-thesis repository
 #### Can't access infloat/multilingual, use this link
 > https://kochiuacjp-my.sharepoint.com/:u:/r/personal/b223r030p_kochi-u_ac_jp/Documents/else/infloat_multilingual-e5-large.tgz?csf=1&web=1&e=12ohi5
 
+#### Can't access jinaai/jina_embeddings-v4, use this link
+> https://kochiuacjp-my.sharepoint.com/:u:/r/personal/b223r030p_kochi-u_ac_jp/Documents/else/jina-embeddings-v4.tgz?csf=1&web=1&e=ayLSbu
+
 #### val detecting test
 AI genereted code (chatGPT/Gemini)\
 and\
