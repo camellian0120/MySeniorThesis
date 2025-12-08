@@ -16,3 +16,6 @@ human generated code (like under these project)
 > https://github.com/topics/php-project \
 > https://github.com/ozh/top_100_PHP_projects
 
+### need write thesis for tex
+template
+> https://github.com/kiwaki-lab/2024-B4-thesis-hashimoto
