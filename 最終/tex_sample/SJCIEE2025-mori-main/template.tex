@@ -1,0 +1,175 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SJCIEE manuscript guide/template
+% version 1.1, May 27, 2022. by T. Ueta
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,twocolumn]{jsarticle}            % for platex 
+%\documentclass[10pt,twocolumn]{ltjsarticle}         % for lualatex 
+\usepackage[top=30mm, bottom=25mm, left=18mm, right=18mm]{geometry}
+\usepackage[bookmarks=false, colorlinks=true, 
+	dvipdfmx,                        % comment this line out for lualatex 
+	linkcolor=black, urlcolor=black, citecolor=black ]{hyperref}
+\usepackage{newtxtext,newtxmath}
+\usepackage{wrapfig}
+\usepackage[dvipdfmx]{graphicx,xcolor}               % for platex
+%\usepackage{graphicx,xcolor}                        % for lualatex 
+\usepackage{secdot}
+
+\sectiondot{subsection}
+\columnsep=12pt \columnseprule=0pt \jot=0pt
+\topsep=0pt \parskip=0pt \parindent=12pt
+\floatsep=10pt \textfloatsep=10pt \intextsep=10pt
+\setlength{\abovedisplayskip}{10pt plus 5pt}
+\setlength{\belowdisplayskip}{8pt plus 5pt}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.1}
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\baselinestretch}{0.9}
+\makeatletter
+\def\section{\@startsection {section}{1}{\z@}%
+{1.0ex plus 0.5ex minus .2ex}{0.5ex plus .2ex}{\large\bfseries}}
+\def\subsection{\@startsection{subsection}{2}{\z@}%
+{0.7ex plus 0.3ex minus .2ex}{0.3ex plus .2ex}{\normalsize\bfseries}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+{0.4ex plus 0.2ex minus .2ex}{0.2ex plus .2ex}{\normalsize}}
+\renewenvironment{thebibliography}[1]{%
+	\subsection*{\refname}\@mkboth{\refname}{\refname}%
+	\list{\@biblabel{\@arabic\c@enumiv}}%
+		{\settowidth\labelwidth{\@biblabel{#1}}%
+		\leftmargin\labelwidth \advance\leftmargin\labelsep
+		\setlength\baselineskip{13pt} \setlength\itemsep{0pt}
+		\@openbib@code \usecounter{enumiv}%
+		\let\p@enumiv\@empty \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+	\sloppy \clubpenalty4000 \@clubpenalty\clubpenalty
+\widowpenalty4000 \sfcode`\.\@m}
+{\def\@noitemerr {\@latex@warning{Empty `thebibliography' environment}}%
+\endlist}
+\makeatother
+\pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Please edit below
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\twocolumn[
+\begin{center}
+{\Large 
+% 講演番号刷り入れ用余白を作るために\rule で空白を挿入しています．
+% 刷り上がりを見ながら50mm * 45mm の空白を確保してください．
+\rule{10mm}{0mm}電気電子情報関係学会四国支部連合大会原稿執筆ガイド\\
+Manuscript Preparation Guide for the SJCIEE\\
+}
+\vspace*{3pt} 
+{ \large
+\begin{tabular}{ccc}
+電気 太郎${}^1$ & 四国 次郎${}^2$ & 連合 三郎${}^3$ \\
+T. Denki${}^1$  & J. Shikoku${}^2$ & S. Rengoh${}^3$\\
+\end{tabular}\\
+（電気大学${}^1$, 情報大学${}^2$, 通信高等専門学校${}^3$）
+}
+\end{center}
+\vspace*{12pt} 
+]
+
+\section{原稿の構成}
+本稿は，電気・電子・情報関係学会四国支部連合大会の原稿執筆について述べる．
+以下のレイアウト，書式に従わない原稿については返戻されることがあるので注意．
+
+\subsection{全体のレイアウト}
+
+\begin{wrapfigure}[14]{l}{40mm}
+\centering
+\includegraphics[width=40mm]{layout.pdf}
+\caption{余白}
+\label{fig:layout}
+\end{wrapfigure}
+
+\textbf{原稿サイズ，分量：} 原稿は\textcolor{red}{A4縦置き}とし，
+分量は\textcolor{red}{1ページを越えてはならない}．
+
+\textbf{空間・余白：}講演番号等を挿入するため，
+\textcolor{red}{左上端に50 mm $\times$ 45 mm の空間を設けること}．
+上下左右の余白は図\ref{fig:layout}のとおり．空間・余白内には
+ヘッダやフッタ，ページ番号などは入れないこと．
+
+\textbf{タイトル：}
+タイトルは本文より大きい文字を用い，上記空間を避けて記述する．
+日本語論文の場合は必ず英語タイトルを，日本語タイトルの下に併記する．
+
+\textbf{著者名：}
+タイトルの下に書く．日本語論文の場合は必ずローマ字の著者名を併記する．
+その書式は``名のイニシャル'' + ピリオド+ ``姓のフルスペル''とする．
+
+\textbf{所属：}
+著者が一人の場合は，``氏名（所属）''のように，著者名に続けて所属を書く．
+著者が複数人の場合は，氏名を書き，行を改めて所属を書く．このとき，
+全ての所属を一組の全角括弧``（ ）''で囲み，
+右肩上付きのアラビア数字でそれぞれの所属を対応させる．
+
+\subsection{本文書式}
+\begin{itemize}
+\itemsep=0pt
+\item \textcolor{red}{本文は二段組とし，10 pt のフォントを使用すること．}
+書体は，和文であれば明朝体，英文であれば Times Roman系フォントを使用し，
+見出し等は和文であればゴシック体，英文であれば bold faceを用いる．
+MS Wordを使用する場合，英文について等幅フォントが適用されないよう
+留意すること．
+\item 和文句点は「．」読点は「，」で，それぞれ全角で記述する．
+\item 全角英数字，半角カタカナは，
+特に使用する必要がある場合以外は避けること．
+\end{itemize}
+
+\subsection{参考文献書式} 
+文献は，本文中で\cite{shikoku} のように出現順に番号で参照し，
+論文末尾に参考文献リストを構成する．
+また，リストの見出し「参考文献」には節番号を振らない．
+リスト記述例は本稿末尾を参照のこと．
+
+\section{PDF作成}
+\label{sec:pdf}
+投稿された原稿は，論文番号，ページ番号，会議名称などが
+PDFレベルで追加加工された上で，論文集に収録される．
+PDFのスクリーン上の見栄え，印刷刷り上がり品質について，
+以下を参照のうえ，著者自身で調整すること．
+
+\subsection{ファイルサイズ}
+論文集配布の都合上，
+\textcolor{red}{原稿のファイルサイズ上限は1MByte 以内とする．}
+\ref{sec:images}節にも関係するが，上限を超過するようであれば，
+データの適切な間引きや，画像品質調整を検討すること．
+
+\subsection{フォントの埋め込み}
+原稿内の全てのフォントについて確実に埋め込むこと．
+たとえば Acrobat では ファイル→ プロパティ→ フォントと進み，
+全てのフォントについて「埋め込みサブセット」となっているかを確認する．
+埋め込みができていないフォントについては，
+PDF閲覧・印刷環境によっては文字化け，文字抜けが発生する可能性がある．
+特に図表内で用いられたテキストについて注意のこと．
+
+\subsection{画像等の解像度}
+\label{sec:images}
+画像等は600 dpi 以内で高品質な仕上がりになるよう調整する．
+A4刷り上がりで十分視認性を確保すること．
+アンチエイリアシングやジャギーの発生に注意すること．
+
+\subsection{セキュリティ設定とハイパーテキスト}
+\textcolor{red}{PDF ファイルにはセキュリティを設定しないこと．}
+また，ハイパーテキスト，しおり，メタデータは，
+\ref{sec:pdf}節冒頭に述べた加工により削除・毀損されることがあり，
+加工後のPDFにおいてはそれらの完全性は保証されない．
+
+\begin{thebibliography}{9}
+\bibitem{shikoku}
+電気 太郎, 四国 次郎,
+``DC/DC コンバータを用いた形態素解析の一考察,''
+電気情報未来研究論文誌, No. 4, pp. 125--128, Nov. 2020. 
+%
+\bibitem{SJCIEE} 
+S. Jaycie and I. Eyeyeah, 
+\textsl{Beyond the DX}, Virtual Publisher, New York, 2019.
+%
+\bibitem{web}
+電気・電子・情報関係学会四国支部連合大会, 
+\url{https://sjciee.org} (2021年5月15日 参照)
+\end{thebibliography}
+
+\end{document}
