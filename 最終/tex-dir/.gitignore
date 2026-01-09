@@ -1,0 +1,8 @@
+.vscode/
+thesis/out/
+.DS_Store
+*.log
+*.pdf
+*.docx
+*.dvi
+workspace/

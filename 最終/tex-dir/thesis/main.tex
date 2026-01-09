@@ -1,0 +1,333 @@
+%------------------------------------
+%   basic settings
+%------------------------------------
+\documentclass[12pt,a4paper,oneside]{jsbook}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{url}
+\usepackage{here}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage[ipaex]{pxchfon}
+\usepackage{otf}
+\usepackage{listings}
+\usepackage[square, numbers]{natbib}
+\usepackage{booktabs}
+\usepackage{float} 
+\usepackage{placeins}
+% \usepackage{graphics}
+\usepackage[dvipdfmx]{graphicx} % includegraphicsを使うためのパッケージを読み込む
+% \usepackage{natbib}
+
+% \bibpunct[:]{(}{)}{,}{a}{}{,}
+%------------------------------------
+%   listings settings (minted -> listings)
+%------------------------------------
+\lstset{
+  basicstyle=\ttfamily\small,  % Font style
+  numbers=left,                % Add line numbers
+  numberstyle=\tiny,           % Line number style
+  stepnumber=1,                % Line number increment
+  frame=single,                % Add a frame around the code
+  tabsize=4,                   % Tab size
+  breaklines=true,             % Allow line breaking
+  keywordstyle=\bfseries,      % Keywords in bold
+  commentstyle=\itshape,       % Comments in italics
+  stringstyle=\color{red},     % Strings in red
+  showspaces=false,            % Do not mark spaces
+  showstringspaces=false,      % Do not mark string spaces
+  language=Python              % Default language
+}
+
+%------------------------------------
+%   margin settings
+%------------------------------------
+\setlength{\topmargin}{-5mm}
+\setlength{\fullwidth}{125mm}
+\setlength{\textwidth}{\fullwidth}
+\setlength{\oddsidemargin}{5mm}
+\setlength{\evensidemargin}{\oddsidemargin}
+%------------------------------------
+%   newtheorems
+%------------------------------------
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{conjecture}[theorem]{予想}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{problem}[theorem]{問題}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{claim}{Claim}
+\newtheorem{subclaim}{Subclaim}[claim]
+\newcommand{\resetclaim}{\setcounter{claim}{0}}
+\newtheorem{case}{Case}
+\newtheorem{subcase}{Subcase}[case]
+\newcommand{\resetcase}{\setcounter{case}{0}}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+%------------------------------------
+%   display figures
+%   #1=width, #2=filename,
+%   #3=caption, #4=label
+%   \fig{0.8\linewidth}{aaa.pdf}{bbb}{ccc}
+%------------------------------------
+\renewcommand{\figurename}{図.}
+\newcommand{\fig}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#1]{#2}
+\caption{#3}
+\label{#4}
+\end{figure}
+}
+\newcommand{\figg}[4]{
+\begin{figure*}[h!t]
+\centering
+\includegraphics[width=#1]{#2}
+\caption{#3}
+\label{#4}
+\end{figure*}
+}
+%------------------------------------
+%   setting of algorithms
+%------------------------------------
+\renewcommand{\algorithmicrequire}{\textbf{条件:}}
+\renewcommand{\algorithmicensure}{\textbf{実行結果:}}
+\algrenewcommand\algorithmicdo{}
+\algrenewcommand\algorithmicthen{}
+%------------------------------------
+%   other renewcommands and newcommands
+%------------------------------------
+\renewcommand{\proofname}{\bf 証明.}
+%------------------------------------
+%   Title & Authors
+%------------------------------------
+\title{
+卒業論文\\[1.5cm]
+LLMによるソフトウェア脆弱性の検出\\[6cm]
+}
+\author{高知大学 理工学部 情報科学科\\[0.5cm]
+B223R030P 横川武典}
+\date{2025年度}
+
+%------------------------------------
+\begin{document}
+%------------------------------------
+%タイトルページの出力
+\maketitle
+%目次の作成・出力
+\tableofcontents
+
+%----------------------------------------------------------------------------
+%   Chapter 1
+\chapter{はじめに}
+\label{chapter_1}
+%----------------------------------------------------------------------------
+\section{背景}
+%------------------------------------
+．
+
+%----------------------------------------------------------------------------
+\chapter{関連研究}
+\label{chapter_2}
+%----------------------------------------------------------------------------
+\section{従来のソフトウェア脆弱性検出}
+\label{conventional-method}
+%------------------------------------
+ソフトウェアの脆弱性検出手法は，大きく静的解析と動的解析に分類される．
+静的解析は，プログラムを実行せずにソースコードやバイナリを解析する手法であり，
+代表的なものとしてデータフロー解析やルールベース解析が挙げられる．
+静的解析は網羅的な検査が可能である一方，実行時の文脈を考慮できないため
+誤検知（False Positive）が多いという課題がある．
+
+一方，動的解析はプログラムを実際に実行し，その挙動を監視することで脆弱性を検出する手法である．
+ファジングやモニタリングなどが代表例であり，実際に悪用可能な脆弱性を検出できる利点がある．
+しかし，実行パスに依存するため，すべての脆弱性を網羅的に検出することは困難である．
+
+これらの従来手法は，既知の脆弱性パターンに基づく検出には有効であるが，
+新種の脆弱性や文脈依存性の高い問題に対しては十分な性能を発揮できないという課題が指摘されている．
+
+%------------------------------------
+\section{Large Language Model（LLM）}
+%------------------------------------
+大規模言語モデル（Large Language Model: LLM）は，大量のテキストデータを用いて事前学習された
+深層学習モデルであり，自然言語処理分野において高い性能を示している．
+近年では，Transformer構造を基盤としたモデルが主流となっており，
+自己注意機構によって文脈情報を効果的に捉えることが可能である．\cite{transformers}
+
+さらに，近年のLLMは自然言語だけでなくソースコードを含むデータで学習されており，
+プログラムの構文構造や意味的関係を一定程度理解できることが報告されている．
+CodeBERT\cite{codebert}やGraphCodeBERT\cite{graphcodebert}
+等のLLMは，コードと自然言語の対応関係を学習することで，
+プログラム理解タスクにおいて高い性能を示している．\cite{llminsoftwaresecurity}
+
+%------------------------------------
+\section{セキュリティ分野におけるLLM活用}
+%------------------------------------
+．
+
+%------------------------------------
+\section{LLMを用いた脆弱性検出の先行研究}
+%------------------------------------
+．
+
+%------------------------------------
+\section{Retrieval-Augmented Generation（RAG）}
+%------------------------------------
+Retrieval-Augmented Generation（RAG）は，LLMによる生成時に外部知識ベースから関連情報を検索し，
+その結果を入力として利用する手法である．
+RAGを用いることで，モデル内部に含まれない知識を動的に参照でき，
+事実性の向上やハルシネーションの抑制が期待される．\cite{rag}
+
+セキュリティ分野においては，CWEやCVEなどの知識ベースをRAGによって参照することで，
+脆弱性検出や説明生成の精度を向上させる試みが報告されている．
+一方で，検索結果の品質が全体性能に大きく影響するという課題も存在する．
+
+%------------------------------------
+\section{ファインチューニング（Fine-Tuning）}
+%------------------------------------
+ファインチューニングとは，事前学習済みの言語モデルを特定タスクに適応させるために
+追加学習を行う手法であり，BERT以降，標準的なアプローチとして広く用いられている。\cite{finetuning}
+脆弱性検出分野では，脆弱コードと安全なコードを用いた教師あり学習により，
+特定の脆弱性パターンに対する識別性能の向上が報告されている。
+
+一方で，ファインチューニングは大量のラベル付きデータを必要とし，
+学習データに依存したバイアスや汎化性能の低下といった課題を抱えている。
+
+%------------------------------------
+\section{評価指標およびベンチマーク}
+%------------------------------------
+脆弱性検出手法の評価には，Precision，Recall，F1-scoreといった指標が一般的に用いられる．
+特に，誤検知の多さは実運用において大きな負担となるため，Precisionの高さが重要視される．
+
+%------------------------------------
+\section{既存研究の課題と本研究の位置づけ}
+%------------------------------------
+以上のように，LLMを用いた脆弱性検出に関する研究は一定の成果を上げているが，その多くはC/C++を対象とし，
+バッファオーバーフローなどのメモリ管理に起因する脆弱性の検出に焦点を当てている．
+この背景には，既存のベンチマークデータセットや先行研究の多くが，
+低レベル言語を対象として構築されてきたという事情がある．
+
+一方で，Webアプリケーションで広く利用されているPHPなどのWeb言語においては，
+クロスサイトスクリプティング（XSS）やSQLインジェクションといった，
+言語仕様や実行環境に依存した脆弱性が多数存在するにもかかわらず，
+LLMを用いた包括的な検出手法に関する検討は十分に行われていない．
+また，既存研究では特定の脆弱性クラスに偏った評価が多く，
+検出可能な脆弱性の多様性という観点での分析も限定的である．
+
+そこで本研究では，従来研究で対象とされることの多かったC/C++ではなく，
+Web言語であるPHPを対象としてLLMによる脆弱性検出を試みる．
+さらに，メモリ関連脆弱性に限定せず，複数の脆弱性種別を対象とすることで，
+LLMが多様な脆弱性パターンをどの程度識別可能であるかを検証することを目的とする．
+本研究により，LLMを用いた脆弱性検出の適用範囲をWebアプリケーション領域へ拡張し，
+その有効性と課題を明らかにすることが期待される．
+
+%----------------------------------------------------------------------------
+\chapter{提案手法}
+\label{chapter_3}
+%----------------------------------------------------------------------------
+．
+
+%------------------------------------
+\subsection{．}
+%------------------------------------
+．
+
+
+%------------------------------------
+\section{．}
+\label{feature-configuration}
+%------------------------------------
+．
+
+%----------------------------------------------------------------------------
+\chapter{実験}
+\label{chapter_4}
+%----------------------------------------------------------------------------
+
+分析にあたっては，対象地域に130m×130mのグリッドセルを設定し，
+各グリッドセルでの犯罪発生リスクを予測する．
+応答変数は各グリッドセルで発生した強盗犯罪件数，予測変数は地理的リスク要因から生成した特徴量である．
+
+取得したデータは，地理的座標系に基づいており，緯度経度情報として提供されているが，
+本研究では距離計算や空間分析を正確に行うため，PythonのGeoPandas\cite{geopandas}を使用し，
+メートル単位での解析が可能な平面直角座標系（EPSG:26971）に変換した．
+また，データ品質を保証するため，明らかに誤った位置情報（NaN,0,etc.）と
+シカゴ市領域外の位置情報は事前に除外した．
+
+取得したデータに対する前処理におけるPowerTransformのyeo-johnson変換の実装には，
+sklearn.preprocessing.PowerTransformer\citep{scikit-learn}を用いた．
+なお，yeo-johnson変換と同時に応答変数と予測変数の標準化も実施した．
+
+また最適な正則化パラメータは，20foldの交差検証\citep{islp}で探索した．
+実装には，sklearn.linear\_model.LassoCV\cite{scikit-learn}を用いた．
+
+モデルが予測した犯罪発生リスクを，
+高リスク（$平均+1標準偏差以上$）と低リスク（$平均+1標準偏差未満$）にカテゴリー化する．
+各手法の予測精度は，犯罪予測の文脈で一般的な
+的中率\citep{joshi2020considerationsdevelopingpredictivemodels}と
+PAI（Predictive Accuracy Index）\citep{chainey2008utility}と
+ROC-AUC\citep{islp}の3つの指標で年単位の評価を行う．
+
+的中率とは，予測モデルが「高リスク」と特定したエリアの中で、実際に犯罪が発生した割合である．
+(\ref{hitrate})式に的中率の計算式を示す．
+
+\begin{equation}\label{hitrate}
+  的中率=\frac{高リスクと予測されたエリア内で実際に発生した犯罪の数}{実際に発生した犯罪の総数}
+\end{equation}
+
+的中率では，低リスクエリアを高リスクエリアと誤識別する偽陽性（False Positive）を
+評価できない．そのため的中率を最大とするモデルは，
+高リスクエリアが広がりすぎて実用上の有用性が下がる可能性があるため，
+これに加えて\citet{chainey2008utility}が考案したPAI（Predictive Accuracy Index）を評価に用いる．
+
+PAIとは，高リスクエリア内で発生した犯罪の割合を、そのエリアの全体に占める面積割合で割った値である．
+PAIが高いほど、モデルの予測精度が高いとされる．
+(\ref{pai})式に的中率の計算式を示す．
+
+\begin{equation}\label{pai}
+  PAI=\frac{的中率}{\frac{高リスクエリアの面積}{全エリアの面積}}
+\end{equation}
+PAIと同様にROC-AUCも偽陽性を評価する．
+ROC（Receiver Operating Characteristic）曲線とは，
+機械学習モデルの分類性能を評価するための代表的な手法の1つである．
+ROC曲線は，分類モデルの予測スコアに対して異なる閾値を設定し，
+それに応じた真陽性率（True Positive Rate, TPR）と
+偽陽性率（False Positive Rate, FPR）をプロットすることで得られる．
+曲線の下の面積がAUC（Area Under the Curve）と呼ばれ，
+モデルの識別能力を定量的に表す指標として用いられる.
+AUCは0.5から1.0の範囲を取り，この値が大きいほどモデルの分類性能が優れていることを意味する．
+
+%------------------------------------
+%   Chapter 5
+\chapter{おわりに}
+%------------------------------------
+あ．
+
+%------------------------------------
+%   Acknowledgements
+\chapter*{謝辞}
+%------------------------------------
+\addcontentsline{toc}{chapter}{謝辞}
+あ．
+
+%------------------------------------
+%   References
+%------------------------------------
+\bibliography{main} %hoge.bibから拡張子を外した名前
+\bibliographystyle{plainnat} %参考文献出力スタイル
+%------------------------------------
+% \appendix
+%------------------------------------
+
+%------------------------------------
+\end{document}
+%------------------------------------

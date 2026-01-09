@@ -1,0 +1,53 @@
+This is pBibTeX, Version 0.99d-j0.33 (utf8.euc) (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: plainnat.bst
+Database file #1: main.bib
+Warning--I didn't find a database entry for "geopandas"
+Warning--I didn't find a database entry for "scikit-learn"
+Warning--I didn't find a database entry for "islp"
+Warning--I didn't find a database entry for "joshi2020considerationsdevelopingpredictivemodels"
+Warning--I didn't find a database entry for "chainey2008utility"
+You've used 6 entries,
+            2773 wiz_defined-function locations,
+            633 strings with 6840 characters,
+and the built_in function-call counts, 4894 in all, are:
+= -- 373
+> -- 560
+< -- 1
++ -- 186
+- -- 180
+* -- 483
+:= -- 811
+add.period$ -- 22
+call.type$ -- 6
+change.case$ -- 78
+chr.to.int$ -- 6
+cite$ -- 12
+duplicate$ -- 115
+empty$ -- 213
+format.name$ -- 186
+if$ -- 964
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 1
+newline$ -- 41
+num.names$ -- 26
+pop$ -- 162
+preamble$ -- 1
+purify$ -- 71
+quote$ -- 0
+skip$ -- 147
+stack$ -- 0
+substring$ -- 52
+swap$ -- 17
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 66
+warning$ -- 0
+while$ -- 22
+width$ -- 0
+write$ -- 89
+is.kanji.str$ -- 0
+(There were 5 warnings)
