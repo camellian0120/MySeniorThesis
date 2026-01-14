@@ -1,9 +1,23 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Chess and McGraw(2004)]{chess_mcgraw}
+Brian Chess and Gary McGraw.
+\newblock Static analysis for security.
+\newblock \emph{IEEE Security \& Privacy}, 2004.
+
+\bibitem[Dora et~al.(2025)Dora, Lunkad, Aslam, Venkatesan, and
+  Shukla]{hiddenriskllmgeneratedweb}
+Swaroop Dora, Deven Lunkad, Naziya Aslam, S.~Venkatesan, and Sandeep~Kumar
+  Shukla.
+\newblock The hidden risks of llm-generated web application code: A
+  security-centric evaluation of code generation capabilities in large language
+  models, 2025.
+\newblock URL \url{https://arxiv.org/abs/2504.20612}.
 
 \bibitem[Feng et~al.(2020)Feng, Guo, Tang, Duan, Feng, Gong, Shou, Qin, Liu,
   Jiang, and Zhou]{codebert}
@@ -58,5 +72,20 @@ Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
   Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
 \newblock Attention is all you need, 2023.
 \newblock URL \url{https://arxiv.org/abs/1706.03762}.
+
+\bibitem[Xu et~al.(2025)Xu, Wang, Li, Wang, Zhao, Chen, Yu, Liu, and
+  Wang]{llmcyber}
+Hanxiang Xu, Shenao Wang, Ningke Li, Kailong Wang, Yanjie Zhao, Kai Chen, Ting
+  Yu, Yang Liu, and Haoyu Wang.
+\newblock Large language models for cyber security: A systematic literature
+  review, 2025.
+\newblock URL \url{https://arxiv.org/abs/2405.04760}.
+
+\bibitem[Zhou et~al.(2019)Zhou, Liu, Siow, Du, and
+  Liu]{devigneffectivesearchvulnerability}
+Yaqin Zhou, Shangqing Liu, Jingkai Siow, Xiaoning Du, and Yang Liu.
+\newblock Devign: Effective vulnerability identification by learning
+  comprehensive program semantics via graph neural networks, 2019.
+\newblock URL \url{https://arxiv.org/abs/1909.03496}.
 
 \end{thebibliography}

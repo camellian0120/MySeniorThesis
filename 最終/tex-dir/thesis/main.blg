@@ -3,51 +3,50 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: main.bib
-Warning--I didn't find a database entry for "geopandas"
-Warning--I didn't find a database entry for "scikit-learn"
 Warning--I didn't find a database entry for "islp"
+Warning--I didn't find a database entry for "scikit-learn"
 Warning--I didn't find a database entry for "joshi2020considerationsdevelopingpredictivemodels"
 Warning--I didn't find a database entry for "chainey2008utility"
-You've used 6 entries,
+You've used 10 entries,
             2773 wiz_defined-function locations,
-            633 strings with 6840 characters,
-and the built_in function-call counts, 4894 in all, are:
-= -- 373
-> -- 560
-< -- 1
-+ -- 186
-- -- 180
-* -- 483
-:= -- 811
-add.period$ -- 22
-call.type$ -- 6
-change.case$ -- 78
-chr.to.int$ -- 6
-cite$ -- 12
-duplicate$ -- 115
-empty$ -- 213
-format.name$ -- 186
-if$ -- 964
+            650 strings with 7715 characters,
+and the built_in function-call counts, 6993 in all, are:
+= -- 537
+> -- 761
+< -- 2
++ -- 253
+- -- 243
+* -- 668
+:= -- 1148
+add.period$ -- 34
+call.type$ -- 10
+change.case$ -- 111
+chr.to.int$ -- 10
+cite$ -- 20
+duplicate$ -- 182
+empty$ -- 342
+format.name$ -- 255
+if$ -- 1388
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 41
-num.names$ -- 26
-pop$ -- 162
+missing$ -- 2
+newline$ -- 61
+num.names$ -- 42
+pop$ -- 237
 preamble$ -- 1
-purify$ -- 71
+purify$ -- 100
 quote$ -- 0
-skip$ -- 147
+skip$ -- 221
 stack$ -- 0
-substring$ -- 52
-swap$ -- 17
+substring$ -- 60
+swap$ -- 21
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 66
+type$ -- 110
 warning$ -- 0
-while$ -- 22
+while$ -- 34
 width$ -- 0
-write$ -- 89
+write$ -- 137
 is.kanji.str$ -- 0
-(There were 5 warnings)
+(There were 4 warnings)
