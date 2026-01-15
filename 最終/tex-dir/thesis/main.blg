@@ -1,15 +1,11 @@
-This is pBibTeX, Version 0.99d-j0.33 (utf8.euc) (TeX Live 2022/dev/Debian)
+This is upBibTeX, Version 0.99d-j0.36-u2.00 (utf8.euc) (TeX Live 2026/dev/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: main.bib
-Warning--I didn't find a database entry for "islp"
-Warning--I didn't find a database entry for "scikit-learn"
-Warning--I didn't find a database entry for "joshi2020considerationsdevelopingpredictivemodels"
-Warning--I didn't find a database entry for "chainey2008utility"
 You've used 10 entries,
             2773 wiz_defined-function locations,
-            650 strings with 7715 characters,
+            646 strings with 7632 characters,
 and the built_in function-call counts, 6993 in all, are:
 = -- 537
 > -- 761
@@ -49,4 +45,3 @@ while$ -- 34
 width$ -- 0
 write$ -- 137
 is.kanji.str$ -- 0
-(There were 4 warnings)
