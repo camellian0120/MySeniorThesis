@@ -1,25 +1,40 @@
-\contentsline {chapter}{\numberline {第1章}はじめに}{2}{}%
-\contentsline {section}{\numberline {1.1}背景}{2}{}%
-\contentsline {chapter}{\numberline {第2章}関連研究}{3}{}%
-\contentsline {section}{\numberline {2.1}従来のソフトウェア脆弱性検出}{3}{}%
-\contentsline {section}{\numberline {2.2}Large Language Model（LLM）}{4}{}%
-\contentsline {section}{\numberline {2.3}セキュリティ分野とLLMの関連性および応用}{4}{}%
-\contentsline {section}{\numberline {2.4}LLMを用いた脆弱性検出の先行研究}{5}{}%
-\contentsline {section}{\numberline {2.5}Retrieval-Augmented Generation（RAG）}{5}{}%
-\contentsline {section}{\numberline {2.6}ファインチューニング（Fine-Tuning）}{5}{}%
-\contentsline {section}{\numberline {2.7}評価指標およびベンチマーク}{6}{}%
-\contentsline {section}{\numberline {2.8}既存研究の課題と本研究の位置づけ}{6}{}%
-\contentsline {chapter}{\numberline {第3章}提案手法}{7}{}%
-\contentsline {section}{\numberline {3.1}本研究の概要}{7}{}%
-\contentsline {section}{\numberline {3.2}設計方針}{8}{}%
-\contentsline {section}{\numberline {3.3}対象脆弱性および分析対象}{8}{}%
-\contentsline {subsection}{\numberline {3.3.1}対象脆弱性}{8}{}%
-\contentsline {subsection}{\numberline {3.3.2}分析対象プログラム}{9}{}%
-\contentsline {section}{\numberline {3.4}提案手法の全体構成}{9}{}%
-\contentsline {section}{\numberline {3.5}LLMによるコード解析手法}{9}{}%
-\contentsline {section}{\numberline {3.6}知識ベースの活用方法}{9}{}%
-\contentsline {section}{\numberline {3.7}出力形式および判定方法}{9}{}%
-\contentsline {section}{\numberline {3.8}実装上の留意点}{9}{}%
-\contentsline {chapter}{\numberline {第4章}実験}{10}{}%
-\contentsline {chapter}{\numberline {第5章}おわりに}{11}{}%
-\contentsline {chapter}{謝辞}{12}{}%
+\contentsline {chapter}{\numberline {第1章}はじめに}{3}{}%
+\contentsline {section}{\numberline {1.1}背景}{3}{}%
+\contentsline {chapter}{\numberline {第2章}関連研究}{4}{}%
+\contentsline {section}{\numberline {2.1}従来のソフトウェア脆弱性検出}{4}{}%
+\contentsline {section}{\numberline {2.2}Large Language Model（LLM）}{5}{}%
+\contentsline {section}{\numberline {2.3}セキュリティ分野とLLMの関連性および応用}{6}{}%
+\contentsline {section}{\numberline {2.4}LLMを用いた脆弱性検出の先行研究}{6}{}%
+\contentsline {section}{\numberline {2.5}埋め込みモデルと類似度検索}{6}{}%
+\contentsline {section}{\numberline {2.6}Retrieval-Augmented Generation（RAG）}{7}{}%
+\contentsline {section}{\numberline {2.7}ファインチューニング（Fine-Tuning）}{8}{}%
+\contentsline {section}{\numberline {2.8}評価指標およびベンチマーク}{9}{}%
+\contentsline {section}{\numberline {2.9}既存研究の課題と本研究の位置づけ}{10}{}%
+\contentsline {chapter}{\numberline {第3章}提案手法}{11}{}%
+\contentsline {section}{\numberline {3.1}本研究の概要}{11}{}%
+\contentsline {section}{\numberline {3.2}設計方針}{12}{}%
+\contentsline {section}{\numberline {3.3}対象脆弱性および分析対象}{12}{}%
+\contentsline {subsection}{\numberline {3.3.1}対象脆弱性}{12}{}%
+\contentsline {subsection}{\numberline {3.3.2}分析対象プログラム}{13}{}%
+\contentsline {section}{\numberline {3.4}提案手法の全体構成}{13}{}%
+\contentsline {section}{\numberline {3.5}LLMによるコード解析手法}{13}{}%
+\contentsline {section}{\numberline {3.6}知識ベースの活用方法}{14}{}%
+\contentsline {section}{\numberline {3.7}出力形式および判定方法}{14}{}%
+\contentsline {section}{\numberline {3.8}実装上の留意点}{15}{}%
+\contentsline {chapter}{\numberline {第4章}実験設定と評価方法}{16}{}%
+\contentsline {section}{\numberline {4.1}実験の目的}{16}{}%
+\contentsline {section}{\numberline {4.2}使用データセット}{16}{}%
+\contentsline {section}{\numberline {4.3}実験対象モデル}{16}{}%
+\contentsline {subsection}{\numberline {4.3.1}素のLLM}{17}{}%
+\contentsline {subsection}{\numberline {4.3.2}Fine-Tuning済みLLM}{17}{}%
+\contentsline {subsection}{\numberline {4.3.3}RAG構成LLM}{17}{}%
+\contentsline {section}{\numberline {4.4}実験手順}{17}{}%
+\contentsline {section}{\numberline {4.5}評価指標}{17}{}%
+\contentsline {section}{\numberline {4.6}実験条件の統一と公平性}{18}{}%
+\contentsline {chapter}{\numberline {第5章}実験結果と考察}{19}{}%
+\contentsline {section}{\numberline {5.1}検出性能の比較結果}{19}{}%
+\contentsline {section}{\numberline {5.2}脆弱性種別ごとの検出傾向}{19}{}%
+\contentsline {section}{\numberline {5.3}誤検知の分析}{19}{}%
+\contentsline {section}{\numberline {5.4}Fine-TuningとRAGの比較考察}{19}{}%
+\contentsline {section}{\numberline {5.5}本手法の有効性と限界}{19}{}%
+\contentsline {chapter}{\numberline {第6章}おわりに}{20}{}%

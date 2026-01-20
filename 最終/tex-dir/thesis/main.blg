@@ -1,47 +1,47 @@
-This is upBibTeX, Version 0.99d-j0.36-u2.00 (utf8.euc) (TeX Live 2026/dev/Arch Linux)
+This is pBibTeX, Version 0.99d-j0.33 (utf8.euc) (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: main.bib
-You've used 10 entries,
+You've used 11 entries,
             2773 wiz_defined-function locations,
-            646 strings with 7632 characters,
-and the built_in function-call counts, 6993 in all, are:
-= -- 537
-> -- 761
-< -- 2
-+ -- 253
-- -- 243
-* -- 668
-:= -- 1148
-add.period$ -- 34
-call.type$ -- 10
-change.case$ -- 111
-chr.to.int$ -- 10
-cite$ -- 20
-duplicate$ -- 182
-empty$ -- 342
-format.name$ -- 255
-if$ -- 1388
+            659 strings with 8020 characters,
+and the built_in function-call counts, 7900 in all, are:
+= -- 627
+> -- 809
+< -- 4
++ -- 269
+- -- 258
+* -- 742
+:= -- 1268
+add.period$ -- 39
+call.type$ -- 11
+change.case$ -- 118
+chr.to.int$ -- 11
+cite$ -- 22
+duplicate$ -- 221
+empty$ -- 415
+format.name$ -- 273
+if$ -- 1594
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 2
-newline$ -- 61
-num.names$ -- 42
-pop$ -- 237
+missing$ -- 4
+newline$ -- 67
+num.names$ -- 46
+pop$ -- 253
 preamble$ -- 1
-purify$ -- 100
+purify$ -- 107
 quote$ -- 0
-skip$ -- 221
+skip$ -- 258
 stack$ -- 0
-substring$ -- 60
-swap$ -- 21
-text.length$ -- 1
+substring$ -- 127
+swap$ -- 35
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 110
+type$ -- 121
 warning$ -- 0
-while$ -- 34
+while$ -- 42
 width$ -- 0
-write$ -- 137
+write$ -- 154
 is.kanji.str$ -- 0
