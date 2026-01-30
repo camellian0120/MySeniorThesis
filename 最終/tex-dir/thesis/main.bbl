@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -73,6 +73,11 @@ Liang Wang, Nan Yang, Xiaolong Huang, Binxing Jiao, Linjun Yang, Daxin Jiang, Ra
 Hanxiang Xu, Shenao Wang, Ningke Li, Kailong Wang, Yanjie Zhao, Kai Chen, Ting Yu, Yang Liu, and Haoyu Wang.
 \newblock Large language models for cyber security: A systematic literature review, 2025.
 \newblock URL \url{https://arxiv.org/abs/2405.04760}.
+
+\bibitem[Zhang et~al.(2023)]{cve-llm}
+Yifan Zhang et~al.
+\newblock Cve-llm: Ontology-assisted automatic vulnerability evaluation using large language models.
+\newblock \emph{arXiv preprint}, 2023.
 
 \bibitem[Zhou et~al.(2019)Zhou, Liu, Siow, Du, and Liu]{devigneffectivesearchvulnerability}
 Yaqin Zhou, Shangqing Liu, Jingkai Siow, Xiaoning Du, and Yang Liu.
