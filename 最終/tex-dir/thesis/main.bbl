@@ -10,21 +10,36 @@ Brian Chess and Gary McGraw.
 \newblock Static analysis for security.
 \newblock \emph{IEEE Security \& Privacy}, 2004.
 
-\bibitem[Dora et~al.(2025)Dora, Lunkad, Aslam, Venkatesan, and Shukla]{hiddenriskllmgeneratedweb}
-Swaroop Dora, Deven Lunkad, Naziya Aslam, S.~Venkatesan, and Sandeep~Kumar Shukla.
-\newblock The hidden risks of llm-generated web application code: A security-centric evaluation of code generation capabilities in large language models, 2025.
+\bibitem[Dora et~al.(2025)Dora, Lunkad, Aslam, Venkatesan, and
+  Shukla]{hiddenriskllmgeneratedweb}
+Swaroop Dora, Deven Lunkad, Naziya Aslam, S.~Venkatesan, and Sandeep~Kumar
+  Shukla.
+\newblock The hidden risks of llm-generated web application code: A
+  security-centric evaluation of code generation capabilities in large language
+  models, 2025.
 \newblock URL \url{https://arxiv.org/abs/2504.20612}.
 
-\bibitem[Feng et~al.(2020)Feng, Guo, Tang, Duan, Feng, Gong, Shou, Qin, Liu, Jiang, and Zhou]{codebert}
-Zhangyin Feng, Daya Guo, Duyu Tang, Nan Duan, Xiaocheng Feng, Ming Gong, Linjun Shou, Bing Qin, Ting Liu, Daxin Jiang, and Ming Zhou.
-\newblock {C}ode{BERT}: A pre-trained model for programming and natural languages.
-\newblock In Trevor Cohn, Yulan He, and Yang Liu, editors, \emph{Findings of the Association for Computational Linguistics: EMNLP 2020}, pages 1536--1547, Online, November 2020. Association for Computational Linguistics.
+\bibitem[Feng et~al.(2020)Feng, Guo, Tang, Duan, Feng, Gong, Shou, Qin, Liu,
+  Jiang, and Zhou]{codebert}
+Zhangyin Feng, Daya Guo, Duyu Tang, Nan Duan, Xiaocheng Feng, Ming Gong, Linjun
+  Shou, Bing Qin, Ting Liu, Daxin Jiang, and Ming Zhou.
+\newblock {C}ode{BERT}: A pre-trained model for programming and natural
+  languages.
+\newblock In Trevor Cohn, Yulan He, and Yang Liu, editors, \emph{Findings of
+  the Association for Computational Linguistics: EMNLP 2020}, pages 1536--1547,
+  Online, November 2020. Association for Computational Linguistics.
 \newblock \doi{10.18653/v1/2020.findings-emnlp.139}.
 \newblock URL \url{https://aclanthology.org/2020.findings-emnlp.139/}.
 
-\bibitem[Guo et~al.(2021)Guo, Ren, Lu, Feng, Tang, Liu, Zhou, Duan, Svyatkovskiy, Fu, Tufano, Deng, Clement, Drain, Sundaresan, Yin, Jiang, and Zhou]{graphcodebert}
-Daya Guo, Shuo Ren, Shuai Lu, Zhangyin Feng, Duyu Tang, Shujie Liu, Long Zhou, Nan Duan, Alexey Svyatkovskiy, Shengyu Fu, Michele Tufano, Shao~Kun Deng, Colin Clement, Dawn Drain, Neel Sundaresan, Jian Yin, Daxin Jiang, and Ming Zhou.
-\newblock Graphcodebert: Pre-training code representations with data flow, 2021.
+\bibitem[Guo et~al.(2021)Guo, Ren, Lu, Feng, Tang, Liu, Zhou, Duan,
+  Svyatkovskiy, Fu, Tufano, Deng, Clement, Drain, Sundaresan, Yin, Jiang, and
+  Zhou]{graphcodebert}
+Daya Guo, Shuo Ren, Shuai Lu, Zhangyin Feng, Duyu Tang, Shujie Liu, Long Zhou,
+  Nan Duan, Alexey Svyatkovskiy, Shengyu Fu, Michele Tufano, Shao~Kun Deng,
+  Colin Clement, Dawn Drain, Neel Sundaresan, Jian Yin, Daxin Jiang, and Ming
+  Zhou.
+\newblock Graphcodebert: Pre-training code representations with data flow,
+  2021.
 \newblock URL \url{https://arxiv.org/abs/2009.08366}.
 
 \bibitem[Hinton and Salakhutdinov(2006)]{hinton2006reducing}
@@ -33,14 +48,20 @@ Geoffrey~E. Hinton and Ruslan~R. Salakhutdinov.
 \newblock \emph{Science}, 313\penalty0 (5786):\penalty0 504--507, 2006.
 \newblock \doi{10.1126/science.1127647}.
 
-\bibitem[Karpukhin et~al.(2020)Karpukhin, O^^c4^^9fuz, Min, Lewis, Wu, Edunov, Chen, and tau Yih]{karpukhin2020dense}
-Vladimir Karpukhin, Barlas O^^c4^^9fuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen tau Yih.
+\bibitem[Karpukhin et~al.(2020)Karpukhin, O^^c4^^9fuz, Min, Lewis, Wu, Edunov,
+  Chen, and tau Yih]{karpukhin2020dense}
+Vladimir Karpukhin, Barlas O^^c4^^9fuz, Sewon Min, Patrick Lewis, Ledell Wu,
+  Sergey Edunov, Danqi Chen, and Wen tau Yih.
 \newblock Dense passage retrieval for open-domain question answering, 2020.
 \newblock URL \url{https://arxiv.org/abs/2004.04906}.
 
-\bibitem[Lewis et~al.(2021)Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal, K^^c3^^bcttler, Lewis, tau Yih, Rockt^^c3^^a4schel, Riedel, and Kiela]{rag}
-Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich K^^c3^^bcttler, Mike Lewis, Wen tau Yih, Tim Rockt^^c3^^a4schel, Sebastian Riedel, and Douwe Kiela.
-\newblock Retrieval-augmented generation for knowledge-intensive nlp tasks, 2021.
+\bibitem[Lewis et~al.(2021)Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal,
+  K^^c3^^bcttler, Lewis, tau Yih, Rockt^^c3^^a4schel, Riedel, and Kiela]{rag}
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
+  Karpukhin, Naman Goyal, Heinrich K^^c3^^bcttler, Mike Lewis, Wen tau Yih, Tim
+  Rockt^^c3^^a4schel, Sebastian Riedel, and Douwe Kiela.
+\newblock Retrieval-augmented generation for knowledge-intensive nlp tasks,
+  2021.
 \newblock URL \url{https://arxiv.org/abs/2005.11401}.
 
 \bibitem[Reimers and Gurevych(2019)]{reimers2019sentencebert}
@@ -48,40 +69,57 @@ Nils Reimers and Iryna Gurevych.
 \newblock Sentence-bert: Sentence embeddings using siamese bert-networks, 2019.
 \newblock URL \url{https://arxiv.org/abs/1908.10084}.
 
-\bibitem[Sheng et~al.(2025)Sheng, Chen, Gu, Huang, Gu, and Huang]{llminsoftwaresecurity}
+\bibitem[Sheng et~al.(2025)Sheng, Chen, Gu, Huang, Gu, and
+  Huang]{llminsoftwaresecurity}
 Ze~Sheng, Zhicheng Chen, Shuning Gu, Heqing Huang, Guofei Gu, and Jeff Huang.
-\newblock Llms in software security: A survey of vulnerability detection techniques and insights, 2025.
+\newblock Llms in software security: A survey of vulnerability detection
+  techniques and insights, 2025.
 \newblock URL \url{https://arxiv.org/abs/2502.07049}.
 
-\bibitem[Uesaka et~al.(2017)Uesaka, Morino, Sugiura, Kiwaki, Murata, Asaoka, and Yamanishi]{uesaka2017multi_view}
-Toshimitsu Uesaka, Kai Morino, Hiroki Sugiura, Taichi Kiwaki, Hiroshi Murata, Ryo Asaoka, and Kenji Yamanishi.
-\newblock Multi-view learning over retinal thickness and visual sensitivity on glaucomatous eyes.
-\newblock In \emph{Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining}, KDD '17, pages 2041--2050. Association for Computing Machinery, 2017.
+\bibitem[Uesaka et~al.(2017)Uesaka, Morino, Sugiura, Kiwaki, Murata, Asaoka,
+  and Yamanishi]{uesaka2017multi_view}
+Toshimitsu Uesaka, Kai Morino, Hiroki Sugiura, Taichi Kiwaki, Hiroshi Murata,
+  Ryo Asaoka, and Kenji Yamanishi.
+\newblock Multi-view learning over retinal thickness and visual sensitivity on
+  glaucomatous eyes.
+\newblock In \emph{Proceedings of the 23rd ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, KDD '17, pages 2041--2050.
+  Association for Computing Machinery, 2017.
 \newblock \doi{10.1145/3097983.3098194}.
 
-\bibitem[Vaswani et~al.(2023)Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin]{transformers}
-Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\bibitem[Vaswani et~al.(2023)Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez,
+  Kaiser, and Polosukhin]{transformers}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
 \newblock Attention is all you need, 2023.
 \newblock URL \url{https://arxiv.org/abs/1706.03762}.
 
-\bibitem[Wang et~al.(2024)Wang, Yang, Huang, Jiao, Yang, Jiang, Majumder, and Wei]{e5}
-Liang Wang, Nan Yang, Xiaolong Huang, Binxing Jiao, Linjun Yang, Daxin Jiang, Rangan Majumder, and Furu Wei.
+\bibitem[Wang et~al.(2024)Wang, Yang, Huang, Jiao, Yang, Jiang, Majumder, and
+  Wei]{e5}
+Liang Wang, Nan Yang, Xiaolong Huang, Binxing Jiao, Linjun Yang, Daxin Jiang,
+  Rangan Majumder, and Furu Wei.
 \newblock Text embeddings by weakly-supervised contrastive pre-training, 2024.
 \newblock URL \url{https://arxiv.org/abs/2212.03533}.
 
-\bibitem[Xu et~al.(2025)Xu, Wang, Li, Wang, Zhao, Chen, Yu, Liu, and Wang]{llmcyber}
-Hanxiang Xu, Shenao Wang, Ningke Li, Kailong Wang, Yanjie Zhao, Kai Chen, Ting Yu, Yang Liu, and Haoyu Wang.
-\newblock Large language models for cyber security: A systematic literature review, 2025.
+\bibitem[Xu et~al.(2025)Xu, Wang, Li, Wang, Zhao, Chen, Yu, Liu, and
+  Wang]{llmcyber}
+Hanxiang Xu, Shenao Wang, Ningke Li, Kailong Wang, Yanjie Zhao, Kai Chen, Ting
+  Yu, Yang Liu, and Haoyu Wang.
+\newblock Large language models for cyber security: A systematic literature
+  review, 2025.
 \newblock URL \url{https://arxiv.org/abs/2405.04760}.
 
 \bibitem[Zhang et~al.(2023)]{cve-llm}
 Yifan Zhang et~al.
-\newblock Cve-llm: Ontology-assisted automatic vulnerability evaluation using large language models.
+\newblock Cve-llm: Ontology-assisted automatic vulnerability evaluation using
+  large language models.
 \newblock \emph{arXiv preprint}, 2023.
 
-\bibitem[Zhou et~al.(2019)Zhou, Liu, Siow, Du, and Liu]{devigneffectivesearchvulnerability}
+\bibitem[Zhou et~al.(2019)Zhou, Liu, Siow, Du, and
+  Liu]{devigneffectivesearchvulnerability}
 Yaqin Zhou, Shangqing Liu, Jingkai Siow, Xiaoning Du, and Yang Liu.
-\newblock Devign: Effective vulnerability identification by learning comprehensive program semantics via graph neural networks, 2019.
+\newblock Devign: Effective vulnerability identification by learning
+  comprehensive program semantics via graph neural networks, 2019.
 \newblock URL \url{https://arxiv.org/abs/1909.03496}.
 
 \end{thebibliography}
