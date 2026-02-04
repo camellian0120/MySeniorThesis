@@ -174,5 +174,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     print(tokenizer.decode(outputs.sequences[0], skip_special_tokens=True))
 
+    # outputs.attentions:
+    # tuple(num_generated_tokens)
+    #   └ tuple(num_layers)
+    #       └ (batch, heads, tgt_len=1, src_len)
+
+    attentions = outputs.attentions
+
+    # 最後に生成されたトークン
+    last_step_attn = attentions[-1]        # tuple(num_layers)
+    last_layer_attn = last_step_attn[-1]   # (1, heads, 1, seq_len)
+
+    # ヘッド平均
+    attn_scores = last_layer_attn.mean(dim=1).squeeze()  # (seq_len,)
+
+    # 入力トークン列
+    input_ids = inputs["input_ids"][0]
+    tokens = tokenizer.convert_ids_to_tokens(input_ids)
+
+    # attention 上位トークン
+    topk = torch.topk(attn_scores, k=15)
+
+    print("\n=== 出力決定時に強く参照された入力トークン ===")
+    for score, idx in zip(topk.values, topk.indices):
+        token = tokens[idx]
+        text_piece = tokenizer.decode([input_ids[idx]])
+        print(f"{score.item():.4f} | token='{token}' | text='{text_piece}'")
+
 if "__main__" in __name__:
     run_qwen()
