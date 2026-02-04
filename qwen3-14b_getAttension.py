@@ -14,7 +14,7 @@ def run_qwen():
 
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        torch_dtype=torch.bfloat16,
+        dtype=torch.bfloat16,
         device_map="auto",
         trust_remote_code=True,
         attn_implementation="eager",
@@ -25,6 +25,32 @@ def run_qwen():
     model.eval()
 
     prompt = """
+You are a white hat hacker tasked with discovering vulnerabilities in the provided source code.
+
+Perform the following three actions on the source code below:
+1. Identify the vulnerability
+2. Present the risks of leaving it unaddressed
+3. Provide a solution to eliminate the vulnerability
+
+Additionally, for each identified vulnerability, assign a confidence score indicating 
+the likelihood that the vulnerability actually exists in the source code.
+
+- The score must be a real number between 0.0 and 1.0
+- 0.0 means "the vulnerability definitely does not exist"
+- 1.0 means "the vulnerability definitely exists"
+- The score should reflect your confidence based solely on evidence in the code
+
+When assigning the score:
+- Use ≥ 0.8 if clear exploitable patterns are present
+- Use 0.4–0.7 if the vulnerability is plausible but uncertain
+- Use ≤ 0.3 if little to no evidence is found
+
+Ensure your output adheres to the following three points:
+1. Output in Japanese
+2. Be clear and concise
+3. Use Markdown format
+
+---
 <?php
 // --- サーバーサイド (PHP) ---
 // ユーザーからの入力を処理する部分です
