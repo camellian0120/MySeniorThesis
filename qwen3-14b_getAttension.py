@@ -181,25 +181,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     attentions = outputs.attentions
 
-    # 最後に生成されたトークン
-    last_step_attn = attentions[-1]        # tuple(num_layers)
-    last_layer_attn = last_step_attn[-1]   # (1, heads, 1, seq_len)
+    # 最後の生成ステップ・最終層
+    last_step_attn = attentions[-1]
+    last_layer_attn = last_step_attn[-1]   # (1, heads, 1, src_len)
 
-    # ヘッド平均
-    attn_scores = last_layer_attn.mean(dim=1).squeeze()  # (seq_len,)
+    # ヘッド平均 → (src_len,)
+    attn_scores = last_layer_attn.mean(dim=1).squeeze()
 
-    # 入力トークン列
     input_ids = inputs["input_ids"][0]
     tokens = tokenizer.convert_ids_to_tokens(input_ids)
 
-    # attention 上位トークン
-    topk = torch.topk(attn_scores, k=15)
+    # ★ 長さを safety に揃える
+    valid_len = min(len(attn_scores), len(input_ids))
+    attn_scores = attn_scores[:valid_len]
+    input_ids = input_ids[:valid_len]
+    tokens = tokens[:valid_len]
 
-    print("\n=== 出力決定時に強く参照された入力トークン ===")
+    # ★ 特殊トークンを除外
+    special_ids = set(tokenizer.all_special_ids)
+    filtered = [
+        (score, i)
+        for i, score in enumerate(attn_scores)
+        if input_ids[i].item() not in special_ids
+    ]
+
+    scores = torch.tensor([s for s, _ in filtered], device=attn_scores.device)
+    indices = torch.tensor([i for _, i in filtered], device=attn_scores.device)
+
+    # ★ k を安全に制限
+    k = min(15, len(scores))
+    topk = torch.topk(scores, k=k)
+
+    print("\n=== 出力決定時に強く参照された入力トークン（特殊トークン除外） ===")
     for score, idx in zip(topk.values, topk.indices):
-        token = tokens[idx]
-        text_piece = tokenizer.decode([input_ids[idx]])
+        real_idx = indices[idx]
+        token = tokens[real_idx]
+        text_piece = tokenizer.decode([input_ids[real_idx]])
         print(f"{score.item():.4f} | token='{token}' | text='{text_piece}'")
+
 
 if "__main__" in __name__:
     run_qwen()
