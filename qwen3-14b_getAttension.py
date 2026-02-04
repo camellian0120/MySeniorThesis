@@ -174,30 +174,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     print(tokenizer.decode(outputs.sequences[0], skip_special_tokens=True))
 
-    # outputs.attentions:
-    # tuple(num_generated_tokens)
-    #   └ tuple(num_layers)
-    #       └ (batch, heads, tgt_len=1, src_len)
+    # attentions:
+    # tuple(num_layers)
+    #   └─ tuple(num_steps)
+    #        └─ Tensor(batch, heads, tgt_len, src_len)
     attentions = outputs.attentions
 
-    # ===== 最後の生成ステップの attention を取得 =====
-    last_layer_attn = attentions[-1]           # 最終レイヤ
-    last_token_attn = last_layer_attn[:, :, -1, :]  # (batch, heads, src_len)
+    # ===== 最終レイヤ =====
+    last_layer = attentions[-1]
 
-    # ヘッド平均
+    # ===== 最終生成ステップ =====
+    last_step_attn = last_layer[-1]  # Tensor(batch, heads, tgt_len, src_len)
+
+    # ===== 最後に生成された1トークン =====
+    last_token_attn = last_step_attn[:, :, -1, :]  # (batch, heads, src_len)
+
+    # ===== ヘッド平均 =====
     attn_scores = last_token_attn.mean(dim=1).squeeze(0)  # (src_len,)
 
     # ===== 入力トークン =====
     input_ids = inputs["input_ids"][0]
     tokens = tokenizer.convert_ids_to_tokens(input_ids)
 
-    # 念のため長さを合わせる
+    # 長さ調整（安全）
     seq_len = min(len(attn_scores), len(tokens))
     attn_scores = attn_scores[:seq_len]
     tokens = tokens[:seq_len]
     input_ids = input_ids[:seq_len]
 
-    # ===== attention 上位トークン =====
+    # ===== 上位トークン =====
     k = min(15, seq_len)
     topk = torch.topk(attn_scores, k=k)
 
