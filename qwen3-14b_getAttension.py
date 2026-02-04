@@ -119,8 +119,8 @@ if "__main__" in __name__:
     ---
     """
 
-    args = sys.argv
-    if args[1] == 1:
+    args = int(sys.argv)
+    if args == 1:
         prompt+="""
 <?php
 // --- サーバーサイド (PHP) ---
@@ -220,7 +220,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 </html>
 """
-    elif args[1] == 2:
+    elif args == 2:
         prompt+="""
 <?php
 // index.php
@@ -808,7 +808,7 @@ if (file_exists($hs_file)) {
 </body>
 </html>
 """
-    elif args[1] == 3:
+    elif args == 3:
         prompt+="""
 <?php
 // php_d100_roller.php
@@ -929,7 +929,7 @@ $history = $_SESSION['d100_history'];
 </body>
 </html>
 """
-    elif args[1] == 4:
+    elif args == 4:
         prompt+="""
 <?php
 declare(strict_types=1);
@@ -1137,7 +1137,7 @@ td {
 </body>
 </html>
 """
-    elif args[1] == 5:
+    elif args == 5:
         prompt+="""
 <!DOCTYPE html>
 <html lang="ja">
@@ -1594,7 +1594,7 @@ function save_ranking($file_path, $ranking) {
 }
 ?>
 """
-    elif args[1] == 6:
+    elif args == 6:
         prompt+="""
 <?php
 // index.php
@@ -1998,7 +1998,7 @@ body {
   color: #900;
 }
 """
-    elif args[1] == 7:
+    elif args == 7:
         prompt+="""
 <?php
 // A single-file PHP memo app using session for storage
@@ -2119,7 +2119,7 @@ function saveMemo(){
 </body>
 </html>
 """
-    elif args[1] == 8:
+    elif args == 8:
         prompt+="""
 <?php
 session_start();
@@ -2347,7 +2347,7 @@ for ($y=0; $y<8; $y++) {
 </body>
 </html>
 """
-    elif args[1] == 9:
+    elif args == 9:
         prompt+="""
 <?php
 // php_pacman.php
