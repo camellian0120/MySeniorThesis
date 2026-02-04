@@ -178,46 +178,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     # tuple(num_generated_tokens)
     #   └ tuple(num_layers)
     #       └ (batch, heads, tgt_len=1, src_len)
-
     attentions = outputs.attentions
 
-    # 最後の生成ステップ・最終層
-    last_step_attn = attentions[-1]
-    last_layer_attn = last_step_attn[-1]   # (1, heads, 1, src_len)
+    # ===== 最後の生成ステップの attention を取得 =====
+    last_layer_attn = attentions[-1]           # 最終レイヤ
+    last_token_attn = last_layer_attn[:, :, -1, :]  # (batch, heads, src_len)
 
-    # ヘッド平均 → (src_len,)
-    attn_scores = last_layer_attn.mean(dim=1).squeeze()
+    # ヘッド平均
+    attn_scores = last_token_attn.mean(dim=1).squeeze(0)  # (src_len,)
 
+    # ===== 入力トークン =====
     input_ids = inputs["input_ids"][0]
     tokens = tokenizer.convert_ids_to_tokens(input_ids)
 
-    # ★ 長さを safety に揃える
-    valid_len = min(len(attn_scores), len(input_ids))
-    attn_scores = attn_scores[:valid_len]
-    input_ids = input_ids[:valid_len]
-    tokens = tokens[:valid_len]
+    # 念のため長さを合わせる
+    seq_len = min(len(attn_scores), len(tokens))
+    attn_scores = attn_scores[:seq_len]
+    tokens = tokens[:seq_len]
+    input_ids = input_ids[:seq_len]
 
-    # ★ 特殊トークンを除外
-    special_ids = set(tokenizer.all_special_ids)
-    filtered = [
-        (score, i)
-        for i, score in enumerate(attn_scores)
-        if input_ids[i].item() not in special_ids
-    ]
+    # ===== attention 上位トークン =====
+    k = min(15, seq_len)
+    topk = torch.topk(attn_scores, k=k)
 
-    scores = torch.tensor([s for s, _ in filtered], device=attn_scores.device)
-    indices = torch.tensor([i for _, i in filtered], device=attn_scores.device)
-
-    # ★ k を安全に制限
-    k = min(15, len(scores))
-    topk = torch.topk(scores, k=k)
-
-    print("\n=== 出力決定時に強く参照された入力トークン（特殊トークン除外） ===")
+    print("\n=== 出力決定時に強く参照された入力トークン（特殊トークン含む）===")
     for score, idx in zip(topk.values, topk.indices):
-        real_idx = indices[idx]
-        token = tokens[real_idx]
-        text_piece = tokenizer.decode([input_ids[real_idx]])
-        print(f"{score.item():.4f} | token='{token}' | text='{text_piece}'")
+        idx = idx.item()
+        token = tokens[idx]
+        text_piece = tokenizer.decode([input_ids[idx]])
+        print(f"{score.item():.4f} | idx={idx:4d} | token='{token}' | text='{text_piece}'")
 
 
 if "__main__" in __name__:
