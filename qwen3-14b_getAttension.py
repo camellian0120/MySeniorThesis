@@ -6,11 +6,15 @@ def run_qwen():
     max_seq_length = 40960
 
     model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name = model_name,
-        max_seq_length = max_seq_length,
-        load_in_4bit = True,
-        load_in_8bit = False,
+        model_name=model_name,
+        max_seq_length=max_seq_length,
+        load_in_4bit=True,
+        load_in_8bit=False,
     )
+
+    # ★ 解析モード設定
+    model.config.output_attentions = True
+    model.eval()
 
     prompt = """
 <?php
@@ -123,44 +127,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     inputs = tokenizer(text, return_tensors="pt").to("cuda")
 
-    # ★ ここが変更点
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=4096,
-        temperature=0.6,
-        top_p=0.95,
-        top_k=20,
-        output_attentions=True,
-        return_dict_in_generate=True,
-    )
+    # ★ generate は使わない
+    with torch.no_grad():
+        outputs = model(
+            **inputs,
+            output_attentions=True,
+            use_cache=False,  # ★ 必須
+        )
 
     # ========== Attention解析 ==========
     # outputs.attentions:
-    # tuple(num_generated_tokens)
-    #   -> tuple(num_layers)
-    #       -> (batch, num_heads, tgt_len, src_len)
+    # tuple(num_layers)
+    #   └ Tensor(batch, heads, seq_len, seq_len)
 
     attentions = outputs.attentions
+    last_layer_attn = attentions[-1]          # (1, heads, seq_len, seq_len)
+    attn_scores = last_layer_attn.mean(dim=1) # ヘッド平均
+    attn_scores = attn_scores[0]               # (seq_len, seq_len)
 
-    # 最後に生成されたトークン
-    last_token_attn = attentions[-1]        # tuple(num_layers)
-    last_layer_attn = last_token_attn[-1]   # (1, heads, 1, seq_len)
+    # CLS 的に「最後のトークンがどこを見ているか」
+    last_token_attn = attn_scores[-1]          # (seq_len,)
 
-    # ヘッド平均
-    attn_scores = last_layer_attn.mean(dim=1).squeeze()  # (seq_len,)
-
-    # 入力トークン列
     input_ids = inputs["input_ids"][0]
     tokens = tokenizer.convert_ids_to_tokens(input_ids)
 
-    # 上位トークン表示
-    topk = torch.topk(attn_scores, k=10)
+    topk = torch.topk(last_token_attn, k=10)
 
-    print("\n=== Attentionが強かった入力トークン ===")
+    print("\n=== 入力文内で attention が強かったトークン ===")
     for score, idx in zip(topk.values, topk.indices):
         token = tokens[idx]
         text_piece = tokenizer.decode([input_ids[idx]])
         print(f"{score.item():.4f} | token='{token}' | text='{text_piece}'")
 
+
 if "__main__" in __name__:
     run_qwen()
+
