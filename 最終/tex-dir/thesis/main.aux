@@ -52,30 +52,37 @@
 \citation{devigneffectivesearchvulnerability}
 \@writefile{toc}{\contentsline {section}{\numberline {2.8}評価指標およびベンチマーク}{13}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.9}既存研究の課題と本研究の位置づけ}{15}{}\protected@file@percent }
+\citation{php_manual,w3techs_php}
+\citation{owasp_top10,php_security,qian2025softwarevulnerabilityanalysisprogramming}
+\citation{livshits2005finding}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第3章}提案手法}{16}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
 \newlabel{chapter_3}{{3}{16}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}本研究の概要}{17}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}設計方針}{17}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}対象脆弱性および分析対象}{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}対象脆弱性および分析対象}{17}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}対象脆弱性}{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}分析対象プログラム}{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}提案手法の全体構成}{18}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces 提案手法の全体構成}}{19}{}\protected@file@percent }
 \newlabel{fig:system_overview}{{3.1}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}分析対象プログラム}{19}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}提案手法の全体構成}{19}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.5}LLMによるコード解析手法}{19}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.6}知識ベースの活用方法}{20}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.7}出力形式および判定方法}{20}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.8}実装上の留意点}{21}{}\protected@file@percent }
+\citation{jvn}
+\citation{cve}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第4章}実験設定と評価方法}{22}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
 \newlabel{chapter_4}{{4}{22}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}実験の目的}{22}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}使用データセット}{22}{}\protected@file@percent }
+\citation{sonarsource_rules}
+\citation{qwen_technical_report,unsloth}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}実験対象モデル}{23}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}素のLLM}{23}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Base LLM}{23}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Fine-Tuning済みLLM}{23}{}\protected@file@percent }
 \citation{e5}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}RAG構成LLM}{24}{}\protected@file@percent }
@@ -94,12 +101,15 @@
 \newlabel{tab:xss_performance}{{5.2}{29}}
 \@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces 各手法のCSRFに対するPrecision, Recall, AUC}}{29}{}\protected@file@percent }
 \newlabel{tab:csrf_performance}{{5.3}{29}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}誤検知の分析}{29}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces 各手法のセッション関連の脆弱性に対するPrecision, Recall, AUC}}{30}{}\protected@file@percent }
-\newlabel{tab:session_performance}{{5.4}{30}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces 各手法のセッション関連の脆弱性に対するPrecision, Recall, AUC}}{29}{}\protected@file@percent }
+\newlabel{tab:session_performance}{{5.4}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}誤検知の分析}{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Base LLM}{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Fine-Tuning 済みLLM}{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}RAG構成LLM}{30}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5.4}Fine-TuningとRAGの比較考察}{31}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5.5}脆弱性修正案の妥当性に関する考察}{31}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}修正案評価の観点}{32}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}修正案評価の観点}{31}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}妥当な修正案の特徴}{32}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}不十分または過剰な修正案の考察}{32}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5.4}検出性能と修正案品質の関係}{33}{}\protected@file@percent }
@@ -112,18 +122,9 @@
 \@writefile{toc}{\contentsline {section}{\numberline {6.1}本研究のまとめ}{35}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.2}研究成果の整理}{35}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6.3}本研究の貢献}{36}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {第7章}まとめと今後の展望}{37}{}\protected@file@percent }
-\@writefile{lof}{\addvspace {10\jsc@mpt }}
-\@writefile{lot}{\addvspace {10\jsc@mpt }}
-\newlabel{chapter_6}{{7}{37}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}本研究のまとめ}{37}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}研究成果の整理}{37}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}本研究の貢献}{38}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.4}限界と課題}{38}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.5}今後の課題}{39}{}\protected@file@percent }
 \bibdata{main}
-\newlabel{chapter_7}{{7.5}{40}}
-\@writefile{toc}{\contentsline {chapter}{謝辞}{40}{}\protected@file@percent }
+\newlabel{chapter_7}{{6.3}{37}}
+\@writefile{toc}{\contentsline {chapter}{謝辞}{37}{}\protected@file@percent }
 \bibcite{bessey_sast}{{1}{2010}{{Bessey et~al.}}{{}}}
 \bibcite{brown2020languagemodelsfewshotlearners}{{2}{2020}{{Brown et~al.}}{{Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal, Neelakantan, Shyam, Sastry, Askell, Agarwal, Herbert-Voss, Krueger, Henighan, Child, Ramesh, Ziegler, Wu, Winter, Hesse, Chen, Sigler, Litwin, Gray, Chess, Clark, Berner, McCandlish, Radford, Sutskever, and Amodei}}}
 \bibcite{chen2021evaluatinglargelanguagemodels}{{3}{2021}{{Chen et~al.}}{{Chen, Tworek, Jun, Yuan, de~Oliveira~Pinto, Kaplan, Edwards, Burda, Joseph, Brockman, Ray, Puri, Krueger, Petrov, Khlaaf, Sastry, Mishkin, Chan, Gray, Ryder, Pavlov, Power, Kaiser, Bavarian, Winter, Tillet, Such, Cummings, Plappert, Chantzis, Barnes, Herbert-Voss, Guss, Nichol, Paino, Tezak, Tang, Babuschkin, Balaji, Jain, Saunders, Hesse, Carr, Leike, Achiam, Misra, Morikawa, Radford, Knight, Brundage, Murati, Mayer, Welinder, McGrew, Amodei, McCandlish, Sutskever, and Zaremba}}}
@@ -133,20 +134,30 @@
 \bibcite{codebert}{{7}{2020}{{Feng et~al.}}{{Feng, Guo, Tang, Duan, Feng, Gong, Shou, Qin, Liu, Jiang, and Zhou}}}
 \bibcite{graphcodebert}{{8}{2021}{{Guo et~al.}}{{Guo, Ren, Lu, Feng, Tang, Liu, Zhou, Duan, Svyatkovskiy, Fu, Tufano, Deng, Clement, Drain, Sundaresan, Yin, Jiang, and Zhou}}}
 \bibcite{hinton2006reducing}{{9}{2006}{{Hinton and Salakhutdinov}}{{}}}
-\bibcite{karpukhin2020dense}{{10}{2020}{{Karpukhin et~al.}}{{Karpukhin, O�^^9fuz, Min, Lewis, Wu, Edunov, Chen, and tau Yih}}}
-\bibcite{rag}{{11}{2021}{{Lewis et~al.}}{{Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal, K端ttler, Lewis, tau Yih, Rockt辰schel, Riedel, and Kiela}}}
-\bibcite{miller_fuzzing}{{12}{1990}{{Miller et~al.}}{{}}}
-\bibcite{reimers2019sentencebert}{{13}{2019}{{Reimers and Gurevych}}{{}}}
-\bibcite{russakovsky2015imagenetlargescalevisual}{{14}{2015}{{Russakovsky et~al.}}{{Russakovsky, Deng, Su, Krause, Satheesh, Ma, Huang, Karpathy, Khosla, Bernstein, Berg, and Fei-Fei}}}
-\bibcite{llminsoftwaresecurity}{{15}{2025}{{Sheng et~al.}}{{Sheng, Chen, Gu, Huang, Gu, and Huang}}}
-\bibcite{uesaka2017multi_view}{{16}{2017}{{Uesaka et~al.}}{{Uesaka, Morino, Sugiura, Kiwaki, Murata, Asaoka, and Yamanishi}}}
-\bibcite{transformers}{{17}{2023}{{Vaswani et~al.}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
-\bibcite{e5}{{18}{2024}{{Wang et~al.}}{{Wang, Yang, Huang, Jiao, Yang, Jiang, Majumder, and Wei}}}
-\bibcite{llmcyber}{{19}{2025}{{Xu et~al.}}{{Xu, Wang, Li, Wang, Zhao, Chen, Yu, Liu, and Wang}}}
-\bibcite{cve-llm}{{20}{2023}{{Zhang et~al.}}{{}}}
-\bibcite{zhou2024largelanguagemodelvulnerability}{{21}{2024}{{Zhou et~al.}}{{Zhou, Cao, Sun, and Lo}}}
-\bibcite{devigneffectivesearchvulnerability}{{22}{2019}{{Zhou et~al.}}{{Zhou, Liu, Siow, Du, and Liu}}}
-\bibcite{IPA_safe_web}{{23}{2023}{{情報処理推進機構（IPA）}}{{}}}
-\bibcite{IPA_top10_2025}{{24}{2025}{{情報処理推進機構（IPA）}}{{}}}
+\bibcite{jvn}{{10}{2025}{{{Information-technology Promotion Agency (IPA)} and {JPCERT Coordination Center}}}{{}}}
+\bibcite{karpukhin2020dense}{{11}{2020}{{Karpukhin et~al.}}{{Karpukhin, O�^^9fuz, Min, Lewis, Wu, Edunov, Chen, and tau Yih}}}
+\bibcite{rag}{{12}{2021}{{Lewis et~al.}}{{Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal, K端ttler, Lewis, tau Yih, Rockt辰schel, Riedel, and Kiela}}}
+\bibcite{livshits2005finding}{{13}{2005}{{Livshits and Lam}}{{}}}
+\bibcite{miller_fuzzing}{{14}{1990}{{Miller et~al.}}{{}}}
+\bibcite{cve}{{15}{2025}{{MITRE Corporation}}{{}}}
+\bibcite{owasp_top10}{{16}{2025}{{OWASP Foundation}}{{}}}
+\bibcite{qian2025softwarevulnerabilityanalysisprogramming}{{17}{2025}{{Qian et~al.}}{{Qian, Zhong, Hu, Jiang, Huang, Ren, and Yu}}}
+\bibcite{reimers2019sentencebert}{{18}{2019}{{Reimers and Gurevych}}{{}}}
+\bibcite{russakovsky2015imagenetlargescalevisual}{{19}{2015}{{Russakovsky et~al.}}{{Russakovsky, Deng, Su, Krause, Satheesh, Ma, Huang, Karpathy, Khosla, Bernstein, Berg, and Fei-Fei}}}
+\bibcite{llminsoftwaresecurity}{{20}{2025}{{Sheng et~al.}}{{Sheng, Chen, Gu, Huang, Gu, and Huang}}}
+\bibcite{sonarsource_rules}{{21}{2025}{{SonarSource SA}}{{}}}
+\bibcite{php_manual}{{22}{2026{}}{{The PHP Group}}{{}}}
+\bibcite{php_security}{{23}{2026{}}{{The PHP Group}}{{}}}
+\bibcite{uesaka2017multi_view}{{24}{2017}{{Uesaka et~al.}}{{Uesaka, Morino, Sugiura, Kiwaki, Murata, Asaoka, and Yamanishi}}}
+\bibcite{unsloth}{{25}{2024}{{Unsloth Team}}{{}}}
+\bibcite{transformers}{{26}{2023}{{Vaswani et~al.}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
+\bibcite{w3techs_php}{{27}{2026}{{W3Techs}}{{}}}
+\bibcite{e5}{{28}{2024}{{Wang et~al.}}{{Wang, Yang, Huang, Jiao, Yang, Jiang, Majumder, and Wei}}}
+\bibcite{llmcyber}{{29}{2025}{{Xu et~al.}}{{Xu, Wang, Li, Wang, Zhao, Chen, Yu, Liu, and Wang}}}
+\bibcite{cve-llm}{{30}{2023}{{Zhang et~al.}}{{}}}
+\bibcite{zhou2024largelanguagemodelvulnerability}{{31}{2024}{{Zhou et~al.}}{{Zhou, Cao, Sun, and Lo}}}
+\bibcite{devigneffectivesearchvulnerability}{{32}{2019}{{Zhou et~al.}}{{Zhou, Liu, Siow, Du, and Liu}}}
+\bibcite{IPA_safe_web}{{33}{2023}{{情報処理推進機構（IPA）}}{{}}}
+\bibcite{IPA_top10_2025}{{34}{2025}{{情報処理推進機構（IPA）}}{{}}}
 \bibstyle{plainnat}
-\gdef \@abspage@last{45}
+\gdef \@abspage@last{42}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -101,6 +101,13 @@ Geoffrey~E. Hinton and Ruslan~R. Salakhutdinov.
 \newblock \emph{Science}, 313\penalty0 (5786):\penalty0 504--507, 2006.
 \newblock \doi{10.1126/science.1127647}.
 
+\bibitem[{Information-technology Promotion Agency (IPA)} and {JPCERT
+  Coordination Center}(2025)]{jvn}
+{Information-technology Promotion Agency (IPA)} and {JPCERT Coordination
+  Center}.
+\newblock Japan vulnerability notes (jvn).
+\newblock \url{https://jvn.jp/}, 2025.
+
 \bibitem[Karpukhin et~al.(2020)Karpukhin, O^^c4^^9fuz, Min, Lewis, Wu, Edunov,
   Chen, and tau Yih]{karpukhin2020dense}
 Vladimir Karpukhin, Barlas O^^c4^^9fuz, Sewon Min, Patrick Lewis, Ledell Wu,
@@ -117,10 +124,34 @@ Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
   2021.
 \newblock URL \url{https://arxiv.org/abs/2005.11401}.
 
+\bibitem[Livshits and Lam(2005)]{livshits2005finding}
+Benjamin Livshits and Monica~S. Lam.
+\newblock Finding security vulnerabilities in java applications with static
+  analysis.
+\newblock In \emph{Proceedings of the USENIX Security Symposium}, 2005.
+
 \bibitem[Miller et~al.(1990)]{miller_fuzzing}
 Barton~P. Miller et~al.
 \newblock An empirical study of the reliability of unix utilities.
 \newblock In \emph{Communications of the ACM}, 1990.
+
+\bibitem[{MITRE Corporation}(2025)]{cve}
+{MITRE Corporation}.
+\newblock Common vulnerabilities and exposures (cve).
+\newblock \url{https://cve.mitre.org/}, 2025.
+
+\bibitem[{OWASP Foundation}(2025)]{owasp_top10}
+{OWASP Foundation}.
+\newblock Owasp top 10 web application security risks.
+\newblock \url{https://owasp.org/www-project-top-ten/}, 2025.
+
+\bibitem[Qian et~al.(2025)Qian, Zhong, Hu, Jiang, Huang, Ren, and
+  Yu]{qian2025softwarevulnerabilityanalysisprogramming}
+Zhuoyun Qian, Fangtian Zhong, Qin Hu, Yili Jiang, Jiaqi Huang, Mengfei Ren, and
+  Jiguo Yu.
+\newblock Software vulnerability analysis across programming language and
+  program representation landscapes: A survey, 2025.
+\newblock URL \url{https://arxiv.org/abs/2503.20244}.
 
 \bibitem[Reimers and Gurevych(2019)]{reimers2019sentencebert}
 Nils Reimers and Iryna Gurevych.
@@ -143,6 +174,21 @@ Ze~Sheng, Zhicheng Chen, Shuning Gu, Heqing Huang, Guofei Gu, and Jeff Huang.
   techniques and insights, 2025.
 \newblock URL \url{https://arxiv.org/abs/2502.07049}.
 
+\bibitem[{SonarSource SA}(2025)]{sonarsource_rules}
+{SonarSource SA}.
+\newblock Sonarsource rules documentation.
+\newblock \url{https://rules.sonarsource.com/}, 2025.
+
+\bibitem[{The PHP Group}(2026{\natexlab{a}})]{php_manual}
+{The PHP Group}.
+\newblock Php manual.
+\newblock \url{https://www.php.net/manual/}, 2026{\natexlab{a}}.
+
+\bibitem[{The PHP Group}(2026{\natexlab{b}})]{php_security}
+{The PHP Group}.
+\newblock Php security.
+\newblock \url{https://www.php.net/manual/en/security.php}, 2026{\natexlab{b}}.
+
 \bibitem[Uesaka et~al.(2017)Uesaka, Morino, Sugiura, Kiwaki, Murata, Asaoka,
   and Yamanishi]{uesaka2017multi_view}
 Toshimitsu Uesaka, Kai Morino, Hiroki Sugiura, Taichi Kiwaki, Hiroshi Murata,
@@ -154,12 +200,22 @@ Toshimitsu Uesaka, Kai Morino, Hiroki Sugiura, Taichi Kiwaki, Hiroshi Murata,
   Association for Computing Machinery, 2017.
 \newblock \doi{10.1145/3097983.3098194}.
 
+\bibitem[{Unsloth Team}(2024)]{unsloth}
+{Unsloth Team}.
+\newblock Unsloth: Efficient fine-tuning of large language models.
+\newblock \url{https://github.com/unslothai/unsloth}, 2024.
+
 \bibitem[Vaswani et~al.(2023)Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez,
   Kaiser, and Polosukhin]{transformers}
 Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
   Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
 \newblock Attention is all you need, 2023.
 \newblock URL \url{https://arxiv.org/abs/1706.03762}.
+
+\bibitem[{W3Techs}(2026)]{w3techs_php}
+{W3Techs}.
+\newblock Usage statistics of php.
+\newblock \url{https://w3techs.com/technologies/details/pl-php}, 2026.
 
 \bibitem[Wang et~al.(2024)Wang, Yang, Huang, Jiao, Yang, Jiang, Majumder, and
   Wei]{e5}
