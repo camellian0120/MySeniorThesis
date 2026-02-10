@@ -123,6 +123,11 @@ B223R030P 横川武典}
 %------------------------------------
 %タイトルページの出力
 \maketitle
+
+%Abstructの出力
+\chapter*{要旨}
+\input{../abstract.tex}
+
 %目次の作成・出力
 \tableofcontents
 
@@ -263,9 +268,8 @@ LLMは，大量のテキストデータを用いて事前学習された
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.7\linewidth]{transformer_architecture.png}
-  \caption{Transformer のエンコーダ・デコーダ構造
-  （Vaswani et al., 2017\cite{transformers} より引用）}
+  \includegraphics[width=1\linewidth]{transformer_architecture.jpg}
+  \caption{Transformer のエンコーダ・デコーダ構造}
   \label{fig:transformer}
 \end{figure}
 
